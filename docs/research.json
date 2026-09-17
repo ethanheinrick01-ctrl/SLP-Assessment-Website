@@ -1,0 +1,902 @@
+{
+  "title": "SLP assessment research",
+  "checked_on": "2026-09-11",
+  "scope": "U.S. English PPVT-5, CELF-5, and PLS-5 diagnostic editions",
+  "verification_meaning": "Claims were checked against the cited sources. Publisher reports, study procedures, review summaries, and unresolved source differences are identified. This is not independent clinical validation or full manual verification for every test.",
+  "assessments": [
+    {
+      "id": "PPVT-5",
+      "questions": [
+        {
+          "template_paragraph": 9,
+          "question": "What is the full name of the assessment?",
+          "answer": "The Peabody Picture Vocabulary Test, Fifth Edition (PPVT-5) (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 10,
+          "question": "Who developed the test?",
+          "answer": "Douglas M. Dunn developed the test (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 11,
+          "question": "Who published the test?",
+          "answer": "Pearson published it (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 12,
+          "question": "What year was the most recent edition released?",
+          "answer": "Pearson lists the release year as 2018, while its recommended citation for the test uses 2019. These are different date fields, so both are retained (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 20,
+          "question": "What communication domain(s) does the assessment measure?",
+          "answer": "Language, specifically receptive vocabulary in Standard American English. It measures understanding of spoken word meanings (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 21,
+          "question": "What age range is served by this assessment?",
+          "answer": "Ages 2 years, 6 months through 90 years and older (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 22,
+          "question": "In what settings might an SLP use this assessment?",
+          "answer": "Possible settings include schools, early childhood services, and clinics where receptive vocabulary is part of a language evaluation (Canivez, 2021, p. 526).",
+          "source_ids": [
+            "PPVT-5-S1"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 24,
+          "question": "What is the primary purpose of the assessment?",
+          "answer": "To measure receptive vocabulary and contribute to screening or a broader assessment. Vocabulary scores alone do not describe every part of language (Canivez, 2021, p. 526).",
+          "source_ids": [
+            "PPVT-5-S1"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 25,
+          "question": "What specific skills or abilities are measured?",
+          "answer": "Recognizing the meaning of a spoken word by choosing its matching picture (Kinsella-Ritter, 2019, pp. 10–11).",
+          "source_ids": [
+            "PPVT-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 26,
+          "question": "What types of responses are required from examinees (e.g., naming pictures, answering questions, repeating sentences, reading passages)?",
+          "answer": "The examiner says a word and shows four pictures. The person points to the matching picture or says its number. Naming the object is not required (Kinsella-Ritter, 2019, pp. 10–11).",
+          "source_ids": [
+            "PPVT-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 27,
+          "question": "Approximately how long does the assessment take to administer?",
+          "answer": "About 10–15 minutes (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 29,
+          "question": "What information can you find about the test's reliability?",
+          "answer": "Pearson’s infographic reports .97 overall reliability, .88 test–retest reliability, and .84 alternate-form reliability. These are publisher summary values. The independent review reports different summaries, so the two sets should not be mixed (Pearson, 2019, p. 2; Canivez, 2021, p. 525).",
+          "source_ids": [
+            "PPVT-5-S7",
+            "PPVT-5-S1"
+          ],
+          "status": "publisher values checked; source differences unresolved",
+          "note": "Infographic: alternate forms .84, retest .88. Canivez p. 525: mean alternate forms .86, mean retest .84. Estimation and aggregation differences were not reconciled against the full manual. Do not silently substitute or average these numbers."
+        },
+        {
+          "template_paragraph": 30,
+          "question": "What information can you find about the test's validity?",
+          "answer": "Pearson reports correlations of .77 with EVT-3 and .68 with the CELF-5 Core Language Score. These support relationships with other language measures; they are not diagnostic accuracy percentages (Pearson, 2019, p. 2).",
+          "source_ids": [
+            "PPVT-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 31,
+          "question": "What information can you find about sensitivity and specificity?",
+          "answer": "The review describes diagnostic studies at several cutoffs and in different clinical groups, but it does not reproduce a full sensitivity/specificity table. No single pair is presented here. The infographic’s .98, .98, and .95 values are identified as negative predictive power and must not be relabeled as specificity (Canivez, 2021, p. 526; Pearson, 2019, p. 2).",
+          "source_ids": [
+            "PPVT-5-S1",
+            "PPVT-5-S7"
+          ],
+          "status": "diagnostic accuracy pair withheld",
+          "note": "The infographic labels the last table as negative predictive power, while also calling it clinical specificity. These concepts are different. Exact sensitivity and specificity by clinical group and cutoff require the manual tables."
+        },
+        {
+          "template_paragraph": 32,
+          "question": "What type of normative sample was used to develop the test?",
+          "answer": "The normative sample included 2,720 people ages 2:6–90+. Race/ethnicity and education were close to U.S. Census targets. Bilingual participants made up 2.6% of the sample and spoke English most often (Pearson, 2019, p. 1).",
+          "source_ids": [
+            "PPVT-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 33,
+          "question": "Would this assessment be appropriate for culturally and linguistically diverse populations? Why or why not?",
+          "answer": "Interpret English scores cautiously when English is not the person’s most-used language. The norms reflect people who spoke English most often. Language exposure and other assessment information matter (Pearson, n.d.-a).",
+          "source_ids": [
+            "PPVT-5-S3"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 35,
+          "question": "Describe the qualifications typically required to administer this assessment.",
+          "answer": "Pearson Level B. A relevant master’s degree plus assessment training is one qualification route; it is not the only route listed in Pearson’s policy (Pearson, n.d.-b, n.d.-c).",
+          "source_ids": [
+            "PPVT-5-S4",
+            "PPVT-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 36,
+          "question": "What materials are needed to administer the assessment?",
+          "answer": "Paper administration uses the manual, stimulus book, record form, and a writing tool. Pearson also offers digital administration and scoring options (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 37,
+          "question": "Approximately how long does administration take?",
+          "answer": "About 10–15 minutes (Pearson, n.d.-b).",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 38,
+          "question": "What testing environment is recommended for administration?",
+          "answer": "Use a setting with few auditory or visual distractions, clear sound, and an unobstructed view of the pictures. Pearson’s telepractice guidance also emphasizes these conditions (Pearson, 2022, p. 4).",
+          "source_ids": [
+            "PPVT-5-S8"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 39,
+          "question": "Are basal and ceiling rules used? If so, what are they?",
+          "answer": "A basal of three consecutive correct responses and a ceiling of six consecutive incorrect responses. Follow the edition’s start-point and reversal directions (Pearson, 2018, p. 1; Pearson, n.d.-a).",
+          "source_ids": [
+            "PPVT-5-S6",
+            "PPVT-5-S3"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 40,
+          "question": "How are prompts, repetitions, or cueing handled during administration?",
+          "answer": "Pearson’s training handout allows one repetition and a neutral prompt to choose a picture. It does not authorize adding definitions or teaching the target word (Kinsella-Ritter, 2019, p. 12).",
+          "source_ids": [
+            "PPVT-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 41,
+          "question": "What accommodations, if any, can be made without invalidating test results?",
+          "answer": "Reducing distractions supports access to the task. Other changes must be checked against the manual before treating the score as standardized. Telepractice is a deviation from the original in-person norming conditions (Pearson, 2022, pp. 2, 4).",
+          "source_ids": [
+            "PPVT-5-S8"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 42,
+          "question": "Are the scoring procedures clearly described?",
+          "answer": "Pearson’s scoring instructions explain raw-score and item-response entry. They require responses for all items between basal and ceiling and refer examiners to the manual or record form for the full administration rules (Pearson, n.d.-a).",
+          "source_ids": [
+            "PPVT-5-S3"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        }
+      ],
+      "sources": [
+        {
+          "id": "PPVT-5-S1",
+          "reference": "Canivez, G. L. (2021). Test review of the Peabody Picture Vocabulary Test–fifth edition. In J. F. Carlson, K. F. Geisinger, & J. L. Jonson (Eds.), The twenty-first mental measurements yearbook (pp. 523–526). Buros Center for Testing. ",
+          "url": "https://www.ux1.eiu.edu/~glcanivez/Adobe%20pdf/Publications-Papers/Canivez%20%282021%29%20Buros%20MMY%20PPVT-5%20Review.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S2",
+          "reference": "Kinsella-Ritter, A. (2019). Assessing vocabulary using PPVT-5 and EVT-3 [Presentation handout]. Pearson. ",
+          "url": "https://www.pearsonclinical.com.au/content/dam/school/global/clinical/au/assets/ppvt-5/pearson-clinical-ppvt5-evt3-assessing-vocab-2019-28-feb-2019.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S3",
+          "reference": "Pearson. (n.d.-a). Entering PPVT-5 scores. ",
+          "url": "https://qglobal.pearsonclinical.com/qg/static/Product/en/PPVT-5/PPVT-5_Enter_Scores.htm",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S4",
+          "reference": "Pearson. (n.d.-b). Peabody picture vocabulary test fifth edition. ",
+          "url": "https://www.pearsonassessments.com/store/en/usd/p/100001984.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S5",
+          "reference": "Pearson. (n.d.-c). Qualifications policy. ",
+          "url": "https://www.pearsonassessments.com/professional-assessments/ordering/how-to-order/qualifications/qualifications-policy.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S6",
+          "reference": "Pearson. (2018). PPVT/EVT: What’s changed between versions? [Comparison sheet]. ",
+          "url": "https://www.pearsonclinical.com.au/content/dam/school/global/clinical/au/assets/ppvt-5/ppvt-5-and-evt-3-whats-changed.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S7",
+          "reference": "Pearson. (2019). PPVT-5 and EVT-3: By the numbers [Infographic]. ",
+          "url": "https://www.pearsonclinical.co.uk/content/dam/school/global/clinical/uk-clinical/assets/ppvt-5/PPVT5-EVT3-By-the-Numbers-Infographic.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PPVT-5-S8",
+          "reference": "Pearson. (2022). Telepractice and the PPVT. ",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/telepractice/guidance-documents/telepractice-and-the-ppvt.pdf",
+          "checked_on": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "id": "CELF-5",
+      "questions": [
+        {
+          "template_paragraph": 9,
+          "question": "What is the full name of the assessment?",
+          "answer": "The Clinical Evaluation of Language Fundamentals, Fifth Edition (CELF-5) (Pearson, n.d.-b).",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 10,
+          "question": "Who developed the test?",
+          "answer": "Elisabeth H. Wiig, Eleanor Semel, and Wayne A. Secord developed the test (Wiig et al., 2013a).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 11,
+          "question": "Who published the test?",
+          "answer": "Pearson published the assessment (Wiig et al., 2013a).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 12,
+          "question": "What year was the most recent edition released?",
+          "answer": "The U.S. fifth edition was released in 2013. Pearson currently lists this edition (Pearson, n.d.-b).",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 20,
+          "question": "What communication domain(s) does the assessment measure?",
+          "answer": "Language is the main domain, including semantics, morphology, and syntax. The battery also includes pragmatics, reading comprehension, and written language tasks (Wiig et al., 2013a, pp. 1–5).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 21,
+          "question": "What age range is served by this assessment?",
+          "answer": "Ages 5 years, 0 months through 21 years, 11 months. Individual tests have narrower age ranges (Wiig et al., 2013a, pp. 1–5).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 22,
+          "question": "In what settings might an SLP use this assessment?",
+          "answer": "Schools and clinics where an SLP evaluates how language difficulties affect learning and everyday communication (Wiig et al., 2013a, pp. 1–6).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 24,
+          "question": "What is the primary purpose of the assessment?",
+          "answer": "To help identify a language disorder, describe strengths and weaknesses, and plan intervention (Wiig et al., 2013a, pp. 1–6).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 25,
+          "question": "What specific skills or abilities are measured?",
+          "answer": "Skills include understanding sentences and directions, word relationships, grammar, forming and recalling sentences, and social language. Reading and writing can also be assessed (Wiig et al., 2013a, pp. 2–5).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 26,
+          "question": "What types of responses are required from examinees (e.g., naming pictures, answering questions, repeating sentences, reading passages)?",
+          "answer": "Depending on the test, the student points to pictures, answers questions, follows directions, repeats or creates sentences, reads, or writes. Some measures use observations or ratings (Wiig et al., 2013a, pp. 2–5).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 27,
+          "question": "Approximately how long does the assessment take to administer?",
+          "answer": "About 30–45 minutes for the Core Language Score. Additional tests increase the total time (Pearson, n.d.-b).",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 29,
+          "question": "What information can you find about the test's reliability?",
+          "answer": "Pearson reports internal consistency coefficients of .75–.98 across tests and test–retest stability of .83–.90 for Core and Index scores. Reliability varies by the score being used (Pearson, n.d.-a).",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 30,
+          "question": "What information can you find about the test's validity?",
+          "answer": "Pearson reports correlations of .82–.92 with CELF-4 and differences between clinical and comparison groups. These support validity, but scores still need to be considered with language samples and other assessment information (Pearson, n.d.-a; Wiig et al., 2013a, p. 6).",
+          "source_ids": [
+            "CELF-5-S1",
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 31,
+          "question": "What information can you find about sensitivity and specificity?",
+          "answer": "At a standard-score cutoff of 80, about 1.33 SD below the mean, Pearson reports sensitivity of .97 and specificity of .97. These figures apply to that cutoff in the reported study; changing the cutoff changes the accuracy (Wiig et al., 2013b, p. 3).",
+          "source_ids": [
+            "CELF-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 32,
+          "question": "What type of normative sample was used to develop the test?",
+          "answer": "The normative sample included 2,380 students ages 5–21 from 47 U.S. states. Pearson reports the sample’s race/ethnicity, parent education, and geographic distribution (Pearson, n.d.-a).",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 33,
+          "question": "Would this assessment be appropriate for culturally and linguistically diverse populations? Why or why not?",
+          "answer": "It depends on the student’s language background. Appropriate dialect differences can receive credit. English scores alone cannot establish a disorder in a multilingual student; language history, samples, and other evidence are needed (Wiig et al., 2013a, pp. 20–23).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 35,
+          "question": "Describe the qualifications typically required to administer this assessment.",
+          "answer": "A trained examiner needs knowledge of language disorders and standardized assessment. Pearson classifies CELF-5 as Level B; one qualification route is a relevant master’s degree plus assessment training (Pearson, n.d.-b, n.d.-c; Wiig et al., 2013a, p. 20).",
+          "source_ids": [
+            "CELF-5-S2",
+            "CELF-5-S3",
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 36,
+          "question": "What materials are needed to administer the assessment?",
+          "answer": "The Examiner’s Manual, stimulus books, and age-appropriate record form are needed. Reading/writing supplements and activity materials depend on the tests selected (Wiig et al., 2013a, pp. 24, 128–131).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 37,
+          "question": "Approximately how long does administration take?",
+          "answer": "About 30–45 minutes for the Core Language Score. Total time depends on which additional tests are given (Pearson, n.d.-b).",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 38,
+          "question": "What testing environment is recommended for administration?",
+          "answer": "A quiet, well-lit room with few distractions. Both examiner and student should see the stimulus book, while the record form stays out of the student’s view (Wiig et al., 2013a, p. 20).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 39,
+          "question": "Are basal and ceiling rules used? If so, what are they?",
+          "answer": "Rules depend on the individual test. For Recalling Sentences, the student needs full credit on the first two consecutive items at the start point; otherwise, return to Item 1 and test forward. Stop after four consecutive scores of 0 (Wiig et al., 2013a, pp. 26, 74).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 40,
+          "question": "How are prompts, repetitions, or cueing handled during administration?",
+          "answer": "Demonstration and trial items allow teaching and practice. Scored items follow each test’s rules. Some allow one repetition for a request or inattention, but Recalling Sentences allows none. Do not repeat an item just because the answer was wrong (Wiig et al., 2013a, pp. 21, 25, 74).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 41,
+          "question": "What accommodations, if any, can be made without invalidating test results?",
+          "answer": "The manual allows extra response time, additional practice items, and certain response changes, such as saying the picture letter instead of pointing. Rewording scored directions or adding unapproved help makes norm-based scores inappropriate (Wiig et al., 2013a, pp. 22–23).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 42,
+          "question": "Are the scoring procedures clearly described?",
+          "answer": "Yes. The manual gives test-specific scoring rules, examples, and score-conversion tables. Partial credit differs across tests, so the examiner must use the correct rules for each one (Wiig et al., 2013a, chaps. 3–4).",
+          "source_ids": [
+            "CELF-5-S4"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        }
+      ],
+      "sources": [
+        {
+          "id": "CELF-5-S1",
+          "reference": "Pearson. (n.d.-a). CELF-5 technical information [Infographic]. ",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/celf-5/8439-A_CELF-5_Infographic_Hr_f.jpg",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "CELF-5-S2",
+          "reference": "Pearson. (n.d.-b). Clinical evaluation of language fundamentals fifth edition. ",
+          "url": "https://www.pearsonassessments.com/store/en/usd/p/100000705.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "CELF-5-S3",
+          "reference": "Pearson. (n.d.-c). Qualifications policy. ",
+          "url": "https://www.pearsonassessments.com/professional-assessments/ordering/how-to-order/qualifications/qualifications-policy.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "CELF-5-S4",
+          "reference": "Wiig, E. H., Semel, E., & Secord, W. A. (2013a). Clinical evaluation of language fundamentals: Examiner’s manual (5th ed.). Pearson.",
+          "url": null,
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "CELF-5-S5",
+          "reference": "Wiig, E. H., Semel, E., & Secord, W. A. (2013b). Determining the severity of a language disorder. Pearson. ",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/celf-5/celf-5-determining-the-severity-of-a-lang-disorder.pdf",
+          "checked_on": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "id": "PLS-5",
+      "questions": [
+        {
+          "template_paragraph": 9,
+          "question": "What is the full name of the assessment?",
+          "answer": "The Preschool Language Scales, Fifth Edition (PLS-5), U.S. English edition (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 10,
+          "question": "Who developed the test?",
+          "answer": "Irla Lee Zimmerman, Violette G. Steiner, and Roberta Evatt Pond developed the test (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 11,
+          "question": "Who published the test?",
+          "answer": "Pearson published the assessment (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 12,
+          "question": "What year was the most recent edition released?",
+          "answer": "The U.S. English fifth edition was released in 2011. Pearson currently lists this edition (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 20,
+          "question": "What communication domain(s) does the assessment measure?",
+          "answer": "The main domain is receptive and expressive language. Tasks also cover early social communication and emergent literacy. An optional articulation screener is included (Pearson, 2019, pp. 2, 5).",
+          "source_ids": [
+            "PLS-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 21,
+          "question": "What age range is served by this assessment?",
+          "answer": "Birth through 7 years, 11 months (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 22,
+          "question": "In what settings might an SLP use this assessment?",
+          "answer": "Early intervention programs, preschools, schools, and pediatric clinics are possible settings because the test covers early communication through early school language skills (Castilleja, 2011; Pearson, 2019, pp. 2–4).",
+          "source_ids": [
+            "PLS-5-S3",
+            "PLS-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 24,
+          "question": "What is the primary purpose of the assessment?",
+          "answer": "To assess language development and help identify a language delay or disorder in a young child (Castilleja, 2011).",
+          "source_ids": [
+            "PLS-5-S3"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 25,
+          "question": "What specific skills or abilities are measured?",
+          "answer": "Auditory Comprehension measures understanding, and Expressive Communication measures expression. Tasks cover play, gestures, vocabulary, concepts, grammar, social communication, and early literacy (Pearson, 2019, p. 5).",
+          "source_ids": [
+            "PLS-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 26,
+          "question": "What types of responses are required from examinees (e.g., naming pictures, answering questions, repeating sentences, reading passages)?",
+          "answer": "The child may point, handle objects, name pictures, or answer verbally (Pearson, n.d.-a). Designated early items can also use observed behavior or caregiver report (Pearson, 2021, pp. 1–2).",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S8"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 27,
+          "question": "Approximately how long does the assessment take to administer?",
+          "answer": "Pearson currently lists about 45–60 minutes (Pearson, n.d.-a). Its brochure gives a broader estimate of 30–60 minutes; time varies with the child and tasks needed (Pearson, 2019, p. 5).",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 29,
+          "question": "What information can you find about the test's reliability?",
+          "answer": "Published summaries report split-half reliability of .80–.97. The LEADERSproject review reports test–retest coefficients of .86–.95. These describe score consistency, which is different from diagnostic accuracy (Buzhardt et al., 2020, p. 81; LEADERSproject, n.d., p. 9).",
+          "source_ids": [
+            "PLS-5-S1",
+            "PLS-5-S4"
+          ],
+          "status": "published summary or review checked; full manual not inspected",
+          "note": "Buzhardt et al. report manual psychometric estimates; their intervention study did not independently revalidate the quoted diagnostic accuracy. LEADERSproject is a critical review of the manual."
+        },
+        {
+          "template_paragraph": 30,
+          "question": "What information can you find about the test's validity?",
+          "answer": "Pearson describes clinical-group studies and comparisons with PLS-4 and CELF Preschool-2. LEADERSproject raises concerns about how clinical groups were selected and classified, so the validity evidence has limitations (Castilleja, n.d., slide 30; LEADERSproject, n.d., pp. 5–8).",
+          "source_ids": [
+            "PLS-5-S2",
+            "PLS-5-S4"
+          ],
+          "status": "published summary or review checked; full manual not inspected",
+          "note": "Buzhardt et al. report manual psychometric estimates; their intervention study did not independently revalidate the quoted diagnostic accuracy. LEADERSproject is a critical review of the manual."
+        },
+        {
+          "template_paragraph": 31,
+          "question": "What information can you find about sensitivity and specificity?",
+          "answer": "Reported Total Language sensitivity is .83 and specificity is .80 (Buzhardt et al., 2020, p. 81). The LEADERSproject review places the .83 sensitivity estimate in the language-disorder group, reported as ages 3:11–7:11, at a standard-score cutoff of 85. It reports separate estimates for the younger language-delay group. These are group-specific validation summaries, not accuracy estimates for the entire birth–7:11 age range (LEADERSproject, n.d., pp. 6–7).",
+          "source_ids": [
+            "PLS-5-S1",
+            "PLS-5-S4"
+          ],
+          "status": "published summary or review checked; full manual not inspected",
+          "note": "Buzhardt et al. report manual psychometric estimates; their intervention study did not independently revalidate the quoted diagnostic accuracy. LEADERSproject is a critical review of the manual."
+        },
+        {
+          "template_paragraph": 32,
+          "question": "What type of normative sample was used to develop the test?",
+          "answer": "The U.S. English normative sample included 1,400 children. It was selected to reflect the March 2008 U.S. Census update for ethnicity, gender, region, and parent education. Normative data were collected in 2010 (Pearson, 2019, pp. 2–3).",
+          "source_ids": [
+            "PLS-5-S7"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 33,
+          "question": "Would this assessment be appropriate for culturally and linguistically diverse populations? Why or why not?",
+          "answer": "Not automatically. The English edition was normed for children whose primary language is English. Translating the test does not make its English norms valid. Language background and other assessment evidence must guide interpretation (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 35,
+          "question": "Describe the qualifications typically required to administer this assessment.",
+          "answer": "PLS-5 is a Level B assessment. A typical examiner is an SLP trained in child development and standardized assessment. A relevant master’s degree plus assessment training is one of Pearson’s qualification routes (Pearson, n.d.-a, n.d.-b).",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S6"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 36,
+          "question": "What materials are needed to administer the assessment?",
+          "answer": "The Examiner’s Manual, Administration and Scoring Manual, Picture Manual, record form, Home Communication Questionnaire, and required toys/objects are needed (Pearson, 2019, p. 8). Some everyday supplies must be added to the kit (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S7",
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 37,
+          "question": "Approximately how long does administration take?",
+          "answer": "Usually about 45–60 minutes, with variation by age, attention, and language level (LEADERSproject, n.d., p. 15; Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S4",
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 38,
+          "question": "What testing environment is recommended for administration?",
+          "answer": "A comfortable setting with few distractions and enough space for pictures, toys, and observation. Plan around the child’s attention and allow breaks when needed (LEADERSproject, n.d., p. 15; Pearson, 2021, pp. 3–4).",
+          "source_ids": [
+            "PLS-5-S4",
+            "PLS-5-S8"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 39,
+          "question": "Are basal and ceiling rules used? If so, what are they?",
+          "answer": "Yes. The basal is three consecutive items scored 1; the ceiling is six consecutive items scored 0. If multiple basals or ceilings occur, Pearson says to use the lowest ones, at the youngest age level (Castilleja, n.d., slide 28; Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S2",
+            "PLS-5-S5"
+          ],
+          "status": "publisher-authored training checked; third-party host",
+          "note": null
+        },
+        {
+          "template_paragraph": 40,
+          "question": "How are prompts, repetitions, or cueing handled during administration?",
+          "answer": "A published study describes repeating some directions or stimuli once, with no repetitions for EC 56 or EC 57. Modeling was used for practice items. These are reported study procedures; the exact conditions still need checking in the test manual (Sami, 2024, p. 3).",
+          "source_ids": [
+            "PLS-5-S9"
+          ],
+          "status": "study procedure checked; manual rule not confirmed",
+          "note": "Sami (2024), Methods / Assessment tools, PDF p. 3, reports one repetition with EC 56 and EC 57 exceptions. This supports what that study did, not an independently checked transcription of the U.S. manual."
+        },
+        {
+          "template_paragraph": 41,
+          "question": "What accommodations, if any, can be made without invalidating test results?",
+          "answer": "Breaks, flexible item order, and caregiver input on designated items are supported procedures (LEADERSproject, n.d., p. 15; Pearson, 2019, pp. 2, 4). Translating scored items does not preserve the English norms (Pearson, n.d.-a).",
+          "source_ids": [
+            "PLS-5-S4",
+            "PLS-5-S7",
+            "PLS-5-S5"
+          ],
+          "status": "checked against cited sources",
+          "note": null
+        },
+        {
+          "template_paragraph": 42,
+          "question": "Are the scoring procedures clearly described?",
+          "answer": "The available materials explain item scoring, basal/ceiling rules, and score types. Some responses require examiner judgment. The full Administration and Scoring Manual is still needed to verify each item’s exact scoring criteria (Castilleja, n.d., slides 26–28; LEADERSproject, n.d., p. 10).",
+          "source_ids": [
+            "PLS-5-S2",
+            "PLS-5-S4"
+          ],
+          "status": "published summary or review checked; full manual not inspected",
+          "note": "Buzhardt et al. report manual psychometric estimates; their intervention study did not independently revalidate the quoted diagnostic accuracy. LEADERSproject is a critical review of the manual."
+        }
+      ],
+      "sources": [
+        {
+          "id": "PLS-5-S1",
+          "reference": "Buzhardt, J., Greenwood, C. R., Jia, F., Walker, D., Schneider, N., Larson, A. L., Valdovinos, M., & McConnell, S. R. (2020). Technology to guide data-driven intervention decisions: Effects on language growth of young children at risk for language delay. Exceptional Children, 87(1), 74–91. ",
+          "url": "https://doi.org/10.1177/0014402920938003",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S2",
+          "reference": "Castilleja, N. (n.d.). Preschool language scales-5: Assessing language from 0–7 [PowerPoint slides]. Pearson Assessment. ",
+          "url": "https://manuals.plus/m/add3c5a8e25b0608b417b0f2a04baf8cc9e441fb974190bb85c42622f20b5a30.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S3",
+          "reference": "Castilleja, N. (2011, September 28). Using the new PLS-5: Administration and interpretation. SpeechPathology.com. ",
+          "url": "https://www.speechpathology.com/articles/using-new-pls-5-administration-1674",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S4",
+          "reference": "LEADERSproject. (n.d.). Test review: Preschool language scales–fifth edition (PLS-5). ",
+          "url": "https://bpb-us-w2.wpmucdn.com/edblogs.columbia.edu/dist/e/748/files/2015/05/PLS5-English-finaldraft-2dgptop.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S5",
+          "reference": "Pearson. (n.d.-a). Preschool language scales fifth edition. ",
+          "url": "https://www.pearsonassessments.com/store/en/usd/p/100000233.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S6",
+          "reference": "Pearson. (n.d.-b). Qualifications policy. ",
+          "url": "https://www.pearsonassessments.com/professional-assessments/ordering/how-to-order/qualifications/qualifications-policy.html",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S7",
+          "reference": "Pearson. (2019). Screen or assess emerging communication skills in English and Spanish [Brochure]. ",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/pls5/pls-5-brochure.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S8",
+          "reference": "Pearson. (2021). Telepractice and the PLS-5 and PLS-5 Spanish. ",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/telepractice/guidance-documents/telepractice-and-the-pls-5-and-pls-5-spanish.pdf",
+          "checked_on": "2026-09-11"
+        },
+        {
+          "id": "PLS-5-S9",
+          "reference": "Sami, R. (2024). Impact of bilingualism on language development in 46 Egyptian children. The Egyptian Journal of Otolaryngology, 40, Article 16. ",
+          "url": "https://doi.org/10.1186/s43163-024-00572-x",
+          "checked_on": "2026-09-11"
+        }
+      ]
+    }
+  ]
+}

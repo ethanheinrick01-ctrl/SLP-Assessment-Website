@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Look up or find speech-language pathology assessments, compare clinical evidence, and open the supporting sources.">
+  <title>SLP Assessment Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#assessment-library">Skip to assessment library</a>
+  <div class="app-shell">
+    <header class="titlebar">
+      <div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="app-title"><strong>SLP Assessment Finder</strong><span>Clinical evidence index</span></div>
+      <span class="review-date">Demo updated Sep. 17, 2026</span>
+    </header>
+
+    <nav class="view-tabs" aria-label="Main pages">
+      <button type="button" data-view="library" aria-current="page">Assessment library</button>
+      <button type="button" data-view="finder">Find a test</button>
+    </nav>
+
+    <main>
+      <section id="library-view" class="library-view">
+        <div class="library-hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Evidence before guesswork</p>
+            <h1>Clinical assessments, consolidated.</h1>
+            <div class="entry-choices">
+              <section class="entry-choice"><h2>Know the test?</h2><p>Go straight to its statistics, administration details, and sources.</p><a class="browse-button" href="#assessment-library">Browse assessments <span aria-hidden="true">↓</span></a></section>
+              <section class="entry-choice"><h2>Starting with a client?</h2><p>Narrow the options by clinical area, age, purpose, and time.</p><button id="find-test-cta" class="hero-button" type="button">Find a Test <span aria-hidden="true">→</span></button></section>
+            </div>
+          </div>
+          <div class="hero-preview" aria-label="What the finder compares">
+            <span class="preview-kicker">THE FAST PATH</span>
+            <div><strong>1</strong><p>Choose a clinical area</p></div>
+            <div><strong>2</strong><p>Narrow by age and time</p></div>
+            <div><strong>3</strong><p>Compare evidence side by side</p></div>
+            <small>Every number stays connected to its source and interpretation limits.</small>
+          </div>
+        </div>
+
+        <section id="assessment-library" class="assessment-library" aria-labelledby="library-heading">
+          <div class="library-heading-row">
+            <div><p class="eyebrow">Assessment library</p><h2 id="library-heading">All assessments</h2></div>
+            <label class="library-search"><span class="sr-only">Search assessments</span><input id="assessment-search" type="search" placeholder="Search PPVT, articulation, language…" autocomplete="off"></label>
+          </div>
+          <p id="library-summary" class="library-summary">Browse all six assessments in the demo.</p>
+          <div id="library-results" class="result-grid library-grid" aria-live="polite"></div>
+          <div id="library-empty" class="empty-state" hidden><strong>No assessment matches that search.</strong><span>Try a test name, clinical area, or skill.</span></div>
+        </section>
+      </section>
+
+      <section id="finder-view" class="finder-layout" hidden>
+        <aside class="filter-panel" aria-labelledby="filter-heading">
+          <div class="filter-heading-row">
+            <div><p class="eyebrow">Guided finder</p><h1 id="filter-heading">What do you need to assess?</h1></div>
+            <button id="clear-filters" class="text-button" type="button">Clear</button>
+          </div>
+          <fieldset>
+            <legend>Clinical area</legend>
+            <div id="domain-filters" class="choice-grid"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Client age</legend>
+            <div class="age-inputs">
+              <label><span>Years</span><input id="age-years" type="number" min="0" max="100" inputmode="numeric" placeholder="6"></label>
+              <label><span>Months</span><input id="age-months" type="number" min="0" max="11" inputmode="numeric" placeholder="0"></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Purpose</legend>
+            <div id="purpose-filters" class="choice-grid compact"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Time available</legend>
+            <label class="select-label"><span>Maximum administration time</span><select id="time-filter"><option value="">Any length</option><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></label>
+          </fieldset>
+        </aside>
+
+        <section class="results-panel" aria-labelledby="results-heading">
+          <div class="results-topline">
+            <div><p class="eyebrow">Matching assessments</p><h2 id="results-heading"><span id="result-count">0</span> results</h2></div>
+            <p id="active-summary" class="active-summary">Showing the full demo index</p>
+          </div>
+          <div id="results" class="result-grid" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state" hidden><strong>No assessments match every filter.</strong><span>Try removing the time limit or broadening the clinical area.</span></div>
+        </section>
+      </section>
+    </main>
+
+    <footer><span>Ethan Heinrick · Proof of concept</span><span>Numbers remain attached to their sources and interpretation limits.</span></footer>
+  </div>
+
+  <div id="compare-tray" class="compare-tray" hidden>
+    <div><span class="tray-label">Selected to compare</span><div id="tray-tests" class="tray-tests"></div></div>
+    <button id="compare-button" class="primary-button" type="button" disabled>Compare <span id="compare-count">0</span></button>
+  </div>
+
+  <dialog id="compare-dialog" class="compare-dialog">
+    <form method="dialog" class="dialog-titlebar"><div><p class="eyebrow">Assessment comparison</p><h2>Compare the evidence</h2></div><button class="icon-button" aria-label="Close comparison">×</button></form>
+    <div class="compare-controls"><label class="switch"><input id="differences-only" type="checkbox"><span></span>Show differences only</label><p>Age notation uses years:months.</p></div>
+    <div id="comparison-content" class="comparison-content"></div>
+  </dialog>
+
+  <dialog id="evidence-dialog" class="evidence-dialog">
+    <form method="dialog" class="dialog-titlebar"><div><p class="eyebrow">Evidence profile</p><h2 id="evidence-title">Assessment</h2></div><button class="icon-button" aria-label="Close evidence profile">×</button></form>
+    <div id="evidence-content" class="evidence-content"></div>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
