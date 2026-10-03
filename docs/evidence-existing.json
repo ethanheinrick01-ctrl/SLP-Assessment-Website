@@ -1,0 +1,1612 @@
+{
+  "checked_on": "2026-10-03",
+  "verification_meaning": "Values were checked against named public sources or explicitly retained as inherited. Source-checked does not mean independent clinical validation or full manual review. Source publication dates are separate from test edition years.",
+  "assessments": [
+    {
+      "id": "PPVT-5",
+      "sources": [
+        {
+          "id": "PPVT-5-S4",
+          "label": "Pearson PPVT-5 U.S. product overview",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/store/en/usd/p/100001984.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "PPVT-5-S7",
+          "label": "Pearson PPVT-5/EVT-3 By the Numbers",
+          "type": "publisher",
+          "url": "https://www.pearsonclinical.co.uk/content/dam/school/global/clinical/uk-clinical/assets/ppvt-5/PPVT5-EVT3-By-the-Numbers-Infographic.pdf",
+          "published_on": "2019",
+          "access": "public",
+          "locator": "PDF pp. 1–2; footer 12/19"
+        },
+        {
+          "id": "PPVT-5-S1",
+          "label": "Canivez PPVT-5 review (Buros, 2021)",
+          "type": "review",
+          "url": "https://www.ux1.eiu.edu/~glcanivez/Adobe%20pdf/Publications-Papers/Canivez%20%282021%29%20Buros%20MMY%20PPVT-5%20Review.pdf",
+          "published_on": "2021",
+          "access": "public",
+          "locator": "Printed pp. 525–526; PDF pp. 3–4"
+        },
+        {
+          "id": "PPVT-5-S2",
+          "label": "Pearson vocabulary training handout (2019)",
+          "type": "publisher",
+          "url": "https://www.pearsonclinical.com.au/content/dam/school/global/clinical/au/assets/ppvt-5/pearson-clinical-ppvt5-evt3-assessing-vocab-2019-28-feb-2019.pdf",
+          "published_on": "2019-02-28",
+          "access": "public",
+          "locator": "pp. 10–11; retained from original audit"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "2:6–90+",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Age range",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "10–15 min",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Completion time",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Receptive vocabulary in Standard American English",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product description",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": ".94–.98 split-half; mean .97 (review)",
+          "source_ids": [
+            "PPVT-5-S1"
+          ],
+          "method": "Spearman–Brown corrected split-half; review summarizes manual",
+          "subtest": null,
+          "population": "Normative age groups",
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Printed p. 525, Reliability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Adds a method-specific review summary; publisher overall .97 is retained separately."
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": ".97 publisher overall summary",
+          "source_ids": [
+            "PPVT-5-S7"
+          ],
+          "method": "Overall reliability label; estimation method omitted in infographic",
+          "subtest": null,
+          "population": "Normative sample",
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 2, Reliability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".88 publisher summary; review mean .84",
+          "source_ids": [
+            "PPVT-5-S7",
+            "PPVT-5-S1"
+          ],
+          "method": "Publisher all-ages summary versus review age-group mean",
+          "subtest": null,
+          "population": "Review: three age groups, 2:6 through 90:11+",
+          "sample_size": "Review: N=213",
+          "cutoff": null,
+          "locator": "Infographic p. 2; review printed p. 525",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "Review coefficients .86, .75, .89; mean interval 30 days. Values are different source summaries. Do not average or silently substitute. Alternate-form summaries also differ: publisher .84; review mean .86 (N=273)."
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": "Not reported in cited summaries",
+          "source_ids": [
+            "PPVT-5-S7",
+            "PPVT-5-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Infographic p. 2; review pp. 525–526",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": "This is a source-coverage gap, not a claim that the complete manual contains no estimate."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "Matched sensitivity/specificity pair not confirmed in these summaries",
+          "source_ids": [
+            "PPVT-5-S7",
+            "PPVT-5-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "Language delay, SLI, SLD reading/writing",
+          "sample_size": null,
+          "cutoff": "Infographic: −1 SD and 10% base rate",
+          "locator": "Infographic p. 2, bottom validity table; review p. 526",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": "Infographic .98/.98/.95 are negative predictive power, despite its clinical-specificity wording. They are not specificity. Review discusses multiple cutoffs without reproducing a complete matched accuracy table."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=2,720; ages 2:6–90+",
+          "source_ids": [
+            "PPVT-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "U.S. normative sample; 44 states and D.C.",
+          "sample_size": 2720,
+          "cutoff": null,
+          "locator": "PDF p. 1, Standardization/Norms",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "English used most often; 2.6% bilingual",
+          "source_ids": [
+            "PPVT-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "English-most-often bilingual participants",
+          "sample_size": "Bilingual n=71; 11 languages",
+          "cutoff": null,
+          "locator": "PDF p. 1, Standardization/Norms",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "Standard American English receptive vocabulary",
+          "source_ids": [
+            "PPVT-5-S4"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product description",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Select one of four pictures by pointing or saying its number",
+          "source_ids": [
+            "PPVT-5-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Training pp. 10–11; original research.json q26",
+          "checked_on": "2026-10-02",
+          "status": "inherited",
+          "note": "Original response-description audit retained; this handout was not reopened in this pass."
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Vocabulary scores describe a focused domain within a broader evaluation",
+          "source_ids": [
+            "PPVT-5-S4",
+            "PPVT-5-S1"
+          ],
+          "method": "Interpretive scope",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product Benefits; review p. 526",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "internal": ".94–.98 · Spearman–Brown split-half; review mean .97",
+        "reliability": ".97 publisher summary · split-half review .94–.98",
+        "retest": ".88 publisher / .84 review mean · different summaries"
+      }
+    },
+    {
+      "id": "CELF-5",
+      "sources": [
+        {
+          "id": "CELF-5-S2",
+          "label": "Pearson CELF-5 U.S. product overview",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/en-us/Store/Professional-Assessments/Speech-%26-Language/Clinical-Evaluation-of-Language-Fundamentals-%7C-Fifth-Edition/p/100000705",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "CELF-5-S1",
+          "label": "Pearson CELF-5 Technical Information infographic",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/celf-5/8439-A_CELF-5_Infographic_Hr_f.jpg",
+          "published_on": null,
+          "access": "public",
+          "locator": "Single image: Reliability, Validity, Demographic Information"
+        },
+        {
+          "id": "CELF-5-S5",
+          "label": "Wiig, Semel & Secord: Determining Severity",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/celf-5/celf-5-determining-the-severity-of-a-lang-disorder.pdf",
+          "published_on": "2013",
+          "access": "public",
+          "locator": "PDF p. 3; footer 5/13"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "5:0–21:11",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Age range",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "30–45 min for Core Language Score; full battery varies",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "method": null,
+          "subtest": "Core Language Score",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Completion time",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "School-age semantics, morphology, syntax and pragmatics",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product description",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": ".75–.98 across tests",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": "Split-half (method identified by Denman et al., 2017); Pearson infographic range",
+          "subtest": "All tests",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability: Internal Consistency",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Not a composite estimate. Denman et al. DOI 10.3389/fpsyg.2017.01515 identifies the manual method."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".83–.90 Core and Index scores; .72–.90 clinical groups",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": "Test–retest stability",
+          "subtest": "Core and Index scores / clinical-group summaries",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability: Test Retest Stability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": ".99 Word Structure; .95 Formulated Sentences; .91 Word Definitions; .96 Structured Writing",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": "Inter-scorer agreement",
+          "subtest": "Four named tests",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability: Inter Scorer Agreement",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Replaces current 'not reported' label; sample size omitted in graphic."
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": "Use method-specific estimates",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability panel",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": "No single overall coefficient is provided in this infographic."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": ".97 sensitivity / .97 specificity at cutoff 80",
+          "source_ids": [
+            "CELF-5-S1",
+            "CELF-5-S5"
+          ],
+          "method": "Publisher sensitivity/specificity study summary",
+          "subtest": "Core Language, Receptive Language or Expressive Language scores",
+          "population": "Publisher language-disorder diagnostic comparison",
+          "sample_size": null,
+          "cutoff": "Standard score 80 (−1.33 SD)",
+          "locator": "Infographic validity table; Severity PDF p. 3",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Validation group size and age distribution are absent from these brief sources. Cutoff 85: 1.00/.91; 77: .85/.99; 70: .57/1.00."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=2,380; ages 5–21; 47 U.S. states",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": 2380,
+          "cutoff": null,
+          "locator": "Demographic Information",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "U.S. normative students ages 5–21",
+          "source_ids": [
+            "CELF-5-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Demographic Information",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "U.S. English edition",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "U.S. product overview",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": "Do not transfer this edition's norms to A&NZ, UK or translated editions."
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Verbal responses, picture pointing and direction following; writing/reading depends on test",
+          "source_ids": [
+            "CELF-5-S2"
+          ],
+          "method": null,
+          "subtest": "Response demands vary by test",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview; Tests included; Following Directions FAQ",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Core-score timing and accuracy do not describe every optional test",
+          "source_ids": [
+            "CELF-5-S2",
+            "CELF-5-S1"
+          ],
+          "method": "Interpretation of score-specific scope",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview Completion time; validity/reliability labels",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "rater": ".91–.99 · inter-scorer; four named tests"
+      }
+    },
+    {
+      "id": "PLS-5",
+      "sources": [
+        {
+          "id": "PLS-5-S5",
+          "label": "Pearson PLS-5 U.S. English product overview",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/en-us/Store/Professional-Assessments/Speech-%26-Language/Preschool-Language-Scales-%7C-Fifth-Edition/p/100000233?Community=CA_MedOT_AI_Screen&pid=PLS-5",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "PLS-5-S7",
+          "label": "Pearson PLS-5 English/Spanish brochure",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/pls5/pls-5-brochure.pdf",
+          "published_on": "2019",
+          "access": "public",
+          "locator": "PDF pp. 2–5; dated edition years are distinct from brochure year"
+        },
+        {
+          "id": "PLS-5-S2",
+          "label": "Castilleja, Pearson PLS-5 training (public mirror)",
+          "type": "publisher",
+          "url": "https://manuals.plus/m/add3c5a8e25b0608b417b0f2a04baf8cc9e441fb974190bb85c42622f20b5a30.pdf",
+          "published_on": null,
+          "access": "public",
+          "locator": "PDF slides 6, 30, 41–45; prepublication deck"
+        },
+        {
+          "id": "PLS-5-S4",
+          "label": "LEADERSproject PLS-5 English manual review",
+          "type": "review",
+          "url": "https://bpb-us-w2.wpmucdn.com/edblogs.columbia.edu/dist/e/748/files/2015/05/PLS5-English-finaldraft-2dgptop.pdf",
+          "published_on": null,
+          "access": "public",
+          "locator": "Review pp. 5–10; legacy PDF, not dated by upload path"
+        },
+        {
+          "id": "PLS-5-S1",
+          "label": "Buzhardt et al. (2020) intervention study",
+          "type": "research",
+          "url": "https://doi.org/10.1177/0014402920938003",
+          "published_on": "2020",
+          "access": "public",
+          "locator": "p. 81; inherited manual quotation"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "Birth–7:11",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product overview; brochure p. 5",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "45–60 min current overview; older brochure 30–60 min",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Completion time; brochure p. 5",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "The finder uses the current publisher range. Both sources refer to the English edition, not PLS-5 Spanish."
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Early receptive and expressive language",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": "Auditory Comprehension, Expressive Communication, Total Language",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description; brochure p. 5",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Review: normative AC .91 / EC .93 / TL .95; clinical groups .93–.98",
+          "source_ids": [
+            "PLS-5-S4",
+            "PLS-5-S1"
+          ],
+          "method": "Split-half; pooled score/group summaries versus inherited age-specific range",
+          "subtest": "AC, EC and Total Language",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "LEADERSproject review p. 10",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Normative .91/.93/.95; language disorder .97/.97/.98; language delay .96/.93/.97. The inherited .80–.97 range describes a different aggregation and is not substituted for these pooled scores. Review quotes the manual; full age-by-score tables were not read."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".86–.95, review summary",
+          "source_ids": [
+            "PLS-5-S4"
+          ],
+          "method": "Same-examiner retest, interval 3–28 days",
+          "subtest": "AC, EC, Total Language",
+          "population": "Normative children birth–7:11, three age brackets",
+          "sample_size": 195,
+          "cutoff": null,
+          "locator": "Review p. 9",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Older prepublication publisher slide41 lists N=127, indicating a different source/sample; do not combine sample sizes."
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": ".96–.99 inter-examiner; 91.9–100% inter-scorer agreement",
+          "source_ids": [
+            "PLS-5-S2",
+            "PLS-5-S4"
+          ],
+          "method": "Inter-examiner correlations; separate percent agreement study",
+          "subtest": "AC, EC, Total Language",
+          "population": "Birth–3:11 and 4:0–7:11",
+          "sample_size": "54 children; separate 200-protocol scoring study",
+          "cutoff": null,
+          "locator": "Publisher slide45; review pp. 9–10",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Publisher slide30 overview says .95–.98; detailed slide45 and review agree .96–.99. Percent agreement is not a correlation."
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": "Use method-specific estimates",
+          "source_ids": [
+            "PLS-5-S4"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Review pp. 9–10",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": null
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": ".83 sensitivity / .80 specificity; cutoff 85; source age labels conflict",
+          "source_ids": [
+            "PLS-5-S1",
+            "PLS-5-S4",
+            "PLS-5-S2"
+          ],
+          "method": "Manual diagnostic-study estimates quoted by secondary sources",
+          "subtest": "Total Language",
+          "population": "Language-disorder versus comparison groups",
+          "sample_size": "Review reports LD n=229; matched accuracy total not reproduced",
+          "cutoff": "85 (−1 SD)",
+          "locator": "Inherited Buzhardt p. 81; review pp. 5–7; publisher slide30",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "Publisher study overview uses 3:0–7:11; review sensitivity paragraph uses 3:11–7:11, while its earlier inclusion paragraph says age ≥3. Review raises reference-standard and spectrum-bias concerns. This is not an independent validation by Buzhardt et al."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=1,400; norm data collected 2010; March 2008 Census targets",
+          "source_ids": [
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "U.S. English normative children birth–7:11",
+          "sample_size": 1400,
+          "cutoff": null,
+          "locator": "Brochure pp. 2–3",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "U.S. English-primary norms; Spanish edition uses separate norms",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product FAQs; brochure p. 6",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "U.S. English edition; translation does not preserve its English norm comparison",
+          "source_ids": [
+            "PLS-5-S5"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Test Administration FAQ",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Point or speak using pictures/objects; designated early items accept caregiver information",
+          "source_ids": [
+            "PLS-5-S5",
+            "PLS-5-S7"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview Administration; brochure p. 4",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Check the manual and clinical context; group-specific accuracy is not birth–7:11 accuracy",
+          "source_ids": [
+            "PLS-5-S4",
+            "PLS-5-S2"
+          ],
+          "method": "Interpretive limitation",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Review pp. 5–7; publisher slide30",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "rater": ".96–.99 · inter-examiner; scoring agreement 91.9–100%",
+        "accuracy": ".83 sensitivity / .80 specificity · cutoff 85 · age labels conflict",
+        "time": "45–60 min current overview · brochure 30–60 min",
+        "timeMin": 45,
+        "internal": "Review split-half: AC .91 · EC .93 · Total .95 (norm sample)",
+        "reliability": "Normative split-half: AC .91 · EC .93 · Total .95"
+      }
+    },
+    {
+      "id": "GFTA-3",
+      "sources": [
+        {
+          "id": "GFTA-3-S1",
+          "label": "Pearson GFTA-3 U.S. product overview",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/store/usd/p/100001202.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "GFTA-3-S2",
+          "label": "Pearson GFTA-3 Technical Information",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/gfta-3/gfta-3-infographic.pdf",
+          "published_on": "2019",
+          "access": "public",
+          "locator": "PDF p. 1; footer 3/19"
+        },
+        {
+          "id": "GFTA-3-S3",
+          "label": "Pearson GFTA-2 / GFTA-3 comparison flyer",
+          "type": "publisher",
+          "url": "https://www.pearsonclinical.co.uk/content/dam/school/global/clinical/us/assets/gfta-3/GFTA-2-GFTA-3-Comp-FLY.pdf",
+          "published_on": null,
+          "access": "public",
+          "locator": "Comparison table: Test Format"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "2:0–21:11",
+          "source_ids": [
+            "GFTA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Age range",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "5–15 min Sounds-in-Words; other sections vary",
+          "source_ids": [
+            "GFTA-3-S1"
+          ],
+          "method": null,
+          "subtest": "Sounds-in-Words",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview: Completion time",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Consonant articulation in words and sentence contexts",
+          "source_ids": [
+            "GFTA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product features and score-report description",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Graphic: words α .94 female/.95 male; sentences .96/.97. Flyer overall .94–.96",
+          "source_ids": [
+            "GFTA-3-S2",
+            "GFTA-3-S3"
+          ],
+          "method": "Overall sample alpha",
+          "subtest": "Sounds-in-Words / Sounds-in-Sentences",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Reliability",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "The age-level range .77–.98 in the flyer is distinct from the overall range. The overall flyer range excludes the graphic’s male sentence .97; discrepancy retained. GFTA-2 interrater .70–1.00 is not GFTA-3 evidence."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".92 Words; .91 Sentences",
+          "source_ids": [
+            "GFTA-3-S2"
+          ],
+          "method": "Test–retest stability",
+          "subtest": "Sounds-in-Words / Sounds-in-Sentences",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Test Retest Stability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Retest sample size and interval are absent from this sheet."
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": "Not reported in cited technical sheet",
+          "source_ids": [
+            "GFTA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Reliability",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": null
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": "Use task- and sex-specific alpha",
+          "source_ids": [
+            "GFTA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Reliability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "No single combined coefficient inferred."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": ".91 sensitivity / .81 specificity at cutoff 85",
+          "source_ids": [
+            "GFTA-3-S2"
+          ],
+          "method": "Publisher diagnostic-study summary",
+          "subtest": "Sounds-in-Words",
+          "population": "Speech-sound-disorder comparison",
+          "sample_size": null,
+          "cutoff": "85 (−1 SD)",
+          "locator": "PDF p. 1 Sensitivity & Specificity",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Cutoff 77: .87/.89; 70: .78/.98. Validation N and table-specific age breakdown omitted. Nearby mean-difference study labels Words ages 2:0–21:11; Sentences 4:0–21:11, not separate accuracy rows."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=1,500; ages 2–21; 39 U.S. states",
+          "source_ids": [
+            "GFTA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": 1500,
+          "cutoff": null,
+          "locator": "PDF p. 1 Demographic Information",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "13.2% bilingual with English as primary language; 198 U.S. sites",
+          "source_ids": [
+            "GFTA-3-S3",
+            "GFTA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "Bilingual norm participants learned both languages in U.S.",
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Comparison flyer p. 2, GFTA-3 column; infographic demographics",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "The flyer supplies 13.2%; the infographic rounds to 13%. State count remains 39, confirmed in the infographic."
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "Dialect-sensitive scoring for American English and English influenced by other languages",
+          "source_ids": [
+            "GFTA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Features",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Name pictured words; imitate sentences; optional stimulability tasks",
+          "source_ids": [
+            "GFTA-3-S3"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Comparison table, GFTA-3 column: Test Format",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": "Exact administration rules require the manual."
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Accuracy pair is Sounds-in-Words-specific; word-task timing excludes extra tasks",
+          "source_ids": [
+            "GFTA-3-S1",
+            "GFTA-3-S2"
+          ],
+          "method": "Interpretive scope",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Completion time; diagnostic table",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "population": "U.S. norms; 13.2% bilingual, English as primary language (flyer)",
+        "internal": ".94–.97 · alpha by task and sex",
+        "accuracy": ".91 sensitivity / .81 specificity · cutoff 85 · Sounds-in-Words"
+      }
+    },
+    {
+      "id": "KLPA-3",
+      "sources": [
+        {
+          "id": "KLPA-3-S1",
+          "label": "Pearson KLPA-3 U.S. product overview",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/store/en/usd/p/100001242.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "KLPA-3-S2",
+          "label": "Pearson KLPA-3 Technical Information",
+          "type": "publisher",
+          "url": "https://www.pearsonassessments.com/content/dam/school/global/clinical/us/assets/klpa/klpa-3-technical-summary.pdf",
+          "published_on": "2019",
+          "access": "public",
+          "locator": "PDF p. 1; footer 4/19"
+        },
+        {
+          "id": "KLPA-3-S3",
+          "label": "Pearson KLPA-2/KLPA-3 comparison flyer",
+          "type": "publisher",
+          "url": "https://www.pearsonclinical.ca/content/dam/school/global/clinical/us/assets/klpa/klpa-2-klpa-3-comparison-flyer.pdf",
+          "published_on": "2015",
+          "access": "public",
+          "locator": "PDF p. 2, KLPA-3 column"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "2:0–21:11",
+          "source_ids": [
+            "KLPA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview Age range",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "10–30 min publisher analysis estimate",
+          "source_ids": [
+            "KLPA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Overview Completion time",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Requires GFTA-3 responses; this is not a separate elicitation task."
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Phonological analysis of GFTA-3 responses",
+          "source_ids": [
+            "KLPA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Benefits / Features",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Overall alpha .94 females/.95 males; age-group ranges .81–.98/.87–.99",
+          "source_ids": [
+            "KLPA-3-S2"
+          ],
+          "method": "Alpha",
+          "subtest": null,
+          "population": "Female / male normative groups",
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Reliability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "Flyer .94; graphic .92 Words/.93 Sentences",
+          "source_ids": [
+            "KLPA-3-S2",
+            "KLPA-3-S3"
+          ],
+          "method": "Test–retest stability",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Technical graphic p. 1; comparison flyer p. 2",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "The graphic uses GFTA task labels; KLPA-3 analyzes the GFTA sample. Flyer reports .94 as KLPA-3 stability. No silent selection or averaging; retest N/interval not given."
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": "Core processes: graphic .96–1.00; flyer .98–1.00 (overall 1.00)",
+          "source_ids": [
+            "KLPA-3-S2",
+            "KLPA-3-S3"
+          ],
+          "method": "Inter-scorer agreement",
+          "subtest": "Core processes",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Inter-scorer agreement",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "Pearson sources differ on lower bound. Sample size and estimator absent from these sheets."
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": "Overall sample alpha .94 females/.95 males",
+          "source_ids": [
+            "KLPA-3-S2"
+          ],
+          "method": "Alpha",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Reliability",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": ".93 sensitivity / .83 specificity at SS85; lower cutoffs conflict",
+          "source_ids": [
+            "KLPA-3-S2",
+            "KLPA-3-S3"
+          ],
+          "method": "Publisher diagnostic-study summary",
+          "subtest": null,
+          "population": "Speech-sound-disorder comparison; table-specific age/N omitted",
+          "sample_size": null,
+          "cutoff": "85 (−1 SD)",
+          "locator": "PDF p. 1 Sensitivity & Specificity",
+          "checked_on": "2026-10-03",
+          "status": "conflicting",
+          "note": "SS85 agrees. At SS77 graphic .83/.91 vs flyer .81/.94; at SS70 graphic .67/.98 vs flyer .67/1.00. Exact validation N and table-specific ages not stated. 39 states is confirmed, not an unsupported claim."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=1,500; ages 2–21; 39 states",
+          "source_ids": [
+            "KLPA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": 1500,
+          "cutoff": null,
+          "locator": "PDF p. 1 Demographic Information",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "U.S. normative sample ages 2–21",
+          "source_ids": [
+            "KLPA-3-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 1 Demographic Information",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "Interpret according to the language/dialect of the GFTA-3 sample",
+          "source_ids": [
+            "KLPA-3-S1"
+          ],
+          "method": "Interpretation",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Features: transfer of GFTA-3 responses",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": "Inference from sample dependence; detailed dialect guidance not verified in manual."
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Uses existing GFTA-3 responses; no separate picture-naming administration",
+          "source_ids": [
+            "KLPA-3-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Features: three ways to obtain KLPA scores",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Requires GFTA-3; retest graphic labeling needs manual clarification",
+          "source_ids": [
+            "KLPA-3-S1",
+            "KLPA-3-S2"
+          ],
+          "method": "Interpretive scope",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Features; Test Retest panel",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "retest": "Flyer .94 / graphic .92–.93 · publisher conflict",
+        "rater": "Graphic .96–1.00 / flyer .98–1.00 · core scoring"
+      }
+    },
+    {
+      "id": "CAAP-2",
+      "sources": [
+        {
+          "id": "CAAP-2-S1",
+          "label": "PRO-ED CAAP-2 product overview",
+          "type": "publisher",
+          "url": "https://proedinc.com/products-15000.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product overview / current publisher page"
+        },
+        {
+          "id": "CAAP-2-S2",
+          "label": "Johnson, Super Duper CAAP-2 training",
+          "type": "publisher",
+          "url": "https://gsa.memberclicks.net/assets/documents/2014-Convention/Handouts/clint%20johnson%20handout%20-%20caap.pdf",
+          "published_on": "2014",
+          "access": "public",
+          "locator": "PDF pp. 2, 4–5; GSHA 2014 publisher-employee training"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age range",
+          "value": "2:6–11:11",
+          "source_ids": [
+            "CAAP-2-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description Ages",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "15–20 min Articulation Inventory",
+          "source_ids": [
+            "CAAP-2-S1"
+          ],
+          "method": null,
+          "subtest": "Articulation Inventory",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description Articulation Inventory",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Articulation and phonological processes",
+          "source_ids": [
+            "CAAP-2-S1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description / checklists",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Not reported in cited publisher sources",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product reliability paragraph; training p. 2",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": null
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "p<.01 reported; retest coefficient not supplied",
+          "source_ids": [
+            "CAAP-2-S2"
+          ],
+          "method": "Retest correlations of raw scores, standard scores and percentiles",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 2 Technical Characteristics",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": "Statistical significance does not establish the size of a reliability coefficient."
+        },
+        {
+          "key": "rater",
+          "label": "Inter-rater / inter-scorer",
+          "value": "1.00 Articulation Inventory; >.99 Phonological Process Checklist",
+          "source_ids": [
+            "CAAP-2-S2",
+            "CAAP-2-S1"
+          ],
+          "method": "Inter-examiner reliability coefficients",
+          "subtest": "Articulation Inventory / Phonological Process Checklist",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Training p. 2; product Valid and Reliable",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": "Product overview gives >.99 without study N; training separates the two tasks."
+        },
+        {
+          "key": "overall",
+          "label": "Overall reliability",
+          "value": "Use method-specific estimates",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability summaries",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": null
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "Matched sensitivity/specificity/cutoff not supplied",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product Valid and Reliable; training p. 2",
+          "checked_on": "2026-10-03",
+          "status": "not-reported",
+          "note": "Concurrent correlations .789–.948 with GFTA-2/KLPA-2 are associations, not diagnostic accuracy. No CAAP-1 accuracy transferred."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N=1,486 U.S. children; 2013 Census targets",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "2:6–11:11; training says 7% speech delays/differences",
+          "sample_size": 1486,
+          "cutoff": null,
+          "locator": "Product reliability paragraph; training p. 2",
+          "checked_on": "2026-10-03",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "population",
+          "label": "Population represented",
+          "value": "U.S. children ages 2:6–11:11",
+          "source_ids": [
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 2 Technical Characteristics",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "language",
+          "label": "Language / dialect",
+          "value": "English sound inventory; full dialect guidance needs manual",
+          "source_ids": [
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PDF p. 2 Articulation targets",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": "No validated multilingual norm claim inferred."
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Picture naming; sentence repetition at ages 5:0–11:11",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": null,
+          "subtest": "Consonant Inventory / School-Age Sentences",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product targets; training p. 4",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretive limit",
+          "value": "Publisher summaries omit a diagnostic-accuracy pair",
+          "source_ids": [
+            "CAAP-2-S1",
+            "CAAP-2-S2"
+          ],
+          "method": "Source-coverage limitation",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Technical Characteristics / reliability paragraph",
+          "checked_on": "2026-10-02",
+          "status": "source-checked",
+          "note": null
+        }
+      ],
+      "corrections": {
+        "rater": "1.00 Articulation Inventory; >.99 Phonological Process Checklist"
+      }
+    }
+  ]
+}

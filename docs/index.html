@@ -2,113 +2,122 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Look up or find speech-language pathology assessments, compare clinical evidence, and open the supporting sources.">
-  <title>SLP Assessment Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="An age-coverage atlas and evidence spec sheet for speech-language pathology assessments. Every figure opens to its method, sample, and source.">
+  <title>SLP · Sift. Learn. Plan.</title>
+  <script>try{const t=localStorage.getItem("slp-theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch{}</script>
+  <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#assessment-library">Skip to assessment library</a>
+  <a class="skip-link" href="#atlas-rows">Skip to the spec sheet</a>
   <div class="app-shell">
-    <header class="titlebar">
-      <div class="traffic-lights" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="app-title"><strong>SLP Assessment Finder</strong><span>Clinical evidence index</span></div>
-      <span class="review-date">Demo updated Sep. 17, 2026</span>
+    <header class="site-header">
+      <a class="brand" href="#atlas" aria-label="SLP · Sift. Learn. Plan. home">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="currentColor"/><path d="M11 13.5h12M11 20h18M11 26.5h15" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><circle cx="28" cy="13.5" r="2.6" fill="#e9c35c"/></svg>
+        <span><strong>SLP</strong><span>Sift · Learn · Plan</span></span>
+      </a>
+      <nav class="view-tabs" aria-label="Main pages">
+        <button type="button" data-view="atlas" aria-current="page">Atlas</button>
+        <button type="button" data-view="research">Evidence ledger</button>
+        <button type="button" data-view="shortlist" class="shortlist-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>Shortlist <span id="shortlist-nav-count">0</span></button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch between light and dark theme" title="Switch theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.5 0-1-.1-1.4A6 6 0 0 1 12 3Z"/></svg></button>
+      </nav>
     </header>
-
-    <nav class="view-tabs" aria-label="Main pages">
-      <button type="button" data-view="library" aria-current="page">Assessment library</button>
-      <button type="button" data-view="finder">Find a test</button>
-    </nav>
-
     <main>
-      <section id="library-view" class="library-view">
-        <div class="library-hero">
-          <div class="hero-copy">
-            <p class="eyebrow">Evidence before guesswork</p>
-            <h1>Clinical assessments, consolidated.</h1>
-            <div class="entry-choices">
-              <section class="entry-choice"><h2>Know the test?</h2><p>Go straight to its statistics, administration details, and sources.</p><a class="browse-button" href="#assessment-library">Browse assessments <span aria-hidden="true">↓</span></a></section>
-              <section class="entry-choice"><h2>Starting with a client?</h2><p>Narrow the options by clinical area, age, purpose, and time.</p><button id="find-test-cta" class="hero-button" type="button">Find a Test <span aria-hidden="true">→</span></button></section>
-            </div>
+      <section id="atlas-view" class="atlas-view">
+        <div class="atlas-head">
+          <div>
+            <h1>Find the test that fits your client. <em>Then show your work.</em></h1>
+            <p class="lede">Enter a client's age and the atlas shows which assessments cover it. Below, each test is a spec sheet: age, time, reliability, norm sample, and diagnostic accuracy as figures, with the method and citation one click away.</p>
           </div>
-          <div class="hero-preview" aria-label="What the finder compares">
-            <span class="preview-kicker">THE FAST PATH</span>
-            <div><strong>1</strong><p>Choose a clinical area</p></div>
-            <div><strong>2</strong><p>Narrow by age and time</p></div>
-            <div><strong>3</strong><p>Compare evidence side by side</p></div>
-            <small>Every number stays connected to its source and interpretation limits.</small>
-          </div>
+          <div class="hero-figure" aria-live="polite"><strong><span id="fit-count">19</span><small>/ 19</small></strong><span id="fit-caption">assessments in the atlas</span></div>
         </div>
 
-        <section id="assessment-library" class="assessment-library" aria-labelledby="library-heading">
-          <div class="library-heading-row">
-            <div><p class="eyebrow">Assessment library</p><h2 id="library-heading">All assessments</h2></div>
-            <label class="library-search"><span class="sr-only">Search assessments</span><input id="assessment-search" type="search" placeholder="Search PPVT, articulation, language…" autocomplete="off"></label>
+        <div class="client-bar" role="group" aria-label="Client profile">
+          <div>
+            <span class="label">Client age</span>
+            <div class="age-inputs">
+              <label><input id="age-years" type="number" min="0" max="100" inputmode="numeric" placeholder="—" aria-label="Years"><span>yrs</span></label>
+              <label><input id="age-months" type="number" min="0" max="11" inputmode="numeric" placeholder="—" aria-label="Months"><span>mo</span></label>
+            </div>
           </div>
-          <p id="library-summary" class="library-summary">Browse all six assessments in the demo.</p>
-          <div id="library-results" class="result-grid library-grid" aria-live="polite"></div>
-          <div id="library-empty" class="empty-state" hidden><strong>No assessment matches that search.</strong><span>Try a test name, clinical area, or skill.</span></div>
+          <div>
+            <label class="label" for="time-filter">Max administration time</label>
+            <select id="time-filter"><option value="">Any length</option><option value="15">Up to 15 min</option><option value="30">Up to 30 min</option><option value="45">Up to 45 min</option><option value="60">Up to 60 min</option></select>
+          </div>
+          <div>
+            <span class="label">Purpose</span>
+            <div id="purpose-filters" class="legend" role="group" aria-label="Purpose"></div>
+          </div>
+          <div class="search">
+            <label class="label" for="assessment-search">Search</label>
+            <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg><input id="assessment-search" type="search" placeholder="Test, skill, or clinical area" autocomplete="off"></div>
+          </div>
+          <button id="clear-filters" class="btn-ghost clear" type="button">Reset</button>
+          <div id="domain-filters" class="area-row" role="group" aria-label="Clinical area" style="grid-column: 1 / -1;"></div>
+        </div>
+
+        <section class="atlas" aria-labelledby="atlas-title">
+          <div class="atlas-toolbar">
+            <h2 id="atlas-title">Age coverage <span>· years of age, birth to 90+</span></h2>
+            <div id="family-legend" class="legend" role="group" aria-label="Filter by clinical family"></div>
+          </div>
+          <div id="atlas-chart" class="atlas-chart" aria-label="Age ranges covered by each assessment"></div>
+          <div class="atlas-foot"><span>Bars show the publisher's stated age range. Tests outside the current filters are dimmed, not removed.</span><span id="atlas-foot-right"></span></div>
         </section>
+
+        <div class="sheet-head"><h2>Spec sheet <span id="sheet-count"></span></h2><p>Figures open their evidence record. Reliability meters run from .70 to 1.00.</p></div>
+        <div id="finder-guidance"></div>
+        <div id="atlas-rows" class="sheet" aria-live="polite"></div>
+        <div id="atlas-empty" class="empty-state" hidden><strong>No assessment matches every filter.</strong><span>Try removing the time limit or broadening the clinical area.</span></div>
       </section>
 
-      <section id="finder-view" class="finder-layout" hidden>
-        <aside class="filter-panel" aria-labelledby="filter-heading">
-          <div class="filter-heading-row">
-            <div><p class="eyebrow">Guided finder</p><h1 id="filter-heading">What do you need to assess?</h1></div>
-            <button id="clear-filters" class="text-button" type="button">Clear</button>
-          </div>
-          <fieldset>
-            <legend>Clinical area</legend>
-            <div id="domain-filters" class="choice-grid"></div>
-          </fieldset>
-          <fieldset>
-            <legend>Client age</legend>
-            <div class="age-inputs">
-              <label><span>Years</span><input id="age-years" type="number" min="0" max="100" inputmode="numeric" placeholder="6"></label>
-              <label><span>Months</span><input id="age-months" type="number" min="0" max="11" inputmode="numeric" placeholder="0"></label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Purpose</legend>
-            <div id="purpose-filters" class="choice-grid compact"></div>
-          </fieldset>
-          <fieldset>
-            <legend>Time available</legend>
-            <label class="select-label"><span>Maximum administration time</span><select id="time-filter"><option value="">Any length</option><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select></label>
-          </fieldset>
-        </aside>
+      <section id="shortlist-view" class="workspace-view" hidden>
+        <div class="workspace-heading"><div><h1>Your shortlist</h1><p>Saved in this browser. Tick two assessments to compare them on the same scales, or export the full shortlist with its sources.</p></div><div class="workspace-actions"><button id="export-brief" class="btn-primary" disabled>Preview brief</button><button id="clear-shortlist" class="btn">Clear shortlist</button></div></div>
+        <div id="shortlist-content"></div>
+        <section id="coverage-content" class="coverage-region"></section>
+      </section>
 
-        <section class="results-panel" aria-labelledby="results-heading">
-          <div class="results-topline">
-            <div><p class="eyebrow">Matching assessments</p><h2 id="results-heading"><span id="result-count">0</span> results</h2></div>
-            <p id="active-summary" class="active-summary">Showing the full demo index</p>
-          </div>
-          <div id="results" class="result-grid" aria-live="polite"></div>
-          <div id="empty-state" class="empty-state" hidden><strong>No assessments match every filter.</strong><span>Try removing the time limit or broadening the clinical area.</span></div>
-        </section>
+      <section id="research-view" class="workspace-view" hidden>
+        <div class="workspace-heading"><div><h1>Evidence ledger</h1><p>Every figure on this site has a record: method, population, sample size, cutoff, page location, and the date it was checked.</p></div><a href="research/PERSONAL-AUDIT.md" class="btn">Read the audit</a></div>
+        <div class="legend-row"><span>Publisher data</span><span>Research study</span><span>Independent review</span><span>ASHA guidance</span><span>Manual reference</span></div>
+        <p class="research-explainer">A source check confirms what a source reports. It does not mean ASHA or LSU has endorsed a test. Missing figures and conflicting sources stay visible.</p>
+        <div id="research-content"></div>
       </section>
     </main>
 
-    <footer><span>Ethan Heinrick · Proof of concept</span><span>Numbers remain attached to their sources and interpretation limits.</span></footer>
+    <footer class="site-footer"><div><strong>SLP · Sift. Learn. Plan.</strong><span>Ethan Heinrick · Educational proof of concept prepared for LSU faculty review</span></div><p>Numbers stay attached to their sources and interpretation limits.</p><span class="review-stamp">Local review · Faculty validation pending</span></footer>
   </div>
 
   <div id="compare-tray" class="compare-tray" hidden>
-    <div><span class="tray-label">Selected to compare</span><div id="tray-tests" class="tray-tests"></div></div>
-    <button id="compare-button" class="primary-button" type="button" disabled>Compare <span id="compare-count">0</span></button>
+    <div><span id="tray-label" class="tray-label">Saved shortlist</span><div id="tray-tests" class="tray-tests"></div></div>
+    <div class="tray-actions"><button id="open-shortlist" class="text-button" type="button">Shortlist <span id="compare-count">0</span></button><button id="quick-compare" class="btn-primary" type="button" disabled>Compare <span id="quick-compare-count">0/2</span></button></div>
   </div>
 
-  <dialog id="compare-dialog" class="compare-dialog">
-    <form method="dialog" class="dialog-titlebar"><div><p class="eyebrow">Assessment comparison</p><h2>Compare the evidence</h2></div><button class="icon-button" aria-label="Close comparison">×</button></form>
-    <div class="compare-controls"><label class="switch"><input id="differences-only" type="checkbox"><span></span>Show differences only</label><p>Age notation uses years:months.</p></div>
-    <div id="comparison-content" class="comparison-content"></div>
+  <dialog id="compare-dialog" class="modal" aria-labelledby="comparison-title">
+    <form method="dialog" class="dialog-titlebar"><h2 id="comparison-title"><b>Compare</b> on the same scales</h2><button class="icon-button" aria-label="Close comparison"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form>
+    <div class="compare-controls"><label class="switch"><input id="differences-only" type="checkbox"><span></span>Show differences only</label><p>Age notation uses years:months. Meters run .70–1.00.</p></div>
+    <div id="comparison-content" class="compare-body"></div>
   </dialog>
 
-  <dialog id="evidence-dialog" class="evidence-dialog">
-    <form method="dialog" class="dialog-titlebar"><div><p class="eyebrow">Evidence profile</p><h2 id="evidence-title">Assessment</h2></div><button class="icon-button" aria-label="Close evidence profile">×</button></form>
-    <div id="evidence-content" class="evidence-content"></div>
+  <dialog id="evidence-dialog" class="modal" aria-labelledby="evidence-title">
+    <form method="dialog" class="dialog-titlebar"><h2 id="evidence-title">Assessment profile</h2><button class="icon-button" aria-label="Close profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form>
+    <div id="evidence-content" class="dossier"></div>
   </dialog>
 
+  <dialog id="receipt-dialog" class="modal" aria-labelledby="receipt-title">
+    <form method="dialog" class="dialog-titlebar"><h2 id="receipt-title">Evidence record</h2><button class="icon-button" aria-label="Close evidence record"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form><div id="receipt-content" class="record-sheet"></div>
+  </dialog>
+
+  <dialog id="brief-dialog" class="modal" aria-labelledby="brief-title">
+    <form method="dialog" class="dialog-titlebar"><h2 id="brief-title"><b>Brief</b> · your shortlist with evidence</h2><button class="icon-button" aria-label="Close brief"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></form>
+    <div class="brief-controls"><button id="download-html" class="btn-primary">Download HTML</button><button id="download-markdown" class="btn">Download Markdown</button><button id="copy-brief" class="btn">Copy brief</button><button id="print-brief" class="btn">Print / Save PDF</button></div><div id="brief-content"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="data.js" defer></script>
   <script src="app.js" defer></script>
 </body>
 </html>

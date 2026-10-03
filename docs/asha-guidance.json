@@ -1,0 +1,529 @@
+{
+  "checked_on": "2026-10-03",
+  "guidance": [
+    {
+      "id": "asha-speech-sound",
+      "title": "Speech sound and phonology",
+      "domains": [
+        "speech-sound",
+        "phonology"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Speech Sound Disorders",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Speech Sound Disorders",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/b5341fd9-50bf-4bbb-afc5-aa9e2c770b5b"
+      },
+      "summary": "For idiopathic childhood speech sound concerns, consider speech patterns, intelligibility, hearing, and linguistic background alongside test performance.",
+      "components": [
+        {
+          "id": "ssd-history",
+          "label": "History and language background",
+          "description": "Gather family concerns, languages and dialects, hearing history, and reports of classroom participation.",
+          "domains": [
+            "speech-sound",
+            "phonology"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+          "section": "Case History"
+        },
+        {
+          "id": "ssd-hearing-oral",
+          "label": "Hearing and oral structures",
+          "description": "Check available hearing information and examine speech structures and movement when relevant.",
+          "domains": [
+            "speech-sound",
+            "phonology"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+          "section": "Oral Mechanism Examination; Hearing Screening"
+        },
+        {
+          "id": "ssd-samples",
+          "label": "Words and connected speech",
+          "description": "Compare structured productions with conversation or retelling; analyze sound contexts, patterns, and consistency.",
+          "domains": [
+            "speech-sound",
+            "phonology"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+          "section": "Speech Sound Assessment"
+        },
+        {
+          "id": "ssd-intelligibility",
+          "label": "Intelligibility in everyday settings",
+          "description": "Consider how well familiar and unfamiliar listeners understand the child across communication settings.",
+          "domains": [
+            "speech-sound",
+            "phonology"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+          "section": "Intelligibility Assessment"
+        },
+        {
+          "id": "ssd-stimulability",
+          "label": "Stimulability",
+          "description": "Consider imitation of difficult sounds to clarify the production profile and possible intervention targets.",
+          "domains": [
+            "speech-sound",
+            "phonology"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/articulation-and-phonology/",
+          "section": "Stimulability Testing"
+        }
+      ],
+      "notes": [
+        "This Portal page focuses on idiopathic disorders in preschool and school-age children. Motor, structural, and sensory causes require condition-specific guidance.",
+        "These considerations supplement clinical judgment; the site does not prescribe a complete evaluation."
+      ],
+      "studies": []
+    },
+    {
+      "id": "asha-spoken-language",
+      "title": "Spoken language, vocabulary, and narrative",
+      "domains": [
+        "receptive",
+        "expressive",
+        "vocabulary",
+        "narrative"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Spoken Language Disorders",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Spoken Language Disorders",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/82816e2d-0cc2-4dfa-948b-369175088a12"
+      },
+      "summary": "Consider the child's communication across language domains and contexts; a vocabulary measure samples one part of this broader profile.",
+      "components": [
+        {
+          "id": "language-history",
+          "label": "History and everyday concerns",
+          "description": "Gather developmental, language and dialect, caregiver, teacher, and hearing information.",
+          "domains": [
+            "receptive",
+            "expressive",
+            "vocabulary",
+            "narrative"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+          "section": "Case History; Hearing Screening"
+        },
+        {
+          "id": "language-domains",
+          "label": "Language beyond isolated words",
+          "description": "Consider comprehension and expression across semantics, grammar, conversation, narrative, and expository discourse.",
+          "domains": [
+            "receptive",
+            "expressive",
+            "vocabulary",
+            "narrative"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+          "section": "Speech and Language Evaluation"
+        },
+        {
+          "id": "language-context",
+          "label": "Formal and informal evidence",
+          "description": "Choose measures that fit the communication profile and language background; include context-sensitive observations.",
+          "domains": [
+            "receptive",
+            "expressive",
+            "vocabulary",
+            "narrative"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+          "section": "Speech and Language Evaluation"
+        },
+        {
+          "id": "language-dynamic",
+          "label": "Learning potential",
+          "description": "Dynamic assessment can examine response to teaching alongside other assessment findings.",
+          "domains": [
+            "receptive",
+            "expressive",
+            "vocabulary",
+            "narrative"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+          "section": "Speech and Language Evaluation"
+        },
+        {
+          "id": "language-literacy",
+          "label": "Literacy connections",
+          "description": "Consider developmentally relevant reading, writing, or preliteracy information within a broader language evaluation.",
+          "domains": [
+            "receptive",
+            "expressive",
+            "narrative"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/spoken-language-disorders/",
+          "section": "Literacy"
+        }
+      ],
+      "notes": [
+        "Translated tests and tests used outside their intended populations do not support reporting their standard scores.",
+        "This page addresses developmental spoken-language disorders; acquired adult aphasia has separate guidance."
+      ],
+      "studies": [
+        {
+          "id": "petersen-2020-inferential-word-learning",
+          "title": "The Classification Accuracy of a Dynamic Assessment of Inferential Word Learning for Bilingual English/Spanish-Speaking School-Age Children",
+          "year": 2020,
+          "url": "https://pubs.asha.org/doi/10.1044/2019_LSHSS-18-0129",
+          "method": "English-only test–teach–test word-learning protocol; linear discriminant analysis combined posttest scores and examiner modifiability ratings.",
+          "population": "Spanish/English bilingual children ages 5:9–9:7, recruited from three U.S. elementary schools.",
+          "sample_size": "31 children: 10 with language disorder and 21 with typical language.",
+          "cutoff": "No interpretable single cutoff for the combined discriminant model (Table 3, footnote a).",
+          "findings": "The combined model yielded 90% sensitivity and 90.5% specificity in this sample (Table 3).",
+          "limitation": "Small development sample; the authors call for replication and cross-validation. The dynamic task was administered in English only to bilingual children. This research protocol did not validate PPVT-5, and its accuracy should not be transferred to commercial vocabulary tests or other populations.",
+          "source_type": "research",
+          "checked_on": "2026-10-03",
+          "locator": "Petersen et al. (2020), Abstract, Methods, Table 3 and Dynamic Assessment Results; personally rechecked"
+        }
+      ]
+    },
+    {
+      "id": "asha-fluency",
+      "title": "Stuttering, cluttering, and fluency",
+      "domains": [
+        "fluency"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Stuttering / Cluttering / Fluency",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Stuttering / Cluttering / Fluency",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/371df9a6-7b02-4f2c-b2fc-dca74448db89"
+      },
+      "summary": "Visible disfluency frequency alone may miss the person's experience. Consider overt speech features, avoidance, reactions, and participation.",
+      "components": [
+        {
+          "id": "fluency-history",
+          "label": "History and variability",
+          "description": "Consider onset, course, prior treatment, and situations where speech concerns vary.",
+          "domains": [
+            "fluency"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/",
+          "section": "Comprehensive Assessment"
+        },
+        {
+          "id": "fluency-samples",
+          "label": "Speech across tasks and settings",
+          "description": "Consider conversation, narrative, and speech outside the clinic, including rate, disfluency characteristics, and associated behaviors.",
+          "domains": [
+            "fluency"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/",
+          "section": "Comprehensive Assessment"
+        },
+        {
+          "id": "fluency-reactions",
+          "label": "The speaker's experience",
+          "description": "Consider effort, coping, negative reactions, avoidance, and the person's own report.",
+          "domains": [
+            "fluency"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/",
+          "section": "Comprehensive Assessment"
+        },
+        {
+          "id": "fluency-participation",
+          "label": "Participation and partner perspectives",
+          "description": "Gather family or educator perspectives and examine educational, social, or vocational impact.",
+          "domains": [
+            "fluency"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/fluency-disorders/",
+          "section": "Comprehensive Assessment"
+        }
+      ],
+      "notes": [
+        "Age-specific considerations differ for preschool children, school-age children, adolescents, and adults.",
+        "Little observable stuttering does not necessarily mean little impact."
+      ],
+      "studies": []
+    },
+    {
+      "id": "asha-aphasia",
+      "title": "Adult aphasia and functional communication",
+      "domains": [
+        "aphasia",
+        "functional"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Aphasia",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/aphasia/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Aphasia",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/6d3e363d-1443-4699-85c5-19aa71c7eccc"
+      },
+      "summary": "For acquired adult aphasia, combine language findings with access needs, communication in daily life, and the person's priorities.",
+      "components": [
+        {
+          "id": "aphasia-history",
+          "label": "History and language use",
+          "description": "Consider onset, medical context, premorbid language use, and languages needed for everyday activities.",
+          "domains": [
+            "aphasia"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/aphasia/",
+          "section": "Assessment; Case History"
+        },
+        {
+          "id": "aphasia-modalities",
+          "label": "Language across modalities",
+          "description": "Consider spoken comprehension and expression together with reading and writing.",
+          "domains": [
+            "aphasia"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/aphasia/",
+          "section": "Comprehensive Assessment"
+        },
+        {
+          "id": "aphasia-access",
+          "label": "Response and access demands",
+          "description": "Consider motor speech, cognition, hearing, vision, pointing or writing ability, and fatigue.",
+          "domains": [
+            "aphasia",
+            "cognition"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/aphasia/",
+          "section": "Assessment"
+        },
+        {
+          "id": "aphasia-function",
+          "label": "Activity and participation",
+          "description": "Consider everyday communication, interpersonal interactions, and environmental supports or barriers.",
+          "domains": [
+            "aphasia",
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/aphasia/",
+          "section": "Comprehensive Assessment"
+        }
+      ],
+      "notes": [
+        "The Portal page's scope is acquired aphasia in adults; primary progressive aphasia needs additional condition-specific sources.",
+        "Document assessment modifications and their implications for interpreting standardized scores."
+      ],
+      "studies": []
+    },
+    {
+      "id": "asha-executive-function",
+      "title": "Cognitive communication: executive function",
+      "domains": [
+        "cognition",
+        "functional"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Executive Function Deficits",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/executive-function-deficits/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Executive Function Deficits",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/c6f89187-82fe-44b7-bb80-47ad3d7b21e5"
+      },
+      "summary": "Executive-function guidance applies across the lifespan. Connect test findings to real tasks and to the person's baseline and context.",
+      "components": [
+        {
+          "id": "ef-context",
+          "label": "Baseline and reported changes",
+          "description": "Use patient and partner interviews to understand concerns and changes from usual functioning.",
+          "domains": [
+            "cognition",
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/executive-function-deficits/",
+          "section": "Assessment"
+        },
+        {
+          "id": "ef-demands",
+          "label": "Cognitive and language demands",
+          "description": "Consider interacting skills and whether language difficulty affects performance; nonverbal measures may help.",
+          "domains": [
+            "cognition"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/executive-function-deficits/",
+          "section": "Assessment"
+        },
+        {
+          "id": "ef-function",
+          "label": "Everyday task performance",
+          "description": "Consider assessment in relevant settings, where attention and planning demands may differ from quiet testing.",
+          "domains": [
+            "cognition",
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/executive-function-deficits/",
+          "section": "Assessment; Comprehensive Assessment"
+        },
+        {
+          "id": "ef-team",
+          "label": "Team evidence and reassessment",
+          "description": "Review other professionals' findings, avoid unnecessary duplicate testing, and consider fatigue and practice effects.",
+          "domains": [
+            "cognition"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/executive-function-deficits/",
+          "section": "Assessment; Comprehensive Assessment"
+        }
+      ],
+      "notes": [
+        "This guidance concerns executive function, not every cause of cognitive change.",
+        "Standardized results may not capture difficulties under everyday time pressure or distraction."
+      ],
+      "studies": []
+    },
+    {
+      "id": "asha-adult-tbi",
+      "title": "Adult brain injury: cognitive communication",
+      "domains": [
+        "cognition",
+        "functional"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Traumatic Brain Injury (Adults)",
+        "url": "https://www.asha.org/practice-portal/clinical-topics/traumatic-brain-injury-in-adults/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Traumatic Brain Injury (Adults)",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/5e8b2df5-f057-42c5-b06f-b0b31aed828d"
+      },
+      "summary": "For adults with traumatic brain injury, connect speech-language and cognitive findings with daily roles, medical context, and team assessment.",
+      "components": [
+        {
+          "id": "tbi-history",
+          "label": "Injury and recovery context",
+          "description": "Consider medical history, alertness, sensory and motor status, medications, and personal communication priorities.",
+          "domains": [
+            "cognition"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/traumatic-brain-injury-in-adults/",
+          "section": "Case History; Assessment Methods/Procedures"
+        },
+        {
+          "id": "tbi-norms",
+          "label": "Fit of the measure",
+          "description": "Check whether tasks and norms fit the individual's injury, impairment, and language background.",
+          "domains": [
+            "cognition"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/traumatic-brain-injury-in-adults/",
+          "section": "Assessment Methods/Procedures"
+        },
+        {
+          "id": "tbi-daily",
+          "label": "Function in daily activities",
+          "description": "Compare structured scores with communication and task performance in everyday settings.",
+          "domains": [
+            "cognition",
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/traumatic-brain-injury-in-adults/",
+          "section": "Assessment Methods/Procedures"
+        },
+        {
+          "id": "tbi-support",
+          "label": "Supports and barriers",
+          "description": "Consider environmental barriers, communication partners, cognitive aids, and relevant follow-up services.",
+          "domains": [
+            "cognition",
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/clinical-topics/traumatic-brain-injury-in-adults/",
+          "section": "Other Assessment Components"
+        }
+      ],
+      "notes": [
+        "This source concerns adult TBI. Pediatric injury and other etiologies require their own guidance.",
+        "SLPs assess communication and related function; this site does not diagnose TBI."
+      ],
+      "studies": []
+    },
+    {
+      "id": "asha-functional-aac",
+      "title": "Functional communication and AAC",
+      "domains": [
+        "functional"
+      ],
+      "portal": {
+        "label": "ASHA Practice Portal · Augmentative and Alternative Communication",
+        "url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+        "section": "Assessment",
+        "checked_on": "2026-10-03"
+      },
+      "evidence_map": {
+        "label": "ASHA Evidence Map · Augmentative and Alternative Communication",
+        "url": "https://apps.asha.org/EvidenceMaps/Maps/LandingPage/990772a6-9cd8-4203-a76c-6ccd91eac874"
+      },
+      "summary": "When AAC is relevant, consider communication needs, existing modalities, access, partners, and environments across the lifespan.",
+      "components": [
+        {
+          "id": "aac-needs",
+          "label": "Communication needs and priorities",
+          "description": "Consider what the person needs to communicate and whether support supplements speech or provides another means.",
+          "domains": [
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+          "section": "Assessment"
+        },
+        {
+          "id": "aac-current",
+          "label": "Current communication and partner input",
+          "description": "Gather observations and caregiver or partner reports of communication beyond the assessment session.",
+          "domains": [
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+          "section": "Assessment"
+        },
+        {
+          "id": "aac-access",
+          "label": "Access and feature fit",
+          "description": "Consider symbols, vocabulary, selection methods, positioning, portability, and user preferences.",
+          "domains": [
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+          "section": "Assessment; Feature-Matching Assessment"
+        },
+        {
+          "id": "aac-context",
+          "label": "Trials and everyday use",
+          "description": "Consider dynamic assessment, trials, family support, and barriers in the environments where communication occurs.",
+          "domains": [
+            "functional"
+          ],
+          "source_url": "https://www.asha.org/practice-portal/professional-issues/augmentative-and-alternative-communication/",
+          "section": "Assessment; Assessment Considerations"
+        }
+      ],
+      "notes": [
+        "AAC assessment is an ongoing process; an initial device trial may not resolve all questions.",
+        "This AAC source does not cover every form of functional-communication assessment.",
+        "ASHA links provide context; ASHA has not endorsed this site's catalog or shortlist."
+      ],
+      "studies": []
+    }
+  ]
+}
