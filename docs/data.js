@@ -124,7 +124,8 @@ const state = {
   query: "",
   category: "all",
   layout: "list",
-  view: "library",
+  view: "atlas",
+  layer: "age",
   catalog: []
 };
 

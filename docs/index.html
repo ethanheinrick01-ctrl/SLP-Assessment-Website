@@ -30,17 +30,27 @@
       <section id="atlas-view" class="atlas-view">
         <div class="atlas-head">
           <div>
-            <h1>Find the test that fits your client. <em>Then show your work.</em></h1>
-            <p class="lede">Enter a client's age and the atlas shows which assessments cover it. Below, each test is a spec sheet: age, time, reliability, norm sample, and diagnostic accuracy as figures, with the method and citation one click away.</p>
+            <h1>Find the test that fits your client.</h1>
+            <p class="lede">Nineteen assessments on one chart. Switch the layer to compare age coverage, time, reliability, accuracy, norm samples, or cutoffs; set the client below the chart.</p>
           </div>
           <div class="hero-figure" aria-live="polite"><strong><span id="fit-count">19</span><small>/ 19</small></strong><span id="fit-caption">assessments in the atlas</span></div>
         </div>
+
+        <section class="atlas" aria-labelledby="atlas-title">
+          <div class="atlas-toolbar">
+            <h2 id="atlas-title">Age coverage <span>· years of age, birth to 90+</span></h2>
+            <div id="family-legend" class="legend" role="group" aria-label="Filter by clinical family"></div>
+          </div>
+          <div id="layer-picker" class="layer-picker" role="tablist" aria-label="Chart layer"></div>
+          <div id="atlas-chart" class="atlas-chart" aria-label="One row per assessment on the selected scale"></div>
+          <div class="atlas-foot"><span id="atlas-foot-left"></span><span id="atlas-foot-right"></span></div>
+        </section>
 
         <div class="client-bar" role="group" aria-label="Client profile">
           <div>
             <span class="label">Client age</span>
             <div class="age-inputs">
-              <label><input id="age-years" type="number" min="0" max="100" inputmode="numeric" placeholder="—" aria-label="Years"><span>yrs</span></label>
+              <label><input id="age-years" type="number" min="0" max="100" inputmode="numeric" placeholder="e.g. 5" aria-label="Years"><span>yrs</span></label>
               <label><input id="age-months" type="number" min="0" max="11" inputmode="numeric" placeholder="—" aria-label="Months"><span>mo</span></label>
             </div>
           </div>
@@ -59,15 +69,6 @@
           <button id="clear-filters" class="btn-ghost clear" type="button">Reset</button>
           <div id="domain-filters" class="area-row" role="group" aria-label="Clinical area" style="grid-column: 1 / -1;"></div>
         </div>
-
-        <section class="atlas" aria-labelledby="atlas-title">
-          <div class="atlas-toolbar">
-            <h2 id="atlas-title">Age coverage <span>· years of age, birth to 90+</span></h2>
-            <div id="family-legend" class="legend" role="group" aria-label="Filter by clinical family"></div>
-          </div>
-          <div id="atlas-chart" class="atlas-chart" aria-label="Age ranges covered by each assessment"></div>
-          <div class="atlas-foot"><span>Bars show the publisher's stated age range. Tests outside the current filters are dimmed, not removed.</span><span id="atlas-foot-right"></span></div>
-        </section>
 
         <div class="sheet-head"><h2>Spec sheet <span id="sheet-count"></span></h2><p>Figures open their evidence record. Reliability meters run from .70 to 1.00.</p></div>
         <div id="finder-guidance"></div>
