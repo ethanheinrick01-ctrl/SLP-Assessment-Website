@@ -147,14 +147,15 @@ function renderAtlas() {
   const visible = new Set(visibleTests().map(t => t.id));
   // Narrow screens: names sit flush left in a column no wider than the longest ID; the plot keeps a readable width and swipes sideways.
   const uiFont = getComputedStyle(document.documentElement).getPropertyValue("--f-ui").trim() || "sans-serif";
-  const labelFont = narrow ? `800 13px ${uiFont}` : `800 14px ${uiFont}`;
+  const labelFont = narrow ? `800 14px ${uiFont}` : `800 15px ${uiFont}`;
+  const scopeFont = `500 13px ${uiFont}`;
   const splitId = id => narrow && id.endsWith("-Spanish") ? [id.slice(0, -8), "Spanish"] : [id, null];
   const longest = Math.max(...ordered.map(t => textWidth(splitId(t.id)[0], labelFont)));
   const labelW = narrow ? Math.ceil(longest) + 12 : 262;
   const MIN_PLOT = 520, gap = 4;
   const plotW = narrow ? Math.max(width - labelW - gap, MIN_PLOT) : width - labelW - gap;
   const scrolls = plotW > width - labelW - gap;
-  const rowH = narrow ? 28 : 38, hasRefs = !!(layer.refs && layer.refs.length);
+  const rowH = narrow ? 32 : 38, hasRefs = !!(layer.refs && layer.refs.length);
   const headH = state.layer === "age" ? 30 : hasRefs ? 24 : 0, axisH = 30, pad = 6, bodyH = ordered.length * rowH + pad * 2;
   const clamp = v => layer.domain ? Math.min(layer.domain[1], Math.max(layer.domain[0], v)) : v;
   const X = v => layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW;
@@ -190,9 +191,11 @@ function renderAtlas() {
     });
     if (!marks.length) m = `<text class="cap none" x="8" y="${cy + 4}">not reported in checked sources</text>`;
     const scope = t.scope.split(" · ")[0];
-    const scopeShort = scope.length > 36 ? scope.slice(0, 35).trimEnd() + "…" : scope;
+    let scopeShort = scope;
+    while (scopeShort.length && textWidth(scopeShort + (scopeShort === scope ? "" : "…"), scopeFont) > labelW - 20) scopeShort = scopeShort.slice(0, -1).trimEnd();
+    if (scopeShort !== scope) scopeShort += "…";
     const label = narrow
-      ? (() => { const [base, sub] = splitId(t.id); return sub ? `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy - 2}">${escapeHTML(base)}</text><text class="rowsub ${dim ? "dim" : ""}" x="0" y="${cy + 9}">${sub}</text>` : `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy + 5}">${escapeHTML(t.id)}</text>`; })()
+      ? (() => { const [base, sub] = splitId(t.id); return sub ? `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy - 3}">${escapeHTML(base)}</text><text class="rowsub ${dim ? "dim" : ""}" x="0" y="${cy + 11}">${sub}</text>` : `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy + 5}">${escapeHTML(t.id)}</text>`; })()
       : `<circle class="swatch" cx="${labelW - 3}" cy="${cy}" r="4" fill="var(--test-color)"/><text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy - 3}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy + 12}" text-anchor="end">${escapeHTML(scopeShort)}</text>`;
     const attrs = `data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"`;
     labels += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${labelW}" height="${rowH}"/>${label}</g>`;
