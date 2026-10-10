@@ -59,8 +59,9 @@ function figureHTML(test, key, label, opts = {}) {
   const s = String(raw ?? "").trim();
   let big = null, note = "", meter = "", na = false, range = false;
   if (opts.kind === "coef") {
-    const r = coefficientRange(raw), above = /^(above|over|exceed|>)/i.test(s);
-    if (r) {
+    const r = coefficientRange(raw), above = /^(above|over|exceed|>)/i.test(s), agree = !r && s.match(/^(\d{2,3})\s?%\s+agreement/i);
+    if (agree) { big = `${agree[1]}%`; note = qualifier(s.replace(/^\d{2,3}\s?%\s+agreement\s*/i, "agreement · "), null); }
+    else if (r) {
       big = r.min === r.max ? (above ? `>\u2009${fmtCoef(r.max)}` : fmtCoef(r.max)) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`;
       note = qualifier(above ? s.replace(/^(above|over|exceeds?)\s*\.?\d+\s*/i, "") : raw, above ? null : big).replace(/^(across|for|per)\b/i, m => m.toLowerCase());
       const lo = Math.max(0, (r.min - .7) / .3 * 100), hi = Math.min(100, (r.max - .7) / .3 * 100);
@@ -80,7 +81,7 @@ function figureHTML(test, key, label, opts = {}) {
       else { const lo = opts.kind === "sens" ? p.sensLo : p.specLo, hi = opts.kind === "sens" ? p.sensHi : p.specHi; big = pctText(lo, hi); meter = pctMeter(lo, hi); if (hi > lo) range = true; }
       note = [cutoffNote(raw), test.accuracyFlag].filter(Boolean).join(" · ");
     } else if (/^not applicable/i.test(s)) { big = "n/a"; na = true; note = qualifier(s.replace(/^not applicable\s*[·:—–-]*\s*/i, ""), null); }
-    else note = qualifier(raw, null);
+    else note = /not (reported|verified|confirmed|specified|supplied)/i.test(s) ? "not reported publicly" : qualifier(raw, null);
   } else if (opts.kind === "cutoff") { const c = cutoffScore(test); big = c != null ? `SS ${c}` : null; note = c != null ? `standard score · M = 100, SD = 15` : qualifier(test.accuracyContext, null); }
   else if (key === "age" && test.ageMin != null) ({big, note} = ageFigure(test, s));
   else if (key === "time") ({big, note} = timeFigure(s));

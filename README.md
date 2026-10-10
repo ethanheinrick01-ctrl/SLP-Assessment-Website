@@ -4,8 +4,8 @@ A local website for speech-language pathology assessment research, comparison, a
 
 ## What is included
 
-- 20 assessment profiles covering language, early language, speech and apraxia, Spanish editions, adult communication, and fluency.
-- 335 structured evidence records, 104 linked publisher/research/review sources, and seven ASHA guidance areas.
+- 25 assessment profiles covering language, early language, speech and apraxia, Spanish editions, adult communication, and fluency.
+- 398 structured evidence records, 122 linked publisher/research/review sources, and seven ASHA guidance areas.
 - The Atlas: enter a client's age and the chart shows which assessments cover it; filter by clinical area, purpose, time, family, or search. Dimmed bars stay visible so coverage gaps are obvious.
 - A saved shortlist and a side-by-side comparison that puts both tests' reliability and accuracy on the same scales.
 - Light and dark themes (toggle in the header; follows the system by default).

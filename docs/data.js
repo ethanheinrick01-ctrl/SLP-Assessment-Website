@@ -7,6 +7,7 @@ const DOMAINS = [
   ["expressive", "Expressive language"],
   ["vocabulary", "Vocabulary"],
   ["phonology", "Phonology"],
+  ["phonological-awareness", "Phonological awareness"],
   ["apraxia", "Motor speech / apraxia"],
   ["developmental", "Early development"],
   ["narrative", "Narrative language"], ["fluency", "Fluency / stuttering"],

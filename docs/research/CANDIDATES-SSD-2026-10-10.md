@@ -1,8 +1,8 @@
 # Candidate assessments from the COMD 4756 Week 6 deck · 10 October 2026
 
-Scope: every instrument named in the "Assessment of Speech Sound Disorders" slides that is not already on the site (Arizona-4, CAAP-2, GFTA-3, KLPA-3 and KSPT are already profiled; KLPA-2 is the superseded edition of KLPA-3). Nothing below has been added to the site. The question answered here is whether enough public, citable evidence exists to fill the sheet's priority columns (sensitivity, specificity, internal consistency, test–retest, then age, time, norm sample) to the site's standard: every figure with a source record. Retailer-hosted publisher text is marked as such; it must be confirmed against the examiner's manual before an LSU sign-off.
+Scope: every instrument named in the "Assessment of Speech Sound Disorders" slides that was not already on the site (Arizona-4, CAAP-2, GFTA-3, KLPA-3 and KSPT were already profiled; KLPA-2 is the superseded edition of KLPA-3). **Update, later on 10 October 2026:** the five Group A instruments below were added to the site with full evidence records (63 records, 16 sources); Groups B and C remain unadded. The question answered here is whether enough public, citable evidence exists to fill the sheet's priority columns (sensitivity, specificity, internal consistency, test–retest, then age, time, norm sample) to the site's standard: every figure with a source record. Retailer-hosted publisher text is marked as such; it must be confirmed against the examiner's manual before an LSU sign-off.
 
-## A. Ready to add (figures exist for the priority columns)
+## A. Added on 10 October 2026 (figures exist for the priority columns)
 
 | Test | Publisher · year | Ages · time | Norms | Reliability | Accuracy | Sources |
 | --- | --- | --- | --- | --- | --- | --- |

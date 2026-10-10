@@ -173,7 +173,7 @@ button.fig-value:hover { color: var(--accent); border-bottom-color: var(--accent
 .fig-value.na { color: var(--ink-2); font-weight: 700; letter-spacing: 0; }
 .meter > i.range { opacity: .42; }
 .meter-slot { height: 0; }
-.fig-note { font-size: 12.5px; line-height: 1.4; color: var(--ink-2); }
+.fig-note { font-size: 12.5px; line-height: 1.4; color: var(--ink-2); overflow-wrap: anywhere; }
 .fig-note.full { display: block; }
 .meter { position: relative; height: 6px; margin: 8px 0 4px; border-radius: 3px; background: var(--track); overflow: hidden; }
 .meter > i { position: absolute; top: 0; bottom: 0; border-radius: 3px; background: var(--meter-fill); min-width: 6px; }
@@ -515,7 +515,9 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   .sheet-cols span { font-size: 11.5px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
   .spec { grid-template-columns: var(--sheet-grid); grid-template-rows: 0 32px 18px auto; gap: 0 12px; padding: 22px 22px 22px 26px; }
   .spec-id, .spec-side { grid-row: 1 / -1; }
-  .spec .fig { display: grid; grid-template-rows: subgrid; grid-row: 1 / -1; gap: 0; }
+  .spec .fig { display: grid; grid-template-rows: subgrid; grid-row: 1 / -1; gap: 0; min-width: 0; overflow: hidden; }
+  .spec .fig > * { min-width: 0; max-width: 100%; }
+  .spec .fig .fig-note { overflow-wrap: anywhere; hyphens: auto; }
   .spec .fig .label { display: none; }
   .spec .fig .fig-value { grid-row: 2; align-self: end; font-size: clamp(20px, 1.78vw, 26px); white-space: nowrap; overflow-wrap: normal; }
   .spec .fig .fig-value.range { font-size: clamp(17px, 1.52vw, 22px); }

@@ -5783,6 +5783,1475 @@
           "note": "Translated edition. The authors conclude trained SLPs can use it reliably but not to document small changes in severity, echoing the English rater-agreement findings."
         }
       ]
+    },
+    {
+      "id": "BBTOP-2",
+      "name": "Bankson-Bernthal Test of Phonology, Second Edition",
+      "scope": "Consonant articulation and phonological error patterns",
+      "domains": [
+        "speech-sound",
+        "phonology"
+      ],
+      "purposes": [
+        "diagnostic",
+        "comprehensive"
+      ],
+      "ageMin": 36,
+      "ageMax": 119,
+      "age": "3:0–9:11",
+      "timeMin": 15,
+      "timeMax": 20,
+      "time": "15–20 min",
+      "focus": "A Word Inventory of consonant production and an Error Pattern Assessment of phonological processes from the same single-word productions, to decide whether a speech sound disorder is present and describe it.",
+      "reliability": "Word Inventory α .97 · retest .87 / .88",
+      "internal": ".97 · Word Inventory",
+      "retest": ".87–.88 · Consonant Articulation Inventory .87 · Error Pattern Assessment .88",
+      "rater": "Not reported in the checked publisher text",
+      "overall": "See method-specific estimates",
+      "accuracy": "81% sensitivity / 82% specificity at cutoff 90 · Word Inventory · AUC .89",
+      "accuracyContext": "PRO-ED reports a diagnostic accuracy study: a Word Inventory cutoff score of 90 separated children with speech sound disorders from children without, with sensitivity .81, specificity .82 and ROC/AUC .89. The validation sample size and base rate are not published on the page.",
+      "norms": "N = 770 · 33 states · 248 zip codes",
+      "author": "Nicholas W. Bankson · John E. Bernthal",
+      "publisher": "PRO-ED",
+      "edition": "Second edition · ©2020",
+      "administration": "Individual. The Word Inventory elicits consonants in single words; the Error Pattern Assessment scores phonological processes from the same productions.",
+      "materials": "Examiner's manual, picture book and record forms.",
+      "qualification": "Purchase level not confirmed in the checked product text.",
+      "language": "English; General American English targets. Item bias studies reported little or no bias by gender, race or ethnicity.",
+      "population": "Children 3:0–9:11 with suspected articulation or phonological disorders.",
+      "response": "Name pictures in single words; the examiner transcribes consonants and scores error patterns.",
+      "limit": "Single-word elicitation: connected-speech intelligibility and stimulability need separate sampling. The accuracy figures come from the publisher's own study with no published sample size.",
+      "evidence": "Publisher product page checked October 10, 2026.",
+      "sources": [
+        {
+          "id": "BBTOP-2-P1",
+          "label": "PRO-ED · BBTOP-2 product page",
+          "type": "publisher",
+          "url": "https://www.proedinc.com/Products/14855/bbtop2-banksonbernthal-test-of-phonologysecond-edition.aspx",
+          "published_on": "2020",
+          "access": "public",
+          "locator": "Description; reliability and validity paragraphs"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "3:0–9:11",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Ages: 3-0 through 9-11",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "15–20 min",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Testing Time: 15 to 20 minutes",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessed construct",
+          "value": "Consonant articulation and phonological error patterns",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": ".97 · Word Inventory",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": "Internal consistency reliability coefficient (method not named on the page)",
+          "subtest": "Word Inventory",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Only the Word Inventory coefficient is published; Error Pattern Assessment internal consistency is not stated."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".87–.88 · Consonant Articulation Inventory .87 · Error Pattern Assessment .88",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": "Test–retest reliability coefficients; interval and sample not stated",
+          "subtest": "Consonant Articulation Inventory .87; Error Pattern Assessment .88",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Retest interval and n require the manual."
+        },
+        {
+          "key": "rater",
+          "label": "Interrater scoring",
+          "value": "Not reported in the checked publisher text",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Interrater or interscorer agreement is not quoted on the product page."
+        },
+        {
+          "key": "overall",
+          "label": "Total-score reliability",
+          "value": "See method-specific estimates",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "No single total-score coefficient; see the method-specific estimates."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "81% sensitivity / 82% specificity at cutoff 90 · Word Inventory · AUC .89",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": "Publisher diagnostic accuracy study: children with vs without speech sound disorders, ROC analysis",
+          "subtest": "Word Inventory standard score",
+          "population": "Children with and without speech sound disorders (sizes not stated)",
+          "sample_size": null,
+          "cutoff": "Word Inventory standard score 90",
+          "locator": "Validity paragraph: 'a Word Inventory cutoff score of 90 resulted in a sensitivity of .81, a specificity of .82, and a ROC/AUC of .89'",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Sample sizes, base rate and the reference standard for 'speech-sound disorder' are not published on the page."
+        },
+        {
+          "key": "norms",
+          "label": "Standardization",
+          "value": "N = 770 · 33 states · 248 zip codes",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "U.S. children, 33 states",
+          "sample_size": 770,
+          "cutoff": null,
+          "locator": "Standardization paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Demographic stratification and collection dates are not stated on the page."
+        },
+        {
+          "key": "population",
+          "label": "Clinical population",
+          "value": "Children 3:0–9:11 with suspected articulation or phonological disorders.",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Name pictures in single words; the examiner transcribes consonants and scores error patterns.",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretation limits",
+          "value": "Single-word elicitation: connected-speech intelligibility and stimulability need separate sampling. The accuracy figures come from the publisher's own study with no published sample size.",
+          "source_ids": [
+            "BBTOP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description; validity paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Standard limitation of single-word articulation tests; not a publisher claim."
+        }
+      ]
+    },
+    {
+      "id": "GDAP",
+      "name": "Glaspey Dynamic Assessment of Phonology",
+      "scope": "Dynamic assessment of phoneme learning potential",
+      "domains": [
+        "phonology",
+        "speech-sound"
+      ],
+      "purposes": [
+        "diagnostic",
+        "supplemental"
+      ],
+      "ageMin": 36,
+      "ageMax": 131,
+      "age": "3:0–10:11",
+      "timeMin": null,
+      "timeMax": null,
+      "time": "2–3 min per phoneme target · total depends on the targets selected",
+      "focus": "Scores how much cueing a child needs to produce each sound class, giving a learning-potential profile for treatment-target selection alongside a standard score.",
+      "reliability": "α .71–.93 sound classes · .95 overall · retest .98–.99",
+      "internal": ".71–.95 · α .71–.93 sound classes · .95 overall score",
+      "retest": ".98–.99 · sound class and overall scores",
+      "rater": "Not reported in the checked listings",
+      "overall": "Overall score α .95",
+      "accuracy": "77% sensitivity / 80% specificity at cutoff 90 · Overall standard score · AUC .88",
+      "accuracyContext": "Publisher text hosted on retailer listings: an Overall standard-score cutoff of 90 yielded sensitivity .77, specificity .80 and AUC .88, and children with speech sound disorders scored significantly lower than demographically matched peers. Sample sizes for the accuracy study are not stated.",
+      "norms": "N = 880 · ages 3:0–10:11 · representative sample",
+      "author": "Amy M. Glaspey",
+      "publisher": "Academic Therapy Publications",
+      "edition": "2019 kit (Buros listing) · dynamic-assessment method developed from 2006",
+      "administration": "Individual. Each phoneme target is probed through a cueing hierarchy and scored by the level of support needed; computer-assisted administration is available.",
+      "materials": "Manual, stimulus materials and record forms; optional computer-assisted scoring.",
+      "qualification": "Not stated in the checked listings.",
+      "language": "English.",
+      "population": "Children 3:0–10:11 with speech sound disorders, especially when choosing treatment targets.",
+      "response": "Produce target sounds under increasing cueing (models, segmentation, tactile cues).",
+      "limit": "All coefficients come from publisher text on retailer pages; the manual was not read. Dynamic scores describe learning potential, not a conventional error inventory.",
+      "evidence": "Retailer-hosted publisher text and Buros listing checked October 10, 2026.",
+      "sources": [
+        {
+          "id": "GDAP-P1",
+          "label": "Therapro listing · GDAP (publisher text)",
+          "type": "publisher",
+          "url": "https://www.therapro.com/Glaspey-Dynamic-Assessment-of-Phonology-GDAP.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product description: norms, reliability, validity"
+        },
+        {
+          "id": "GDAP-P2",
+          "label": "Pro-Ed Australia listing · GDAP (publisher text)",
+          "type": "publisher",
+          "url": "https://www.proedaust.com.au/glaspey-dynamic-assessment-of-phonology-gdap",
+          "published_on": null,
+          "access": "public",
+          "locator": "Product description: norms, reliability, validity"
+        },
+        {
+          "id": "GDAP-R1",
+          "label": "Buros Center · GDAP review listing (21st Mental Measurements Yearbook)",
+          "type": "review",
+          "url": "https://marketplace.unl.edu/buros/glaspey-dynamic-assessment-of-phonology.html",
+          "published_on": "2019",
+          "access": "public listing · review for purchase",
+          "locator": "Purpose; publication date 2019; publisher"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "3:0–10:11",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Ages: 3 through 10; normed 3.0 through 10.11",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "2–3 min per phoneme target · total depends on the targets selected",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Testing Time: 2-3 minutes/phoneme",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "No full-administration time is published; numeric time fields are left empty so the time filter does not misrepresent a per-target figure."
+        },
+        {
+          "key": "scope",
+          "label": "Assessed construct",
+          "value": "Dynamic assessment of phoneme learning potential",
+          "source_ids": [
+            "GDAP-R1",
+            "GDAP-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Buros purpose statement; description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": ".71–.95 · α .71–.93 sound classes · .95 overall score",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": "Cronbach's alpha",
+          "subtest": "Sound Class scores .71–.93; Overall score .95",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Reliability sample sizes are not stated."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": ".98–.99 · sound class and overall scores",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": "Test–retest correlations; interval and sample not stated",
+          "subtest": "Sound Class and Overall scores",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "rater",
+          "label": "Interrater scoring",
+          "value": "Not reported in the checked listings",
+          "source_ids": [
+            "GDAP-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Only computer-versus-paper agreement is published (see additional evidence)."
+        },
+        {
+          "key": "overall",
+          "label": "Total-score reliability",
+          "value": "Overall score α .95",
+          "source_ids": [
+            "GDAP-P1"
+          ],
+          "method": "Cronbach's alpha",
+          "subtest": "Overall score",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "77% sensitivity / 80% specificity at cutoff 90 · Overall standard score · AUC .88",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": "ROC analysis, children with speech sound disorders vs demographically matched peers",
+          "subtest": "Overall standard score",
+          "population": null,
+          "sample_size": null,
+          "cutoff": "Overall standard score 90",
+          "locator": "Validity paragraph: 'A cut-off Overall standard score of 90 yielded a specificity of 0.80, sensitivity of 0.77, and an AUC of 0.88'",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Group sizes and reference standard are not stated; confirm in the manual."
+        },
+        {
+          "key": "norms",
+          "label": "Standardization",
+          "value": "N = 880 · ages 3:0–10:11 · representative sample",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "Children 3:0–10:11, described as representative",
+          "sample_size": 880,
+          "cutoff": null,
+          "locator": "Standardization sentence",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Stratification variables and collection years are not stated."
+        },
+        {
+          "key": "population",
+          "label": "Clinical population",
+          "value": "Children 3:0–10:11 with speech sound disorders, especially when choosing treatment targets.",
+          "source_ids": [
+            "GDAP-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Produce target sounds under increasing cueing (models, segmentation, tactile cues).",
+          "source_ids": [
+            "GDAP-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretation limits",
+          "value": "All coefficients come from publisher text on retailer pages; the manual was not read. Dynamic scores describe learning potential, not a conventional error inventory.",
+          "source_ids": [
+            "GDAP-P1",
+            "GDAP-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description; Buros purpose",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "mode-agreement",
+          "label": "Computer vs paper administration",
+          "value": "r .94–.99 between computer-assisted and paper-based administrations",
+          "source_ids": [
+            "GDAP-P1"
+          ],
+          "method": "Correlation between administration modes",
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Mode agreement, not interrater reliability."
+        }
+      ]
+    },
+    {
+      "id": "DEMSS",
+      "name": "Dynamic Evaluation of Motor Speech Skill",
+      "scope": "Dynamic motor speech assessment for suspected CAS",
+      "domains": [
+        "apraxia",
+        "speech-sound"
+      ],
+      "purposes": [
+        "diagnostic"
+      ],
+      "ageMin": 36,
+      "ageMax": 79,
+      "age": "3:0–6:7 validated · manual: 3 years and older",
+      "timeMin": 30,
+      "timeMax": 30,
+      "time": "30 min or less",
+      "focus": "Utterances of increasing length and complexity are imitated with cueing and scored on articulatory accuracy, vowels, prosody and consistency, to support differential diagnosis of childhood apraxia of speech in children with severe speech sound disorders.",
+      "reliability": "Agreement: test–retest 89% · intrajudge 89% · interjudge 91%",
+      "internal": "Not reported · criterion-referenced instrument",
+      "retest": "89% agreement · test–retest · 171 judgments · subset of n81",
+      "rater": "91% interjudge · 89% intrajudge agreement",
+      "overall": "No coefficient; percent agreement reported",
+      "accuracy": "Not reported publicly · sensitivity and specificity sit in the 2013 validation tables",
+      "accuracyContext": "Strand et al. (2013): sensitivity, specificity and likelihood ratios 'suggested that the DEMSS does not overdiagnose CAS but sometimes fails to identify children with CAS'. Secondary summaries restate 65% sensitivity and 97% specificity (AUC .93), but neither full text could be opened, so the pair is not displayed.",
+      "norms": "Criterion-referenced · no normative sample · validation n81 referred children",
+      "author": "Edythe A. Strand · Rebecca J. McCauley",
+      "publisher": "Paul H. Brookes Publishing",
+      "edition": "2019 manual · Mayo Foundation © 2019",
+      "administration": "Individual, clinician-led direct imitation with cueing; 30 minutes or less.",
+      "materials": "Manual with printable response forms; no picture stimuli. Brookes offers training.",
+      "qualification": "Speech-language pathologists trained in the DEMSS procedure.",
+      "language": "English.",
+      "population": "Children 3 years and older with severe speech sound disorders in whom CAS is suspected; not designed for dysarthria differential diagnosis.",
+      "response": "Imitate words and phrases directly; the examiner cues and rescores each attempt.",
+      "limit": "Standardized but not normed: scores are criterion-referenced cutoffs, not standard scores. The validation sample excluded dysarthria, hearing loss, autism and non-native English speakers, and the manual says it is not intended under age 3.",
+      "evidence": "Peer-reviewed validation, publisher page and manual excerpt checked October 10, 2026.",
+      "sources": [
+        {
+          "id": "DEMSS-R1",
+          "label": "Strand, McCauley, Weigand, Stoeckel & Baas (2013) · A motor speech assessment for children with severe speech disorders · JSLHR 56(2), 505–520",
+          "type": "research",
+          "url": "https://doi.org/10.1044/1092-4388(2012/12-0094)",
+          "published_on": "2013-04",
+          "access": "abstract public (PMID 23275421) · full text subscription",
+          "locator": "Abstract: Method, Results"
+        },
+        {
+          "id": "DEMSS-P1",
+          "label": "Brookes Publishing · DEMSS product page",
+          "type": "publisher",
+          "url": "https://brookespublishing.com/product/demss/",
+          "published_on": null,
+          "access": "public",
+          "locator": "At-a-glance: ages 3+, 30 minutes or less; developers"
+        },
+        {
+          "id": "DEMSS-P2",
+          "label": "Brookes Publishing · DEMSS manual excerpt (front matter and Chapter 1)",
+          "type": "manual",
+          "url": "https://brookespublishing.com/wp-content/uploads/2021/01/DEMSS_excerpt-1.pdf",
+          "published_on": "2019",
+          "access": "public excerpt",
+          "locator": "Chapter 1: intended population; 'standardized, although not normed'; criterion referenced"
+        },
+        {
+          "id": "DEMSS-R2",
+          "label": "Karamete & Toğram (2025) · Turkish DEMSS-TR validity and reliability · IJLCD 60(4), e70067",
+          "type": "research",
+          "url": "https://doi.org/10.1111/1460-6984.70067",
+          "published_on": "2025",
+          "access": "abstract public (PMID 40583607)",
+          "locator": "Abstract: Results"
+        },
+        {
+          "id": "DEMSS-R3",
+          "label": "Murray, Iuzzini-Seigel, Maas, Terband & Ballard (2021) · Differential diagnosis of CAS: systematic review · AJSLP 30(1), 279–300",
+          "type": "research",
+          "url": "https://doi.org/10.1044/2020_AJSLP-20-00063",
+          "published_on": "2021-02",
+          "access": "abstract public (PMID 33151751) · supplemental tables open (figshare)",
+          "locator": "Supplemental S1: Strand et al. 2013 study description"
+        },
+        {
+          "id": "DEMSS-R4",
+          "label": "Wong ECH, Karamete A, Noyan-Erbaş A. (2026) · Assessment and Diagnostic Standards of Childhood Apraxia of Speech in Turkish-Speaking Children: A Scoping Review. · International journal of language & communication disorders",
+          "type": "research",
+          "url": "https://doi.org/10.1111/1460-6984.70336",
+          "published_on": "2026",
+          "access": "public (PMC13575839)",
+          "locator": "Section 1.1 and discussion: DEMSS-TR cut-off 375"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "3:0–6:7 validated · manual: 3 years and older",
+          "source_ids": [
+            "DEMSS-P1",
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product page 'Children ages 3+'; manual Chapter 1; validation sample 36–79 months",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The numeric range uses the validated 36–79 months; the manual states 3 years and older with no upper bound. Confirm suitability above 6:7 against the manual."
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "30 min or less",
+          "source_ids": [
+            "DEMSS-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Time Commitment: 30 minutes or less",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessed construct",
+          "value": "Dynamic motor speech assessment for suspected CAS",
+          "source_ids": [
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Chapter 1; abstract Purpose",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Not reported · criterion-referenced instrument",
+          "source_ids": [
+            "DEMSS-R1",
+            "DEMSS-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract; Chapter 1",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Criterion-referenced dynamic scores; no internal consistency coefficient in the abstract or excerpt (the Turkish adaptation reports α > .90)."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "89% agreement · test–retest · 171 judgments · subset of n81",
+          "source_ids": [
+            "DEMSS-R1"
+          ],
+          "method": "Mean percentage agreement for 171 judgments, test–retest on a subset of participants",
+          "subtest": null,
+          "population": "Subset of 81 referred children, 36–79 months",
+          "sample_size": "171 judgments · subset of n81",
+          "cutoff": null,
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Percent agreement, not a correlation; interval not stated in the abstract."
+        },
+        {
+          "key": "rater",
+          "label": "Interrater scoring",
+          "value": "91% interjudge · 89% intrajudge agreement",
+          "source_ids": [
+            "DEMSS-R1"
+          ],
+          "method": "Mean percentage agreement for 171 judgments",
+          "subtest": null,
+          "population": null,
+          "sample_size": "171 judgments",
+          "cutoff": null,
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "overall",
+          "label": "Total-score reliability",
+          "value": "No coefficient; percent agreement reported",
+          "source_ids": [
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Reliability is reported as percent agreement for judgments, not as a total-score coefficient."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "Not reported publicly · sensitivity and specificity sit in the 2013 validation tables",
+          "source_ids": [
+            "DEMSS-R1",
+            "DEMSS-R3"
+          ],
+          "method": "Sensitivity, specificity and likelihood ratios against clinical diagnosis; agglomerative cluster analysis",
+          "subtest": null,
+          "population": "81 children 36–79 months referred to the Mayo Clinic for speech sound disorder diagnosis",
+          "sample_size": 81,
+          "cutoff": null,
+          "locator": "Abstract: Results; Murray et al. 2021 supplemental S1",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Values are in the paper's tables (subscription). Secondary summaries restate 65% sensitivity, 97% specificity and AUC .93; they could not be opened here and are therefore not displayed as figures."
+        },
+        {
+          "key": "norms",
+          "label": "Standardization",
+          "value": "Criterion-referenced · no normative sample · validation n81 referred children",
+          "source_ids": [
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Chapter 1: 'standardized, although not normed'; abstract Method",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The n81 validation sample is not a normative sample."
+        },
+        {
+          "key": "population",
+          "label": "Clinical population",
+          "value": "Children 3 years and older with severe speech sound disorders in whom CAS is suspected; not designed for dysarthria differential diagnosis.",
+          "source_ids": [
+            "DEMSS-P1",
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Product page; Chapter 1; abstract Method",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Imitate words and phrases directly; the examiner cues and rescores each attempt.",
+          "source_ids": [
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Chapter 1",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretation limits",
+          "value": "Standardized but not normed: scores are criterion-referenced cutoffs, not standard scores. The validation sample excluded dysarthria, hearing loss, autism and non-native English speakers, and the manual says it is not intended under age 3.",
+          "source_ids": [
+            "DEMSS-P2",
+            "DEMSS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Chapter 1; Murray et al. supplemental S1 exclusion criteria",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "translation-study",
+          "label": "Turkish adaptation (DEMSS-TR)",
+          "value": "α > .90 · test–retest .82–.99 · inter- and intra-rater > .90 · total-score cut-off 375: 93% sensitivity / 96% specificity · 82 children 3:0–6:11 (2025)",
+          "source_ids": [
+            "DEMSS-R2",
+            "DEMSS-R4"
+          ],
+          "method": "Adaptation with internal consistency, retest, rater reliability, cluster analysis and ROC analysis",
+          "subtest": null,
+          "population": "Monolingual Turkish-speaking children with speech sound disorders",
+          "sample_size": 82,
+          "cutoff": "Total score 375",
+          "locator": "Abstract: Results; 2026 paper section 1.1",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Translated edition; the cut-off and accuracy belong to the Turkish version, not the English DEMSS."
+        }
+      ]
+    },
+    {
+      "id": "ICS",
+      "name": "Intelligibility in Context Scale",
+      "scope": "Parent-rated functional intelligibility",
+      "domains": [
+        "speech-sound"
+      ],
+      "purposes": [
+        "impact",
+        "supplemental"
+      ],
+      "ageMin": 48,
+      "ageMax": 65,
+      "age": "4:0–5:5 English norms · used from 3 years in validation studies",
+      "timeMin": null,
+      "timeMax": null,
+      "time": "7-item parent questionnaire · completion time not stated",
+      "focus": "Seven questions ask a parent how well the child is understood by partners from parents to strangers on a 1–5 scale; the mean score tracks severity and participation.",
+      "reliability": "α .94 (n803 norm study) · α .93 (original)",
+      "internal": ".93–.94 · α · 2012 original (n120) and 2015 norm study (n803)",
+      "retest": "Established in 184 children with SSD · coefficient not in the abstract",
+      "rater": "Single parent respondent · interrater not applicable",
+      "overall": "See internal consistency",
+      "accuracy": "82% sensitivity / 58% specificity · optimal cutoff against parental concern · n803",
+      "accuracyContext": "McLeod, Crowe & Shahaeian (2015): in 803 Australian 4- to 5-year-olds the optimal ICS cutoff gave sensitivity .82 and specificity .58 against parent-reported concern about speech; criterion correlations with DEAP percent-correct measures were low (r .24–.30). Translated versions report higher pairs (European Portuguese .80 / .84 at cutoff 4.36).",
+      "accuracyFlag": "vs parental concern · Australian norms",
+      "norms": "N = 803 · Australian English-speaking children 4:0–5:5 · 37% multilingual",
+      "author": "Sharynne McLeod · Linda J. Harrison · Jane McCormack",
+      "publisher": "Charles Sturt University · free download",
+      "edition": "2012 · translations in 60+ languages",
+      "administration": "A parent or caregiver completes the seven ratings; the clinician averages them (1 never to 5 always understood).",
+      "materials": "One-page form; free, with Creative Commons licensed translations.",
+      "qualification": "None to administer; interpretation by a speech-language pathologist.",
+      "language": "English original; validated translations include Cantonese, Vietnamese, Jamaican Creole, European and Brazilian Portuguese, Dutch, Swedish and Italian.",
+      "population": "Preschool children with or without speech sound disorder; cross-linguistic use.",
+      "response": "The parent rates seven communication partners; there is no child task.",
+      "limit": "A subjective participation measure, not a measure of speech accuracy: correlations with percent consonants correct are modest and specificity at the optimal cutoff is .58, so it screens for concern rather than diagnosing a speech sound disorder.",
+      "evidence": "Peer-reviewed validation and norm studies checked October 10, 2026.",
+      "sources": [
+        {
+          "id": "ICS-R1",
+          "label": "McLeod, Harrison & McCormack (2012) · The Intelligibility in Context Scale: validity and reliability · JSLHR 55(2), 648–656",
+          "type": "research",
+          "url": "https://doi.org/10.1044/1092-4388(2011/10-0130)",
+          "published_on": "2012-04",
+          "access": "abstract public (PMID 22215036) · full text subscription",
+          "locator": "Abstract: Method, Results"
+        },
+        {
+          "id": "ICS-R2",
+          "label": "McLeod, Crowe & Shahaeian (2015) · ICS normative and validation data for English-speaking preschoolers · LSHSS 46(3), 266–276",
+          "type": "research",
+          "url": "https://doi.org/10.1044/2015_LSHSS-14-0120",
+          "published_on": "2015-07",
+          "access": "abstract public (PMID 25934948) · full text subscription",
+          "locator": "Abstract: Method, Results"
+        },
+        {
+          "id": "ICS-P1",
+          "label": "Charles Sturt University · Intelligibility in Context Scale download page",
+          "type": "publisher",
+          "url": "https://www.csu.edu.au/research/multilingual-speech/ics",
+          "published_on": null,
+          "access": "public",
+          "locator": "Scale description; free downloads; translations"
+        },
+        {
+          "id": "ICS-R3",
+          "label": "Lousada et al. (2019) · European-Portuguese ICS validity and reliability · Clinical Linguistics & Phonetics 33(12), 1125–1138",
+          "type": "research",
+          "url": "https://doi.org/10.1080/02699206.2019.1589579",
+          "published_on": "2019",
+          "access": "abstract public (PMID 30966829)",
+          "locator": "Abstract: Results"
+        },
+        {
+          "id": "ICS-R4",
+          "label": "Ng, To & McLeod (2014) · ICS as a screening tool for preschoolers in Hong Kong · Clinical Linguistics & Phonetics 28(5), 316–328",
+          "type": "research",
+          "url": "https://doi.org/10.3109/02699206.2013.865789",
+          "published_on": "2014",
+          "access": "abstract public (PMID 24456479)",
+          "locator": "Abstract: Results"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "4:0–5:5 English norms · used from 3 years in validation studies",
+          "source_ids": [
+            "ICS-R2",
+            "ICS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "2015 abstract: 4;0 to 5;5; 2012 abstract: preschool children",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The numeric range is the English normative study; other studies rate children from about 3 years."
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "7-item parent questionnaire · completion time not stated",
+          "source_ids": [
+            "ICS-R1",
+            "ICS-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract: 7-item parent report",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "No completion time is published in the checked sources; numeric time fields are left empty."
+        },
+        {
+          "key": "scope",
+          "label": "Assessed construct",
+          "value": "Parent-rated functional intelligibility",
+          "source_ids": [
+            "ICS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract: Purpose",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": ".93–.94 · α · 2012 original (n120) and 2015 norm study (n803)",
+          "source_ids": [
+            "ICS-R2",
+            "ICS-R1"
+          ],
+          "method": "Cronbach's alpha",
+          "subtest": null,
+          "population": "803 Australian children (2015); 120 preschoolers, 109 with concern (2012)",
+          "sample_size": "803; 120",
+          "cutoff": null,
+          "locator": "Abstracts: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "Established in 184 children with SSD · coefficient not in the abstract",
+          "source_ids": [
+            "ICS-R2"
+          ],
+          "method": "Test–retest reliability established in children with speech sound disorder",
+          "subtest": null,
+          "population": null,
+          "sample_size": 184,
+          "cutoff": null,
+          "locator": "2015 abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "The abstract states retest reliability was established for 184 children with SSD without giving the coefficient or interval."
+        },
+        {
+          "key": "rater",
+          "label": "Interrater scoring",
+          "value": "Single parent respondent · interrater not applicable",
+          "source_ids": [
+            "ICS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract: Method",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "A single parent rates the child; the Jamaican Creole validation reports high interrater and retest reliability between parents."
+        },
+        {
+          "key": "overall",
+          "label": "Total-score reliability",
+          "value": "See internal consistency",
+          "source_ids": [
+            "ICS-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Internal consistency is the only overall reliability figure."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "82% sensitivity / 58% specificity · optimal cutoff against parental concern · n803",
+          "source_ids": [
+            "ICS-R2"
+          ],
+          "method": "ROC-derived optimal cutoff against parent-reported concern about the child's speech",
+          "subtest": null,
+          "population": "803 Australian English-speaking children 4:0–5:5",
+          "sample_size": 803,
+          "cutoff": "Optimal ICS mean-score cutoff (value not in the abstract)",
+          "locator": "2015 abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The reference standard is parental concern, not a diagnosed speech sound disorder; specificity .58 is low."
+        },
+        {
+          "key": "norms",
+          "label": "Standardization",
+          "value": "N = 803 · Australian English-speaking children 4:0–5:5 · 37% multilingual",
+          "source_ids": [
+            "ICS-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "Australian English-speaking children 4;0–5;5, 37% multilingual",
+          "sample_size": 803,
+          "cutoff": null,
+          "locator": "2015 abstract: Method",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Mean ICS 4.4 (SD 0.7); differences by sex and age, none by socioeconomic status or number of languages."
+        },
+        {
+          "key": "population",
+          "label": "Clinical population",
+          "value": "Preschool children with or without speech sound disorder; cross-linguistic use.",
+          "source_ids": [
+            "ICS-R1",
+            "ICS-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstracts: Method",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "The parent rates seven communication partners; there is no child task.",
+          "source_ids": [
+            "ICS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Abstract: Method",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretation limits",
+          "value": "A subjective participation measure, not a measure of speech accuracy: correlations with percent consonants correct are modest and specificity at the optimal cutoff is .58, so it screens for concern rather than diagnosing a speech sound disorder.",
+          "source_ids": [
+            "ICS-R2",
+            "ICS-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "2015 abstract: criterion correlations r .24–.30; 2012 abstract r .36–.54",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "translation-study",
+          "label": "Translated versions",
+          "value": "European Portuguese: 80% sensitivity / 84% specificity at cutoff 4.36 · α .96 · n76 (2019) · Cantonese: 70% / 59% · d .74 · n72 (2014)",
+          "source_ids": [
+            "ICS-R3",
+            "ICS-R4"
+          ],
+          "method": "ROC analysis against parental concern (Portuguese) or clinical SSD status (Cantonese)",
+          "subtest": null,
+          "population": null,
+          "sample_size": "76; 72",
+          "cutoff": "4.36 (European Portuguese)",
+          "locator": "Abstracts: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Translated editions with their own reference standards; not transferable to the English norms."
+        }
+      ]
+    },
+    {
+      "id": "CTOPP-2",
+      "name": "Comprehensive Test of Phonological Processing, Second Edition",
+      "scope": "Phonological awareness, memory and rapid naming",
+      "domains": [
+        "phonological-awareness"
+      ],
+      "purposes": [
+        "diagnostic",
+        "comprehensive"
+      ],
+      "ageMin": 48,
+      "ageMax": 299,
+      "age": "4:0–24:11",
+      "timeMin": 40,
+      "timeMax": 40,
+      "time": "40 min",
+      "focus": "Subtests of blending, elision, sound matching, memory for digits, nonword repetition and rapid naming yield Phonological Awareness, Phonological Memory and Rapid Naming composites that identify weaknesses underlying reading and spelling.",
+      "reliability": "Composites α ≥ .85 · subtests > .80 (Nonword Repetition .77)",
+      "internal": "Composites .85 or higher · subtest α above .80 except Nonword Repetition .77",
+      "retest": "Not reported in the checked publisher pages",
+      "rater": "Not reported in the checked publisher pages",
+      "overall": "See composite estimates",
+      "accuracy": "Not reported in the checked publisher pages",
+      "accuracyContext": "PRO-ED and PAR publish reliability and criterion-validity coefficients (subtests r .49–.84, composites .65–.76 with related measures) but no sensitivity or specificity for identifying phonological processing deficits.",
+      "norms": "N = 1,900 · collected 2008–2009 · U.S. Census representative",
+      "author": "Richard K. Wagner · Joseph K. Torgesen · Carol A. Rashotte · Nils A. Pearson",
+      "publisher": "PRO-ED",
+      "edition": "Second edition · 2013 (first edition 1999)",
+      "administration": "Individual; about 40 minutes. Separate subtest sets for ages 4–6 and 7–24.",
+      "materials": "Examiner's manual, picture book, record booklets and recorded stimuli for the memory and nonword tasks.",
+      "qualification": "Not stated on the checked pages.",
+      "language": "English.",
+      "population": "Children, adolescents and adults 4:0–24:11 referred for reading, spelling or phonological processing concerns.",
+      "response": "Blend, elide and match sounds; repeat digits and nonwords; rapidly name colors, objects, digits and letters.",
+      "limit": "Measures the phonological processing that underlies literacy, not speech sound production; no diagnostic accuracy study is public and test–retest values appear only in secondary reviews.",
+      "evidence": "Publisher product pages checked October 10, 2026.",
+      "sources": [
+        {
+          "id": "CTOPP-2-P1",
+          "label": "PRO-ED · CTOPP-2 product page",
+          "type": "publisher",
+          "url": "https://www.proedinc.com/Products/13080/ctopp2-comprehensive-test-of-phonological-processingsecond-edition.aspx",
+          "published_on": "2013",
+          "access": "public",
+          "locator": "Description; reliability and validity paragraphs"
+        },
+        {
+          "id": "CTOPP-2-P2",
+          "label": "PAR · CTOPP-2 product page",
+          "type": "publisher",
+          "url": "https://www.parinc.com/products/CTOPP-2",
+          "published_on": null,
+          "access": "public",
+          "locator": "Age range; admin time; normative data; reliability; validity"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "4:0–24:11",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Ages: 4-0 through 24-11",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "PRO-ED's normative sentence says 6 through 24 while both pages list the age range from 4; the 4-year-old norms are stated as new to this edition."
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "40 min",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Testing Time: 40 minutes",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "scope",
+          "label": "Assessed construct",
+          "value": "Phonological awareness, memory and rapid naming",
+          "source_ids": [
+            "CTOPP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Composites .85 or higher · subtest α above .80 except Nonword Repetition .77",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": "Average coefficient alpha across age intervals",
+          "subtest": "Subtests above .80 except Nonword Repetition (.77); composites .85 or higher",
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Score-by-age table not reproduced."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "Not reported in the checked publisher pages",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Neither publisher page states test–retest values; a student test review (University of Calgary, 2017) lists .70–.97 for subtests and .78–.95 for composites, unverified here."
+        },
+        {
+          "key": "rater",
+          "label": "Interrater scoring",
+          "value": "Not reported in the checked publisher pages",
+          "source_ids": [
+            "CTOPP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": null
+        },
+        {
+          "key": "overall",
+          "label": "Total-score reliability",
+          "value": "See composite estimates",
+          "source_ids": [
+            "CTOPP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Reliability paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Composite alphas stand in for an overall coefficient."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "Not reported in the checked publisher pages",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Validity paragraph",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "Criterion validity coefficients only: subtests .49–.84, composites .65–.76."
+        },
+        {
+          "key": "norms",
+          "label": "Standardization",
+          "value": "N = 1,900 · collected 2008–2009 · U.S. Census representative",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "U.S. individuals, demographically representative of Census statistics",
+          "sample_size": 1900,
+          "cutoff": null,
+          "locator": "Normative data sentence",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Collected 2008 and 2009."
+        },
+        {
+          "key": "population",
+          "label": "Clinical population",
+          "value": "Children, adolescents and adults 4:0–24:11 referred for reading, spelling or phonological processing concerns.",
+          "source_ids": [
+            "CTOPP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Blend, elide and match sounds; repeat digits and nonwords; rapidly name colors, objects, digits and letters.",
+          "source_ids": [
+            "CTOPP-2-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Description of subtests",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Interpretation limits",
+          "value": "Measures the phonological processing that underlies literacy, not speech sound production; no diagnostic accuracy study is public and test–retest values appear only in secondary reviews.",
+          "source_ids": [
+            "CTOPP-2-P1",
+            "CTOPP-2-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Validity paragraph",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        }
+      ]
     }
   ]
 }
