@@ -1,5 +1,7 @@
 # Personal assessment audit
 
+> Addendum, October 10, 2026: a twentieth assessment, the SSI-4, was added with its own source-checked records. See [ADDITIONS-FLUENCY.md](ADDITIONS-FLUENCY.md). The October 3 findings below are unchanged.
+
 Reviewed October 3, 2026, America/Chicago, by the primary Codex agent at Ethan's request. The primary agent personally opened and read sources for all 19 assessments; earlier subagent research was treated as leads. This record supersedes the numerical conclusions in the October 2 addition memos and older research review where they differ.
 
 The audit checked edition, age, quoted administration task, norms, reliability methods, and diagnostic-accuracy context against current publisher pages, technical graphics, available manual introductions, original studies, and named technical reviews. PDF extraction was supplemented by visual inspection of the consequential tables and graphics. The sources distinguish information reported by a publisher from findings in a particular research sample. A source check does not independently validate an assessment or mean that its entire examiner manual was read.

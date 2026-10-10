@@ -1,6 +1,6 @@
 # SLP · Sift. Learn. Plan.
 
-An age-coverage atlas and figure-first spec sheet for speech-language pathology assessments. Nineteen standardized tests, 311 evidence records, and a source behind every number.
+An age-coverage atlas and figure-first spec sheet for speech-language pathology assessments. Twenty standardized tests, 325 evidence records, and a source behind every number.
 
 ## Live demo
 
@@ -8,10 +8,10 @@ https://ethanheinrick01-ctrl.github.io/SLP-Assessment-Website/
 
 ## What it does
 
-- **Atlas.** Every assessment on one age axis, birth to 90+, grouped by clinical family. Enter a client's age and the tests that do not cover it dim; filter by clinical area, purpose, administration time, family, or search.
+- **Atlas.** Every assessment on one axis, grouped by clinical family, with a layer picker for age coverage, diagnostic accuracy, reliability, cutoff, time, and norm sample. Enter a client's age and the tests that do not cover it dim; filter by clinical area, purpose, administration time, family, or search.
 - **Spec sheet.** Each test leads with its figures: age range, administration time, reliability on a .70–1.00 meter, norm sample size, and sensitivity/specificity bars. Every figure opens its evidence record (method, population, sample, cutoff, page location, date checked, cited sources).
 - **Profile, compare, shortlist, brief.** A dossier per test, a side-by-side comparison on shared scales, a saved shortlist, and HTML/Markdown/print exports with numbered sources.
-- **Evidence ledger.** All 311 records and their sources, with ASHA Practice Portal and Evidence Map context for seven clinical areas.
+- **Evidence ledger.** All 325 records and their sources, with ASHA Practice Portal and Evidence Map context for seven clinical areas.
 - Light and dark themes. Fonts (Newsreader, Public Sans, IBM Plex Mono) are bundled locally under the SIL OFL; the site runs offline.
 
 ## Run locally

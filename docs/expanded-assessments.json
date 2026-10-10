@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-10-03",
+  "checked_on": "2026-10-10",
   "assessments": [
     {
       "id": "TNL-2",
@@ -5144,6 +5144,356 @@
           "checked_on": "2026-10-03",
           "status": "source-checked",
           "note": "Separate from the 2018 low-income DLL cohort’s 93%/65% Results estimate. At −1.5 SD .86/.95; −2 SD .52/1.00. Do not apply one population’s accuracy to another."
+        }
+      ]
+    },
+    {
+      "id": "SSI-4",
+      "name": "Stuttering Severity Instrument, Fourth Edition",
+      "scope": "Stuttering severity · frequency, duration, physical concomitants",
+      "domains": [
+        "fluency"
+      ],
+      "purposes": [
+        "diagnostic",
+        "supplemental"
+      ],
+      "ageMin": 24,
+      "ageMax": null,
+      "age": "2:0–adult · publisher age conflict",
+      "timeMin": 15,
+      "timeMax": 20,
+      "time": "15–20 min",
+      "focus": "Grades how severe stuttering is from a recorded speech sample: percent syllables stuttered, duration of the three longest events, physical concomitants, and speech naturalness.",
+      "reliability": "Judge reliability only · no internal consistency or retest coefficient in checked public sources",
+      "internal": "Not reported in checked public sources",
+      "retest": "Not reported in checked public sources",
+      "rater": "Manual-method intra/interjudge reliability replicated in 12 trained judges; alternative agreement calculations differ · no public coefficient",
+      "overall": "Publisher states \"reliable and valid\" without public figures",
+      "accuracy": "Not applicable · severity scale, not a diagnostic classifier",
+      "accuracyContext": "The SSI-4 grades severity in people already identified as stuttering. No sensitivity/specificity pair or cutoff applies in the checked sources; the total score converts to a percentile and a severity band.",
+      "norms": "N = 271 · 72 preschool, 139 school-age, 60 adults",
+      "author": "Glyndon D. Riley",
+      "publisher": "PRO-ED",
+      "edition": "Fourth edition · 2009",
+      "administration": "Individual. Record a speech sample (job or school description plus reading, or picture description for non-readers); score frequency, duration, physical concomitants, and naturalness; convert the total to a percentile and severity band.",
+      "materials": "Examiner's manual, picture plates, test record and fluency computation form; CSSS-2.0 software optional for frequency and duration.",
+      "qualification": "Pearson Canada Level B · C-Path lists MA or BA",
+      "language": "English edition. Translations (Arabic, Persian) exist as research versions with their own reliability findings; they are not U.S. norms.",
+      "population": "Children, adolescents, and adults who stutter; norms split into preschool, school-age, and adult groups.",
+      "response": "Speak and read (or describe pictures); the examiner counts stuttered syllables, times the longest events, and rates physical concomitants and naturalness.",
+      "limit": "A severity measure, not a diagnostic test. Judge reliability depends on training; pair it with a speech sample analysis and an impact measure such as the OASES.",
+      "evidence": "Public-source review · October 10, 2026 · see method and source",
+      "sources": [
+        {
+          "id": "SSI-4-P1",
+          "label": "Pearson Clinical Canada · SSI-4 product page",
+          "type": "publisher",
+          "url": "https://www.pearsonclinical.ca/en-ca/Store/Professional-Assessments/Speech-&-Language/Stuttering-Severity-Instrument-for-Children-and-Adults%E2%80%94Fourth-Edition/p/P100008257",
+          "published_on": null,
+          "access": "public",
+          "locator": "Overview: ages, author, year, scores, normative sample, qualification level"
+        },
+        {
+          "id": "SSI-4-P2",
+          "label": "PRO-ED · SSI-4 product listing",
+          "type": "publisher",
+          "url": "https://proedinc.com/products-13025.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Listing: Ages, Testing Time (indexed text; the page itself did not render for direct reading on 2026-10-10)"
+        },
+        {
+          "id": "SSI-4-R1",
+          "label": "PhenX Toolkit · Stuttering protocol 200901 (SSI-4 description)",
+          "type": "review",
+          "url": "https://www.phenxtoolkit.org/protocols/view/200901",
+          "published_on": null,
+          "access": "public",
+          "locator": "Protocol description: scoring areas, scale scores, severity descriptors, personnel"
+        },
+        {
+          "id": "SSI-4-R2",
+          "label": "Critical Path Institute · COA At-a-Glance: SSI-4",
+          "type": "review",
+          "url": "https://rdcoas.c-path.org/orpheus_resource/stuttering-severity-instrument-fourth-edition",
+          "published_on": null,
+          "access": "public",
+          "locator": "Administration: time to complete, qualification; Reliability/Validity: none identified"
+        },
+        {
+          "id": "SSI-4-R3",
+          "label": "Buros · Mental Measurements Yearbook listing (20th MMY)",
+          "type": "review",
+          "url": "https://marketplace.unl.edu/buros/test-reviews/alphabetical-list/stuttering-severity-instrument-fourth-edition.html",
+          "published_on": null,
+          "access": "public",
+          "locator": "Test entry: publisher, author, purpose, yearbook edition"
+        },
+        {
+          "id": "SSI-4-S1",
+          "label": "Davidow & Scott (2017) · Intrajudge and interjudge reliability of the SSI-4 · AJSLP 26(4), 1105–1119",
+          "type": "research",
+          "url": "https://pubs.asha.org/doi/10.1044/2017_AJSLP-16-0079",
+          "published_on": "2017",
+          "access": "abstract public · full text subscription",
+          "locator": "Abstract (PMID 28841724): method, results, conclusions"
+        },
+        {
+          "id": "SSI-4-S2",
+          "label": "Alqhazo, Al-Kadi & Alfwaress (2025) · Arabic SSI-4 validity and reliability · LSHSS, 1029–1041",
+          "type": "research",
+          "url": "https://pubs.asha.org/doi/10.1044/2025_LSHSS-25-00021",
+          "published_on": "2025",
+          "access": "abstract public · full text subscription",
+          "locator": "Abstract (PMID 40609520): participants, method, results"
+        }
+      ],
+      "records": [
+        {
+          "key": "age",
+          "label": "Age coverage",
+          "value": "2:0–adult · publisher age conflict",
+          "source_ids": [
+            "SSI-4-P1",
+            "SSI-4-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Pearson CA: Ages; PRO-ED listing: Ages",
+          "checked_on": "2026-10-10",
+          "status": "conflicting",
+          "note": "Pearson Canada lists 2 years to adult; PRO-ED's indexed listing gives \"2-10 and up\" (2:10). The numeric filter uses 24 months with the conflict retained; confirm the manual's lower bound before testing a child under 2:10."
+        },
+        {
+          "key": "time",
+          "label": "Administration time",
+          "value": "15–20 min",
+          "source_ids": [
+            "SSI-4-R2",
+            "SSI-4-P2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "C-Path: Time to complete; PRO-ED listing: Testing Time",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Scoring from a recording adds time; the CSSS-2.0 software computes frequency and duration."
+        },
+        {
+          "key": "scope",
+          "label": "Assessment scope",
+          "value": "Stuttering severity from frequency, duration, physical concomitants, and naturalness",
+          "source_ids": [
+            "SSI-4-P1",
+            "SSI-4-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Pearson CA: Scores; PhenX: scoring description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "internal",
+          "label": "Internal consistency",
+          "value": "Not reported in checked public sources",
+          "source_ids": [
+            "SSI-4-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "C-Path: Reliability",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "C-Path's at-a-glance review lists no internal consistency estimate; the examiner's manual was not read."
+        },
+        {
+          "key": "retest",
+          "label": "Test–retest",
+          "value": "Not reported in checked public sources",
+          "source_ids": [
+            "SSI-4-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "C-Path: Reliability",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "No same-mode retest coefficient in the checked public sources."
+        },
+        {
+          "key": "rater",
+          "label": "Intrajudge / interjudge reliability",
+          "value": "Manual-method intra/interjudge reliability replicated; alternative agreement calculations differ",
+          "source_ids": [
+            "SSI-4-S1"
+          ],
+          "method": "12 trained judges scored 4 videos of adults who stutter at Time 1 and 4 weeks later; reliability computed by the manual's methods and by new agreement calculations",
+          "subtest": "Frequency, Duration, Physical Concomitants subscores; total score; severity rating",
+          "population": "Adults who stutter (video samples)",
+          "sample_size": "12 judges · 4 speakers",
+          "cutoff": null,
+          "locator": "Abstract: Method, Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The abstract reports agreement with the manual's figures under the manual's methods and lower values under alternative agreement calculations, without publishing coefficients. The authors advise clinicians to consider the instrument's limitations."
+        },
+        {
+          "key": "reliability-summary",
+          "label": "Translation study · judge reliability (Arabic SSI-4)",
+          "value": "Intrajudge ICC above 80% for all items; interjudge below 80% for all items",
+          "source_ids": [
+            "SSI-4-S2"
+          ],
+          "method": "Intraclass correlation; 10 graduate-student raters, Time 1 and Time 2 two weeks apart",
+          "subtest": "Frequency, duration, physical features",
+          "population": "28 school-age children (8–16) and 11 adults (19–22) who stutter · Arabic translation",
+          "sample_size": "39 speakers · 10 raters",
+          "cutoff": null,
+          "locator": "Abstract: Method, Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "A translated research version, not the English edition or its norms; included because it is the most recent public judge-reliability evidence for the instrument's structure."
+        },
+        {
+          "key": "overall",
+          "label": "Publisher reliability statement",
+          "value": "\"Reliable and valid norm-referenced stuttering assessment\" · no public figures",
+          "source_ids": [
+            "SSI-4-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Pearson CA: Overview",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "A claim, not a coefficient."
+        },
+        {
+          "key": "accuracy",
+          "label": "Diagnostic accuracy",
+          "value": "Not applicable · severity scale, not a diagnostic classifier",
+          "source_ids": [
+            "SSI-4-R1",
+            "SSI-4-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PhenX: scoring; C-Path: Validity (known-groups: none identified)",
+          "checked_on": "2026-10-10",
+          "status": "not-reported",
+          "note": "The total score ranks against age-group norms and yields a severity descriptor from very mild to very severe; it does not classify stuttering versus typical fluency."
+        },
+        {
+          "key": "norms",
+          "label": "Normative sample",
+          "value": "N = 271 · 72 preschool, 139 school-age, 60 adults",
+          "source_ids": [
+            "SSI-4-P1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": "Preschool, school-age, and adult people who stutter",
+          "sample_size": 271,
+          "cutoff": null,
+          "locator": "Pearson CA: Overview",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Group sizes are published; years of collection, geography, and demographics are not stated on the page. 271 is the sum of the three groups."
+        },
+        {
+          "key": "population",
+          "label": "Population",
+          "value": "Children, adolescents, and adults who stutter",
+          "source_ids": [
+            "SSI-4-P1",
+            "SSI-4-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Pearson CA: Ages; PhenX: description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "response",
+          "label": "Response demands",
+          "value": "Speak and read, or describe pictures; examiner counts, times, and rates",
+          "source_ids": [
+            "SSI-4-R1"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "PhenX: protocol description",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "limit",
+          "label": "Consider",
+          "value": "A severity measure, not a diagnostic test; judge reliability depends on training",
+          "source_ids": [
+            "SSI-4-S1",
+            "SSI-4-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Davidow & Scott abstract: Conclusions; C-Path: Validity",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
+        },
+        {
+          "key": "qualification",
+          "label": "Examiner qualification",
+          "value": "Level B (Pearson Canada) · MA or BA (C-Path)",
+          "source_ids": [
+            "SSI-4-P1",
+            "SSI-4-R2"
+          ],
+          "method": null,
+          "subtest": null,
+          "population": null,
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Pearson CA: Qualification level; C-Path: Qualification required",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": null
         }
       ]
     }

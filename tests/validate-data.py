@@ -5,8 +5,8 @@ existing=json.loads((root/'docs/evidence-existing.json').read_text())['assessmen
 expanded=json.loads((root/'docs/expanded-assessments.json').read_text())['assessments']
 guidance=json.loads((root/'docs/asha-guidance.json').read_text())['guidance']
 all_tests=existing+expanded
-expected={'PPVT-5','CELF-5','PLS-5','GFTA-3','KLPA-3','CAAP-2','TNL-2','OASES','WAB-R','CLQT+','CADL-3','CASL-2','OWLS-II','REEL-4','Bayley-III','Arizona-4','KSPT','PLS-5-Spanish','CELF-4-Spanish'}
-assert len(all_tests)==19
+expected={'PPVT-5','CELF-5','PLS-5','GFTA-3','KLPA-3','CAAP-2','TNL-2','OASES','WAB-R','CLQT+','CADL-3','CASL-2','OWLS-II','REEL-4','Bayley-III','Arizona-4','KSPT','PLS-5-Spanish','CELF-4-Spanish','SSI-4'}
+assert len(all_tests)==20
 assert {t['id'] for t in all_tests}==expected
 new_ids={'CASL-2','OWLS-II','REEL-4','Bayley-III','Arizona-4','KSPT','PLS-5-Spanish','CELF-4-Spanish'}
 required={'age','time','internal','retest','rater','overall','accuracy','norms','population','response','limit','scope'}
@@ -17,8 +17,9 @@ for test in all_tests:
     assert required.issubset(keys),(test['id'],required-set(keys))
     sources={s['id']:s for s in test['sources']}
     for record in test['records']:
-        assert record['checked_on'] in {'2026-10-02','2026-10-03'}
+        assert record['checked_on'] in {'2026-10-02','2026-10-03','2026-10-10'}
         if test['id'] in new_ids: assert record['checked_on']=='2026-10-03'
+        if test['id']=='SSI-4': assert record['checked_on']=='2026-10-10'
         assert record['status'] in {'source-checked','conflicting','not-reported','inherited'}
         assert all(s in sources for s in record['source_ids']),(test['id'],record['key'])
         if record['status']=='source-checked': assert record['source_ids'],(test['id'],record['key'])
@@ -26,8 +27,8 @@ for test in all_tests:
     for source in sources.values():
         assert source['type'] in {'publisher','research','review','manual','asha'}
         assert source['url'] is None or source['url'].startswith('https://')
-    if test['id'] in new_ids:
-        assert 0 <= test['ageMin'] <= test['ageMax']
+    if test['id'] in new_ids or test['id']=='SSI-4':
+        assert 0 <= test['ageMin'] <= (test['ageMax'] if test['ageMax'] is not None else 10**6)
         assert (test['timeMin'] is None)==(test['timeMax'] is None)
         if test['timeMin'] is not None: assert 0 < test['timeMin'] <= test['timeMax']
 for g in guidance:
@@ -57,7 +58,10 @@ assert 'WPS Level C' in by_id['CASL-2']['qualification'] and 'Level B' in by_id[
 assert get_record('Arizona-4','norms')['sample_size']==3192
 assert get_record('Arizona-4','accuracy')['sample_size']==50
 assert '447' in get_record('KSPT','norms')['value'] and '2026' in by_id['KSPT']['edition']
-print(f'PASS: 19 assessments, {count} records, valid source references, 7 ASHA groups, and clinical context checks.')
+# SSI-4 is a severity instrument: no accuracy pair, and its lower age bound is a disclosed publisher conflict.
+assert get_record('SSI-4','accuracy')['status']=='not-reported' and get_record('SSI-4','age')['status']=='conflicting'
+assert get_record('SSI-4','norms')['sample_size']==271
+print(f'PASS: 20 assessments, {count} records, valid source references, 7 ASHA groups, and clinical context checks.')
 
 # Personal audit protects known method and denominator distinctions.
 assert get_record('WAB-R','retest')['sample_size']==10

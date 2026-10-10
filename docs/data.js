@@ -298,13 +298,13 @@ function toggleComparison(id) {
 
 const COMPARE_ROWS = [
   ["Clinical focus", "scope"],
-  ["Age range", "age"],
-  ["Administration time", "time"],
+  ["Diagnostic accuracy", "accuracy"],
   ["Internal consistency", "internal"],
   ["Test–retest", "retest"],
   ["Inter-rater / scorer agreement", "rater"],
   ["Other reliability summary", "overall"],
-  ["Diagnostic accuracy", "accuracy"],
+  ["Age range", "age"],
+  ["Administration time", "time"],
   ["Normative sample", "norms"],
   ["Language and dialect", "language"],
   ["Evidence status", "evidence"]

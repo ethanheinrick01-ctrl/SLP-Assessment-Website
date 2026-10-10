@@ -31,7 +31,7 @@ function figureHTML(test, key, label, opts = {}) {
   const status = recordStatus(test, key);
   let big, note;
   if (opts.kind === "coef") { const r = coefficientRange(raw); big = r ? (r.min === r.max ? fmtCoef(r.max) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`) : null; note = raw; }
-  else if (opts.kind === "n") { const n = sampleSize(raw); big = n != null ? `N\u00a0=\u00a0${fmtInt(n)}` : null; note = raw; }
+  else if (opts.kind === "n") { const n = sampleSize(raw); big = n != null ? fmtInt(n) : null; note = raw; }
   else if (opts.kind === "acc") { const p = accuracyPair(raw); big = p ? `${Math.round(p.sens*100)}%\u00a0/\u00a0${Math.round(p.spec*100)}%` : null; note = raw; }
   else { ({big, note} = splitFigure(raw)); }
   const value = big != null ? `<button type="button" class="fig-value" data-test="${test.id}" data-receipt="${key}" title="Open the evidence record">${escapeHTML(big)}</button>` : `<button type="button" class="fig-value none" data-test="${test.id}" data-receipt="${key}" title="Open the evidence record">—</button>`;
@@ -48,11 +48,9 @@ function uiIcon(name) {
   const paths = {compare:'<path d="M4 6h6v14H4zM14 4h6v14h-6z"/>',arrow:'<path d="M4 12h15M13 6l6 6-6 6"/>',bookmark:'<path d="M6 3h12v18l-6-4-6 4z"/>',check:'<path d="m5 12 4 4L19 6"/>',close:'<path d="m6 6 12 12M18 6 6 18"/>',external:'<path d="M14 4h6v6M20 4 10 14M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/>'};
   return `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.arrow}</svg>`;
 }
-function shadeStyle(test) {
-  const fam = testFamily(test);
-  const siblings = state.catalog.filter(t => testFamily(t) === fam).sort((a, b) => a.ageMin - b.ageMin || a.id.localeCompare(b.id));
-  return `--i:${siblings.findIndex(t => t.id === test.id)};--n:${siblings.length}`;
-}
+function atlasOrder() { return [...state.catalog].sort((a, b) => FAMILY_ORDER.indexOf(testFamily(a)) - FAMILY_ORDER.indexOf(testFamily(b)) || a.ageMin - b.ageMin || a.id.localeCompare(b.id)); }
+function colorSlot(test) { return atlasOrder().findIndex(t => t.id === test.id) + 1; }
+function shadeStyle(test) { return `--test-color:var(--t${colorSlot(test)})`; }
 function fmtAge(months) { return `${Math.floor(months / 12)}:${String(months % 12).padStart(2, "0")}`; }
 
 /* ---------- Filtering (atlas and sheet share one predicate) ---------- */
@@ -78,11 +76,11 @@ function cutoffScore(test) {
 }
 const LAYERS = {
   age: {label: "Age coverage", unit: "years of age, birth to 90+", key: "age", ticks: [[0, "0"], [24, "2"], [60, "5"], [120, "10"], [180, "15"], [252, "21"], [360, "30"], [600, "50"], [840, "70"], [1080, "90+"]], scale: (v, w) => ageX(v, w), marks: t => [{type: "bar", a: t.ageMin, b: t.ageMax ?? AGE_MAX}], value: t => t.age, note: "Bars show the publisher's stated age range."},
-  time: {label: "Administration time", unit: "minutes, quoted task or form", key: "time", domain: [0, 90], ticks: [0, 15, 30, 45, 60, 75, 90].map(v => [v, String(v)]), marks: t => t.timeMin != null ? [{type: "bar", a: Math.min(t.timeMin, 90), b: Math.min(t.timeMax, 90)}] : [], value: t => t.time, note: "Bars show the quoted task or form, not the full evaluation."},
-  reliability: {label: "Reliability", unit: "coefficient · solid = internal consistency · outlined = test–retest", key: t => reliabilityKeyFor(t), domain: [.7, 1], ticks: [.7, .75, .8, .85, .9, .95, 1].map(v => [v, fmtCoef(v)]), marks: t => { const r = coefficientRange(t.internal) || coefficientRange(reliabilityValueFor(t)), rt = coefficientRange(t.retest), m = []; if (r) m.push({type: "bar", a: r.min, b: r.max}); if (rt) m.push({type: "outline", a: rt.min, b: rt.max}); return m; }, value: t => `${reliabilityValueFor(t)} · retest: ${t.retest}`, note: "Ranges span the reported subtests, forms, or groups. Methods differ between tests."},
   accuracy: {label: "Diagnostic accuracy", unit: "percent · dot = sensitivity · ring = specificity", key: "accuracy", domain: [.5, 1], ticks: [.5, .6, .7, .8, .9, 1].map(v => [v, `${Math.round(v * 100)}%`]), marks: t => { const p = accuracyPair(t.accuracy); return p ? [{type: "pair", a: p.sens, b: p.spec}] : []; }, value: t => t.accuracy, note: "Only matched sensitivity/specificity pairs are plotted; the cutoff and sample vary by study."},
-  norms: {label: "Normative sample", unit: "participants in the norm sample", key: "norms", domain: [0, 3500], ticks: [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].map(v => [v, fmtInt(v)]), marks: t => { const n = sampleSize(t.norms); return n != null ? [{type: "bar", a: 0, b: Math.min(n, 3500)}] : []; }, value: t => t.norms, note: "Norm sample, not the reliability or accuracy sample."},
-  cutoff: {label: "Diagnostic cutoff", unit: "standard score used in the accuracy study · M = 100, SD = 15", key: "accuracy", domain: [70, 100], ticks: [70, 75, 80, 85, 90, 95, 100].map(v => [v, String(v)]), refs: [[85, "−1 SD"], [70, "−2 SD"]], marks: t => { const c = cutoffScore(t); return c != null ? [{type: "dot", a: c}] : []; }, value: t => t.accuracyContext || t.accuracy, note: "A lower cutoff trades sensitivity for specificity; the plotted score is the one the cited accuracy figures used."}
+  reliability: {label: "Reliability", unit: "coefficient · solid = internal consistency · outlined = test–retest", key: t => reliabilityKeyFor(t), domain: [.7, 1], ticks: [.7, .75, .8, .85, .9, .95, 1].map(v => [v, fmtCoef(v)]), marks: t => { const r = coefficientRange(t.internal) || coefficientRange(reliabilityValueFor(t)), rt = coefficientRange(t.retest), m = []; if (r) m.push({type: "bar", a: r.min, b: r.max}); if (rt) m.push({type: "outline", a: rt.min, b: rt.max}); return m; }, value: t => `${reliabilityValueFor(t)} · retest: ${t.retest}`, note: "Ranges span the reported subtests, forms, or groups. Methods differ between tests."},
+  cutoff: {label: "Diagnostic cutoff", unit: "standard score used in the accuracy study · M = 100, SD = 15", key: "accuracy", domain: [70, 100], ticks: [70, 75, 80, 85, 90, 95, 100].map(v => [v, String(v)]), refs: [[85, "−1 SD"], [70, "−2 SD"]], marks: t => { const c = cutoffScore(t); return c != null ? [{type: "dot", a: c}] : []; }, value: t => t.accuracyContext || t.accuracy, note: "A lower cutoff trades sensitivity for specificity; the plotted score is the one the cited accuracy figures used."},
+  time: {label: "Administration time", unit: "minutes, quoted task or form", key: "time", domain: [0, 90], ticks: [0, 15, 30, 45, 60, 75, 90].map(v => [v, String(v)]), marks: t => t.timeMin != null ? [{type: "bar", a: Math.min(t.timeMin, 90), b: Math.min(t.timeMax, 90)}] : [], value: t => t.time, note: "Bars show the quoted task or form, not the full evaluation."},
+  norms: {label: "Normative sample", unit: "participants in the norm sample", key: "norms", domain: [0, 3500], ticks: [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].map(v => [v, fmtInt(v)]), marks: t => { const n = sampleSize(t.norms); return n != null ? [{type: "bar", a: 0, b: Math.min(n, 3500)}] : []; }, value: t => t.norms, note: "Norm sample, not the reliability or accuracy sample."}
 };
 function renderLayerPicker() {
   const host = document.querySelector("#layer-picker");
@@ -93,31 +91,33 @@ function renderAtlas() {
   const host = document.querySelector("#atlas-chart");
   const layer = LAYERS[state.layer] || LAYERS.age;
   const width = Math.max(320, host.clientWidth - 40);
-  const labelW = width < 560 ? 64 : 92, plotW = width - labelW - 8, rowH = 22, top = 26, bottom = 22;
-  const ordered = [...state.catalog].sort((a, b) => FAMILY_ORDER.indexOf(testFamily(a)) - FAMILY_ORDER.indexOf(testFamily(b)) || a.ageMin - b.ageMin);
+  const narrow = width < 640, labelW = narrow ? 76 : 236, plotW = width - labelW - 8, rowH = narrow ? 24 : 32, top = 28, bottom = 24;
+  const ordered = atlasOrder();
   const visible = new Set(visibleTests().map(t => t.id));
   const height = top + ordered.length * rowH + bottom;
   const clamp = v => layer.domain ? Math.min(layer.domain[1], Math.max(layer.domain[0], v)) : v;
   const X = v => labelW + (layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW);
   document.querySelector("#atlas-title").innerHTML = `${escapeHTML(layer.label)} <span>· ${escapeHTML(layer.unit)}</span>`;
-  let svg = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart">`;
+  let svg = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="${labelW}" y="${top - 6}" width="${width - labelW}" height="${height - top - bottom + 10}" rx="6"/>`;
   layer.ticks.forEach(([v, t]) => { svg += `<line class="ax" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="tick" x="${X(v)}" y="${height - bottom + 16}" text-anchor="middle">${t}</text>`; });
   svg += `<line class="ax-strong" x1="${labelW}" x2="${width}" y1="${top - 6}" y2="${top - 6}"/>`;
   if (state.layer === "age") { const bx = labelW + BREAK_FRAC * plotW; svg += `<text class="cap" x="${labelW}" y="${top - 12}">years of age</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 6}" y="${top - 12}">adult scale →</text>`; }
   (layer.refs || []).forEach(([v, t]) => { svg += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${X(v) + 5}" y="${top - 12}">${t}</text>`; });
   ordered.forEach((t, i) => {
-    const y = top + i * rowH, cy = y + 11, dim = !visible.has(t.id);
+    const y = top + i * rowH, cy = y + rowH / 2, dim = !visible.has(t.id);
     const on = state.layer === "age" && state.ageMonths !== null && !dim && state.ageMonths >= t.ageMin && (t.ageMax == null || state.ageMonths <= t.ageMax);
     const marks = layer.marks(t);
     let m = "";
     marks.forEach(k => {
-      if (k.type === "bar") { const x1 = X(k.a), x2 = Math.max(x1 + 6, X(k.b)); m += `<rect class="bar ${dim ? "dim" : ""} ${on ? "on" : ""}" x="${x1}" y="${y + 6}" width="${x2 - x1}" height="10" fill="var(--test-color)"/>`; }
-      if (k.type === "outline") { const x1 = X(k.a), x2 = Math.max(x1 + 6, X(k.b)); m += `<rect class="bar outline ${dim ? "dim" : ""}" x="${x1 + 1}" y="${y + 7}" width="${x2 - x1 - 2}" height="8" fill="none" stroke="var(--test-color)" stroke-width="1.5"/>`; }
+      if (k.type === "bar") { const x1 = X(k.a), x2 = Math.max(x1 + 6, X(k.b)); m += `<rect class="bar ${dim ? "dim" : ""} ${on ? "on" : ""}" x="${x1}" y="${cy - 6}" width="${x2 - x1}" height="12" fill="var(--test-color)"/>`; }
+      if (k.type === "outline") { const x1 = X(k.a), x2 = Math.max(x1 + 6, X(k.b)); m += `<rect class="bar outline ${dim ? "dim" : ""}" x="${x1 + 1}" y="${cy - 5}" width="${x2 - x1 - 2}" height="10" fill="none" stroke="var(--test-color)" stroke-width="1.5"/>`; }
       if (k.type === "pair") { const x1 = X(k.a), x2 = X(k.b); m += `<line class="bar ${dim ? "dim" : ""}" x1="${Math.min(x1, x2)}" x2="${Math.max(x1, x2)}" y1="${cy}" y2="${cy}" stroke="var(--test-color)" stroke-width="2"/><circle class="bar ${dim ? "dim" : ""}" cx="${x1}" cy="${cy}" r="5" fill="var(--test-color)" stroke="var(--surface)" stroke-width="2"/><circle class="bar ${dim ? "dim" : ""}" cx="${x2}" cy="${cy}" r="5" fill="var(--surface)" stroke="var(--test-color)" stroke-width="2"/>`; }
       if (k.type === "dot") { m += `<circle class="bar ${dim ? "dim" : ""}" cx="${X(k.a)}" cy="${cy}" r="6" fill="var(--test-color)" stroke="var(--surface)" stroke-width="2"/>`; }
     });
-    if (!marks.length) m = `<text class="cap none" x="${labelW + 6}" y="${cy + 4}">not reported in checked sources</text>`;
-    svg += `<g class="row" data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"><rect class="hit" x="0" y="${y}" width="${width}" height="${rowH}"/><text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 10}" y="${cy + 4}" text-anchor="end">${escapeHTML(t.id)}</text>${m}</g>`;
+    if (!marks.length) m = `<text class="cap none" x="${labelW + 8}" y="${cy + 4}">not reported in checked sources</text>`;
+    const scope = t.scope.length > 38 ? t.scope.slice(0, 37).trimEnd() + "…" : t.scope;
+    const label = narrow ? `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 8}" y="${cy + 4}" text-anchor="end">${escapeHTML(t.id)}</text>` : `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 12}" y="${cy - 2}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 12}" y="${cy + 11}" text-anchor="end">${escapeHTML(scope)}</text>`;
+    svg += `<g class="row" data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"><rect class="hit" x="0" y="${y}" width="${width}" height="${rowH}"/><circle class="swatch" cx="${labelW - 2}" cy="${cy}" r="3.5" fill="var(--test-color)"/>${label}${m}</g>`;
   });
   if (state.layer === "age" && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); svg += `<line class="cursor" x1="${cx}" x2="${cx}" y1="${top - 14}" y2="${height - bottom + 4}"/><text class="cursor-label" x="${cx + 6}" y="${top - 18}">client ${fmtAge(state.ageMonths)}</text>`; }
   svg += `</svg><div id="atlas-tip" class="atlas-tip" hidden></div>`;
@@ -145,12 +145,13 @@ function specRow(test, context = "atlas") {
   const matched = context === "atlas" && filtersActive() ? `<span class="matched"><b>Matched:</b> ${escapeHTML(reasonFor(test))}</span>` : "";
   const check = context === "shortlist" ? `<label class="compare-check"><input type="checkbox" data-compare="${test.id}" ${comparing ? "checked" : ""}>Compare</label>` : "";
   return `<article class="spec ${selected ? "selected" : ""}" data-family="${family}" data-test-id="${test.id}" style="${shadeStyle(test)}">
-    <div class="spec-id"><h3><button type="button" data-evidence="${test.id}" title="Open the full profile">${escapeHTML(test.id)}</button></h3><p>${escapeHTML(test.scope)}</p><span class="fam"><i class="fam-dot"></i>${escapeHTML(label)}</span>${matched}${check}</div>
-    ${figureHTML(test, "age", "Age range")}
-    ${figureHTML(test, "time", "Administration")}
-    ${figureHTML(test, reliabilityKeyFor(test), reliabilityKeyFor(test) === "rater" ? "Scorer agreement" : reliabilityKeyFor(test) === "overall" ? "Reliability · overall" : "Internal consistency", {kind: "coef"})}
-    ${figureHTML(test, "norms", "Norm sample", {kind: "n", cls: "fig-norms"})}
+    <div class="spec-id"><h3><button type="button" data-evidence="${test.id}" title="Open the full profile">${escapeHTML(test.id)}</button></h3><p class="scope">${escapeHTML(test.scope)}</p><p class="focus" title="${escapeHTML(test.focus)}">${escapeHTML(test.focus)}</p><span class="fam"><i class="fam-dot"></i>${escapeHTML(label)}</span>${matched}${check}</div>
     ${figureHTML(test, "accuracy", "Diagnostic accuracy", {kind: "acc", cls: "fig-acc"})}
+    ${figureHTML(test, reliabilityKeyFor(test), reliabilityKeyFor(test) === "rater" ? "Scorer agreement" : reliabilityKeyFor(test) === "overall" ? "Reliability · overall" : "Internal consistency", {kind: "coef"})}
+    ${figureHTML(test, "retest", "Test–retest", {kind: "coef"})}
+    ${figureHTML(test, "age", "Age range", {cls: "fig-age"})}
+    ${figureHTML(test, "time", "Administration", {cls: "fig-time"})}
+    ${figureHTML(test, "norms", "Norm sample (N)", {kind: "n", cls: "fig-norms"})}
     <div class="spec-side">${statusLine(test)}<div class="actions"><button type="button" class="btn-ghost" data-evidence="${test.id}">Profile ${uiIcon("arrow")}</button><button type="button" class="btn-icon" data-pick-compare="${test.id}" aria-pressed="${comparing}" title="${comparing ? "Remove from comparison" : "Add to comparison"}" aria-label="${comparing ? "Remove" : "Add"} ${test.id} ${comparing ? "from" : "to"} comparison">${uiIcon(comparing ? "check" : "compare")}</button><button type="button" class="btn-icon" data-select="${test.id}" aria-pressed="${selected}" title="${selected ? "Remove from shortlist" : "Save to shortlist"}" aria-label="${selected ? "Remove" : "Save"} ${test.id} ${selected ? "from" : "to"} shortlist">${uiIcon(selected ? "check" : "bookmark")}</button></div></div>
   </article>`;
 }
@@ -162,6 +163,7 @@ function wireActions(root) {
 function renderSheet() {
   const visible = visibleTests();
   document.querySelector("#fit-count").textContent = visible.length;
+  document.querySelector("#fit-total").textContent = state.catalog.length;
   document.querySelector("#fit-caption").textContent = state.ageMonths !== null ? `assessments cover a client aged ${fmtAge(state.ageMonths)}${filtersActive() && (state.domains.size || state.maxTime !== null || state.purposes.size || state.query || state.category !== "all") ? " and match your filters" : ""}` : filtersActive() ? "assessments match your filters" : "assessments in the atlas";
   document.querySelector("#sheet-count").textContent = `· ${visible.length} of ${state.catalog.length}`;
   const root = document.querySelector("#atlas-rows");
@@ -271,7 +273,7 @@ function cmpCell(test, key) {
   let head;
   if (coef) { const r = coefficientRange(test[key]); head = r ? `<span class="fig-value">${r.min === r.max ? fmtCoef(r.max) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`}</span>${meterHTML(test, key)}` : `<span class="fig-value none">—</span>`; }
   else if (acc) { const p = accuracyPair(test[key]); head = p ? `<div class="acc"><span>Sens.</span><i style="--w:${p.sens*100}%"></i><b>${Math.round(p.sens*100)}%</b><span>Spec.</span><i style="--w:${p.spec*100}%"></i><b>${Math.round(p.spec*100)}%</b></div>` : `<span class="fig-value none">—</span>`; }
-  else if (key === "norms") { const n = sampleSize(test[key]); head = n != null ? `<span class="fig-value">N\u00a0=\u00a0${fmtInt(n)}</span>` : `<span class="fig-value none">—</span>`; }
+  else if (key === "norms") { const n = sampleSize(test[key]); head = n != null ? `<span class="fig-value">N = ${fmtInt(n)}</span>` : `<span class="fig-value none">—</span>`; }
   else if (["age", "time"].includes(key)) { const f = splitFigure(test[key]); head = f.big ? `<span class="fig-value">${escapeHTML(f.big)}</span>` : ""; }
   else head = "";
   const dup = ["age", "time"].includes(key) && splitFigure(test[key]).big === String(test[key]).trim();
@@ -322,7 +324,7 @@ function dossierHTML(test) {
   const tile = (lbl, key, opts = {}) => { const s = recordStatus(test, key); return `<div class="tile" data-family="${family}" style="${shadeStyle(test)}">${glyph(s)}${figureHTML(test, key, lbl, {...opts, full: true})}</div>`; };
   const relKey = reliabilityKeyFor(test);
   return `<header class="dossier-head" data-family="${family}" style="${shadeStyle(test)}"><div><span class="fam"><i class="fam-dot"></i>${escapeHTML(label)}</span><h3>${escapeHTML(test.id)}</h3><p class="fullname">${escapeHTML(test.name)}</p><p class="meta">${[test.publisher, test.edition].filter(Boolean).map(escapeHTML).join(" · ")}</p></div><div class="stamp">${statusLine(test)}<time datetime="${escapeHTML(checked || "")}">${test.records.length} evidence records · checked ${escapeHTML(checked || "see records")}</time></div></header>
-  <div class="wall">${tile("Age range", "age")}${tile("Administration", "time")}${tile(relKey === "rater" ? "Scorer agreement" : relKey === "overall" ? "Reliability · overall" : "Internal consistency", relKey, {kind: "coef", scale: true})}${tile("Test–retest", "retest", {kind: "coef", scale: true})}${tile("Diagnostic accuracy", "accuracy", {kind: "acc"})}${tile("Normative sample", "norms", {kind: "n"})}</div>
+  <div class="wall">${tile("Diagnostic accuracy", "accuracy", {kind: "acc"})}${tile(relKey === "rater" ? "Scorer agreement" : relKey === "overall" ? "Reliability · overall" : "Internal consistency", relKey, {kind: "coef", scale: true})}${tile("Test–retest", "retest", {kind: "coef", scale: true})}${tile("Age range", "age")}${tile("Administration", "time")}${tile("Normative sample (N)", "norms", {kind: "n"})}</div>
   <nav class="dossier-nav" aria-label="Profile sections"><a href="#d-clinical">Clinical evidence</a><a href="#d-background">Background</a><a href="#d-administration">Administration</a></nav>
   <section id="d-clinical"><h4>Clinical evidence</h4>${clinical}${asha}</section>
   <section id="d-background"><h4>Background</h4>${background}</section>
