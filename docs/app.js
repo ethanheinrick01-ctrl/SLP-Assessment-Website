@@ -126,49 +126,59 @@ function cutoffScore(test) {
 }
 const LAYERS = {
   age: {axis: "Years of age", label: "Age coverage", unit: "years of age, birth to 90+", key: "age", ticks: [[0, "0"], [24, "2"], [60, "5"], [120, "10"], [180, "15"], [252, "21"], [360, "30"], [600, "50"], [840, "70"], [1080, "90+"]], scale: (v, w) => ageX(v, w), marks: t => [{type: "bar", a: t.ageMin, b: t.ageMax ?? AGE_MAX}], value: t => t.age, note: "Bars show the publisher's stated age range."},
-  accuracy: {axis: "Percent of cases correctly classified", label: "Sensitivity & specificity", unit: "dot = sensitivity · ring = specificity", key: "accuracy", domain: [.5, 1], ticks: [.5, .6, .7, .8, .9, 1].map(v => [v, `${Math.round(v * 100)}%`]), marks: t => { const p = accuracyPair(t.accuracy); return p ? [{type: "pair", a: p.sens, b: p.spec}] : []; }, value: t => t.accuracy, note: "Only matched sensitivity/specificity pairs are plotted; the cutoff and sample vary by study."},
+  accuracy: {axis: "Percent of cases correctly classified", axisShort: "Percent classified correctly",  label: "Sensitivity & specificity", unit: "dot = sensitivity · ring = specificity", key: "accuracy", domain: [.5, 1], ticks: [.5, .6, .7, .8, .9, 1].map(v => [v, `${Math.round(v * 100)}%`]), marks: t => { const p = accuracyPair(t.accuracy); return p ? [{type: "pair", a: p.sens, b: p.spec}] : []; }, value: t => t.accuracy, note: "Only matched sensitivity/specificity pairs are plotted; the cutoff and sample vary by study."},
   reliability: {axis: "Reliability coefficient", label: "Reliability", unit: "coefficient · solid = internal consistency · outlined = test–retest", key: t => reliabilityKeyFor(t), domain: [.7, 1], ticks: [.7, .75, .8, .85, .9, .95, 1].map(v => [v, fmtCoef(v)]), marks: t => { const r = coefficientRange(t.internal) || coefficientRange(reliabilityValueFor(t)), rt = coefficientRange(t.retest), m = []; if (r) m.push({type: "bar", a: r.min, b: r.max}); if (rt) m.push({type: "outline", a: rt.min, b: rt.max}); return m; }, value: t => `${reliabilityValueFor(t)} · retest: ${t.retest}`, note: "Ranges span the reported subtests, forms, or groups. Methods differ between tests."},
-  cutoff: {axis: "Standard score used as the cutoff (M = 100, SD = 15)", label: "Diagnostic cutoff", unit: "standard score used in the accuracy study · M = 100, SD = 15", key: "accuracy", domain: [70, 100], ticks: [70, 75, 80, 85, 90, 95, 100].map(v => [v, String(v)]), refs: [[85, "−1 SD"], [70, "−2 SD"]], marks: t => { const c = cutoffScore(t); return c != null ? [{type: "dot", a: c}] : []; }, value: t => t.accuracyContext || t.accuracy, note: "A lower cutoff trades sensitivity for specificity; the plotted score is the one the cited accuracy figures used."},
+  cutoff: {axis: "Standard score used as the cutoff (M = 100, SD = 15)", axisShort: "Cutoff standard score",  label: "Diagnostic cutoff", unit: "standard score used in the accuracy study · M = 100, SD = 15", key: "accuracy", domain: [70, 100], ticks: [70, 75, 80, 85, 90, 95, 100].map(v => [v, String(v)]), refs: [[85, "−1 SD"], [70, "−2 SD"]], marks: t => { const c = cutoffScore(t); return c != null ? [{type: "dot", a: c}] : []; }, value: t => t.accuracyContext || t.accuracy, note: "A lower cutoff trades sensitivity for specificity; the plotted score is the one the cited accuracy figures used."},
   time: {axis: "Minutes", label: "Administration time", unit: "minutes, quoted task or form", key: "time", domain: [0, 90], ticks: [0, 15, 30, 45, 60, 75, 90].map(v => [v, String(v)]), marks: t => t.timeMin != null ? [{type: "bar", a: Math.min(t.timeMin, 90), b: Math.min(t.timeMax, 90)}] : [], value: t => t.time, note: "Bars show the quoted task or form, not the full evaluation."},
-  norms: {axis: "Participants in the normative sample", label: "Normative sample", unit: "participants in the norm sample", key: "norms", domain: [0, 3500], ticks: [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].map(v => [v, fmtInt(v)]), marks: t => { const n = sampleSize(t.norms); return n != null ? [{type: "bar", a: 0, b: Math.min(n, 3500)}] : []; }, value: t => t.norms, note: "Norm sample, not the reliability or accuracy sample."}
+  norms: {axis: "Participants in the normative sample", axisShort: "Norm sample size",  label: "Normative sample", unit: "participants in the norm sample", key: "norms", domain: [0, 3500], ticks: [0, 500, 1000, 1500, 2000, 2500, 3000, 3500].map(v => [v, fmtInt(v)]), marks: t => { const n = sampleSize(t.norms); return n != null ? [{type: "bar", a: 0, b: Math.min(n, 3500)}] : []; }, value: t => t.norms, note: "Norm sample, not the reliability or accuracy sample."}
 };
 function renderLayerPicker() {
   const host = document.querySelector("#layer-picker");
   host.innerHTML = Object.entries(LAYERS).map(([id, l]) => `<button type="button" role="tab" data-layer="${id}" aria-selected="${state.layer === id}">${l.label}</button>`).join("");
   host.querySelectorAll("[data-layer]").forEach(b => b.addEventListener("click", () => { state.layer = b.dataset.layer; renderLayerPicker(); renderAtlas(); }));
 }
+function textWidth(text, font) { const c = textWidth.c || (textWidth.c = document.createElement("canvas").getContext("2d")); c.font = font; return c.measureText(text).width; }
 function renderAtlas() {
   const host = document.querySelector("#atlas-chart");
   const layer = LAYERS[state.layer] || LAYERS.age;
-  const width = Math.max(320, host.clientWidth - 40);
+  const hs = getComputedStyle(host), width = Math.max(280, host.clientWidth - parseFloat(hs.paddingLeft) - parseFloat(hs.paddingRight));
   const narrow = width < 640;
   const ordered = atlasOrder();
   const visible = new Set(visibleTests().map(t => t.id));
-  // Narrow screens: the name column is sized to the longest ID and the plot keeps a readable minimum width, scrolling sideways instead of squeezing.
-  const longest = Math.max(...ordered.map(t => t.id.length), 4);
-  const labelW = narrow ? Math.min(176, Math.max(84, longest * 9 + 26)) : 262;
-  const MIN_PLOT = 600;
-  const plotW = narrow ? Math.max(width - labelW - 8, MIN_PLOT) : width - labelW - 8;
-  const scrolls = plotW > width - labelW - 8;
-  const rowH = narrow ? 28 : 38, hasRefs = !!(layer.refs && layer.refs.length), top = hasRefs ? 50 : 32, bottom = 44;
-  const height = top + ordered.length * rowH + bottom;
+  // Narrow screens: names sit flush left in a column no wider than the longest ID; the plot keeps a readable width and swipes sideways.
+  const uiFont = getComputedStyle(document.documentElement).getPropertyValue("--f-ui").trim() || "sans-serif";
+  const labelFont = narrow ? `800 13px ${uiFont}` : `800 14px ${uiFont}`;
+  const splitId = id => narrow && id.endsWith("-Spanish") ? [id.slice(0, -8), "Spanish"] : [id, null];
+  const longest = Math.max(...ordered.map(t => textWidth(splitId(t.id)[0], labelFont)));
+  const labelW = narrow ? Math.ceil(longest) + 12 : 262;
+  const MIN_PLOT = 520, gap = 4;
+  const plotW = narrow ? Math.max(width - labelW - gap, MIN_PLOT) : width - labelW - gap;
+  const scrolls = plotW > width - labelW - gap;
+  const rowH = narrow ? 28 : 38, hasRefs = !!(layer.refs && layer.refs.length);
+  const headH = state.layer === "age" ? 30 : hasRefs ? 24 : 0, axisH = 30, pad = 6, bodyH = ordered.length * rowH + pad * 2;
   const clamp = v => layer.domain ? Math.min(layer.domain[1], Math.max(layer.domain[0], v)) : v;
   const X = v => layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW;
   document.querySelector("#atlas-title").textContent = layer.label;
-  // Thin the tick labels so neighbours never touch: keep a tick only when it sits at least 46px from the last kept one; the final tick always survives.
+  // Thin tick labels so neighbours never touch: keep a tick only when it sits at least 46px from the last kept one; the final tick always survives.
   const minGap = 46, kept = [];
   layer.ticks.forEach(([v, t], i) => { const x = X(v); if (!kept.length || x - kept[kept.length - 1].x >= minGap) kept.push({v, t, x}); else if (i === layer.ticks.length - 1) kept[kept.length - 1] = {v, t, x}; });
-  const wide = plotW >= 600;
-  let labels = `<svg class="atlas-labels" viewBox="0 0 ${labelW} ${height}" width="${labelW}" height="${height}" aria-hidden="true">`;
-  let plot = `<svg class="atlas-plot" viewBox="0 0 ${plotW} ${height}" width="${plotW}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="0" y="${top - 6}" width="${plotW}" height="${height - top - bottom + 10}" rx="6"/>`;
-  kept.forEach(({v, t, x}) => { plot += `<line class="ax" x1="${x}" x2="${x}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="tick" x="${x}" y="${height - bottom + 20}" text-anchor="${x < 14 ? "start" : x > plotW - 14 ? "end" : "middle"}">${t}</text>`; });
-  plot += `<line class="ax-strong" x1="0" x2="${plotW}" y1="${top - 6}" y2="${top - 6}"/><line class="ax-strong" x1="0" x2="${plotW}" y1="${height - bottom + 4}" y2="${height - bottom + 4}"/><text class="axis-title" x="${plotW / 2}" y="${height - 6}" text-anchor="middle">${escapeHTML(layer.axis)}</text>`;
-  const capY = hasRefs ? top - 30 : top - 14;
-  if (state.layer === "age") { const bx = BREAK_FRAC * plotW; plot += `<text class="cap" x="0" y="${capY}">${wide ? "Child scale · 0–22 years" : "Child · 0–22"}</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 8}" y="${capY}">${wide ? "Adult scale · 22–90+ →" : "Adult →"}</text>`; }
-  else plot += `<text class="cap" x="0" y="${capY}">${escapeHTML(layer.unit.charAt(0).toUpperCase() + layer.unit.slice(1))}</text>`;
-  (layer.refs || []).forEach(([v, t]) => { plot += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${X(v) + 5}" y="${top - 12}">${t}</text>`; });
+  const wide = plotW >= 520;
+  // Head pane: scale captions and reference labels. Sticky at the top while the rows scroll under it.
+  let head = `<svg class="atlas-head-svg" viewBox="0 0 ${plotW} ${headH}" width="${plotW}" height="${headH}" aria-hidden="true">`;
+  const isAge = state.layer === "age";
+  if (isAge) { const bx = BREAK_FRAC * plotW, capY = headH - 10; head += `<text class="cap" x="0" y="${capY}">${wide ? "Child scale · 0–22 years" : "Child · 0–22"}</text><text class="cap" x="${bx + 8}" y="${capY}">${wide ? "Adult scale · 22–90+ →" : "Adult →"}</text>`; }
+  (layer.refs || []).forEach(([v, t]) => { head += `<text class="cap ref-label" x="${X(v) + 5}" y="${headH - 8}">${t}</text>`; });
+  if (isAge && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); head += `<text class="cursor-label" x="${cx + 6}" y="${headH - 10}">client ${fmtAge(state.ageMonths)}</text>`; }
+  const headCap = isAge ? "" : `<div class="chart-head-cap">${escapeHTML(layer.unit.charAt(0).toUpperCase() + layer.unit.slice(1))}</div>`;
+  head += `</svg>`;
+  // Body panes: names on the left, marks on the right.
+  let labels = `<svg class="atlas-labels" viewBox="0 0 ${labelW} ${bodyH}" width="${labelW}" height="${bodyH}" aria-hidden="true">`;
+  let plot = `<svg class="atlas-plot" viewBox="0 0 ${plotW} ${bodyH}" width="${plotW}" height="${bodyH}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="0" y="0" width="${plotW}" height="${bodyH}" rx="6"/>`;
+  kept.forEach(({x}) => { plot += `<line class="ax" x1="${x}" x2="${x}" y1="0" y2="${bodyH}"/>`; });
+  if (state.layer === "age") { const bx = BREAK_FRAC * plotW; plot += `<line class="ax-strong" x1="${bx}" x2="${bx}" y1="0" y2="${bodyH}"/>`; }
+  (layer.refs || []).forEach(([v]) => { plot += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="0" y2="${bodyH}"/>`; });
   ordered.forEach((t, i) => {
-    const y = top + i * rowH, cy = y + rowH / 2, dim = !visible.has(t.id);
+    const y = pad + i * rowH, cy = y + rowH / 2, dim = !visible.has(t.id);
     const on = state.layer === "age" && state.ageMonths !== null && !dim && state.ageMonths >= t.ageMin && (t.ageMax == null || state.ageMonths <= t.ageMax);
     const marks = layer.marks(t);
     let m = "";
@@ -181,16 +191,28 @@ function renderAtlas() {
     if (!marks.length) m = `<text class="cap none" x="8" y="${cy + 4}">not reported in checked sources</text>`;
     const scope = t.scope.split(" · ")[0];
     const scopeShort = scope.length > 36 ? scope.slice(0, 35).trimEnd() + "…" : scope;
-    const label = narrow ? `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 12}" y="${cy + 5}" text-anchor="end">${escapeHTML(t.id)}</text>` : `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy - 3}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy + 12}" text-anchor="end">${escapeHTML(scopeShort)}</text>`;
+    const label = narrow
+      ? (() => { const [base, sub] = splitId(t.id); return sub ? `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy - 2}">${escapeHTML(base)}</text><text class="rowsub ${dim ? "dim" : ""}" x="0" y="${cy + 9}">${sub}</text>` : `<text class="rowlabel sm ${dim ? "dim" : ""}" x="0" y="${cy + 5}">${escapeHTML(t.id)}</text>`; })()
+      : `<circle class="swatch" cx="${labelW - 3}" cy="${cy}" r="4" fill="var(--test-color)"/><text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy - 3}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy + 12}" text-anchor="end">${escapeHTML(scopeShort)}</text>`;
     const attrs = `data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"`;
-    labels += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${labelW}" height="${rowH}"/><circle class="swatch" cx="${labelW - 3}" cy="${cy}" r="4" fill="var(--test-color)"/>${label}</g>`;
+    labels += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${labelW}" height="${rowH}"/>${label}</g>`;
     plot += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${plotW}" height="${rowH}"/>${m}</g>`;
   });
-  if (state.layer === "age" && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); plot += `<line class="cursor" x1="${cx}" x2="${cx}" y1="${top - 14}" y2="${height - bottom + 4}"/><text class="cursor-label" x="${cx + 6}" y="${top - 18}">client ${fmtAge(state.ageMonths)}</text>`; }
+  if (state.layer === "age" && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); plot += `<line class="cursor" x1="${cx}" x2="${cx}" y1="0" y2="${bodyH}"/>`; }
   labels += `</svg>`; plot += `</svg>`;
-  host.innerHTML = `<div class="atlas-split ${scrolls ? "can-scroll" : ""}">${labels}<div class="atlas-scroll">${plot}</div></div><div id="atlas-tip" class="atlas-tip" hidden></div>`;
-  const tip = host.querySelector("#atlas-tip"), scroller = host.querySelector(".atlas-scroll"), split = host.querySelector(".atlas-split");
-  if (scrolls) { const sync = () => split.classList.toggle("at-end", scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2); scroller.addEventListener("scroll", sync, {passive: true}); sync(); }
+  // Axis pane: tick labels and the axis title. Sticky at the bottom of the viewport until the chart has scrolled past.
+  let axis = `<svg class="atlas-axis-svg" viewBox="0 0 ${plotW} ${axisH}" width="${plotW}" height="${axisH}" aria-hidden="true"><line class="ax-strong" x1="0" x2="${plotW}" y1="1" y2="1"/>`;
+  kept.forEach(({x, t}) => { axis += `<line class="ax" x1="${x}" x2="${x}" y1="0" y2="6"/><text class="tick" x="${x}" y="22" text-anchor="${x < 14 ? "start" : x > plotW - 14 ? "end" : "middle"}">${t}</text>`; });
+  axis += `</svg><div class="chart-axis-title">${escapeHTML(narrow && layer.axisShort ? layer.axisShort : layer.axis)}</div>`;
+  host.innerHTML = `<div class="atlas-grid ${scrolls ? "can-scroll" : ""}" style="--labelw:${labelW}px">
+    <div class="chart-head"><div class="atlas-spacer"></div><div class="atlas-pane">${headCap}${headH ? head : ""}</div></div>
+    <div class="atlas-split">${labels}<div class="atlas-scroll">${plot}</div></div>
+    <div class="chart-axis"><div class="atlas-spacer"></div><div class="atlas-pane">${axis}</div></div>
+  </div><div id="atlas-tip" class="atlas-tip" hidden></div>`;
+  const tip = host.querySelector("#atlas-tip"), scroller = host.querySelector(".atlas-scroll"), grid = host.querySelector(".atlas-grid");
+  const panes = host.querySelectorAll(".atlas-pane > svg");
+  const sync = () => { const sl = scroller.scrollLeft; panes.forEach(s => s.style.transform = `translateX(${-sl}px)`); grid.classList.toggle("at-end", sl + scroller.clientWidth >= scroller.scrollWidth - 2); grid.classList.toggle("at-start", sl <= 1); };
+  scroller.addEventListener("scroll", sync, {passive: true}); sync();
   host.querySelectorAll(".row").forEach(row => {
     const t = state.catalog.find(x => x.id === row.dataset.id);
     row.addEventListener("mousemove", e => {
@@ -305,6 +327,8 @@ function setupNavigation() {
   document.body.addEventListener("click", e => { const r = e.target.closest("[data-receipt]"); if (r) openReceipt(r.dataset.test, r.dataset.receipt); });
   window.addEventListener("hashchange", () => showView(location.hash.slice(1), false));
   new ResizeObserver(() => { if (state.view === "atlas") renderAtlas(); }).observe(document.querySelector("#atlas-chart"));
+  const siteHeader = document.querySelector(".site-header");
+  new ResizeObserver(() => document.documentElement.style.setProperty("--header-h", `${siteHeader.offsetHeight}px`)).observe(siteHeader);
   showView(location.hash.slice(1), false);
 }
 
