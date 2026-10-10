@@ -109,11 +109,12 @@ function renderAtlas() {
   const height = top + ordered.length * rowH + bottom;
   const clamp = v => layer.domain ? Math.min(layer.domain[1], Math.max(layer.domain[0], v)) : v;
   const X = v => labelW + (layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW);
-  document.querySelector("#atlas-title").innerHTML = `${escapeHTML(layer.label)} <span>· ${escapeHTML(layer.unit)}</span>`;
+  document.querySelector("#atlas-title").textContent = layer.label;
   let svg = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="${labelW}" y="${top - 6}" width="${width - labelW}" height="${height - top - bottom + 10}" rx="6"/>`;
   layer.ticks.forEach(([v, t]) => { svg += `<line class="ax" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="tick" x="${X(v)}" y="${height - bottom + 20}" text-anchor="middle">${t}</text>`; });
   svg += `<line class="ax-strong" x1="${labelW}" x2="${width}" y1="${top - 6}" y2="${top - 6}"/><line class="ax-strong" x1="${labelW}" x2="${width}" y1="${height - bottom + 4}" y2="${height - bottom + 4}"/><text class="axis-title" x="${labelW + plotW / 2}" y="${height - 6}" text-anchor="middle">${escapeHTML(layer.axis)}</text>`;
-  if (state.layer === "age") { const bx = labelW + BREAK_FRAC * plotW; svg += `<text class="cap" x="${labelW}" y="${top - 14}">Child scale · 0–22 years</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 8}" y="${top - 14}">Adult scale · 22–90+ →</text>`; }
+  if (state.layer === "age") { const bx = labelW + BREAK_FRAC * plotW; svg += `<text class="cap" x="${labelW}" y="${top - 14}">${narrow ? "Child · 0–22" : "Child scale · 0–22 years"}</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 8}" y="${top - 14}">${narrow ? "Adult →" : "Adult scale · 22–90+ →"}</text>`; }
+  else svg += `<text class="cap" x="${labelW}" y="${top - 14}">${escapeHTML(layer.unit.charAt(0).toUpperCase() + layer.unit.slice(1))}</text>`;
   (layer.refs || []).forEach(([v, t]) => { svg += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${X(v) + 5}" y="${top - 12}">${t}</text>`; });
   ordered.forEach((t, i) => {
     const y = top + i * rowH, cy = y + rowH / 2, dim = !visible.has(t.id);

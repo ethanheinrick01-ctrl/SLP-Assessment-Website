@@ -212,6 +212,7 @@ main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 v
 
 .client-bar { margin-top: 18px; display: grid; grid-template-columns: auto auto auto minmax(220px, 1fr) auto; gap: 14px 22px; align-items: end; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow); }
 .client-bar > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.client-bar .legend { flex-wrap: wrap; justify-content: flex-start; }
 .client-bar .age-inputs { display: flex; gap: 8px; }
 .client-bar .age-inputs label { display: flex; align-items: center; gap: 6px; }
 .client-bar .age-inputs input { width: 68px; font-weight: 700; font-size: 16px; text-align: center; }
@@ -229,16 +230,17 @@ main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 v
 .chip span { display: none; }
 
 .atlas { margin-top: 0; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
-.atlas-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
-.atlas-toolbar h2 { font-size: 16px; font-weight: 800; }
+.atlas-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 20px; border-bottom: 1px solid var(--line); }
+.atlas-toolbar h2 { font-size: 20px; font-weight: 800; letter-spacing: -.015em; white-space: nowrap; }
 .atlas-toolbar h2 span { font-weight: 500; color: var(--ink-2); font-size: 14px; }
-.legend { display: flex; flex-wrap: wrap; gap: 4px; }
-.legend button { display: inline-flex; align-items: center; gap: 7px; min-height: 28px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--ink-2); }
+.legend { display: flex; flex-wrap: nowrap; gap: 2px; justify-content: flex-end; }
+.atlas-toolbar .legend { flex: 1 1 auto; min-width: 0; }
+.legend button { display: inline-flex; align-items: center; gap: 6px; min-height: 30px; padding: 0 9px; border-radius: 999px; font-size: 12.5px; font-weight: 600; color: var(--ink-2); white-space: nowrap; }
 .legend button:hover { background: var(--surface-2); color: var(--ink); }
 .legend button[aria-pressed="true"] { background: var(--surface-3); color: var(--ink); box-shadow: inset 0 0 0 1px var(--line-strong); }
 .legend button b { font-family: var(--f-mono); font-weight: 500; color: var(--ink-3); }
-.layer-picker { display: flex; flex-wrap: wrap; gap: 4px; padding: 10px 20px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
-.layer-picker button { min-height: 32px; padding: 0 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+.layer-picker { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; padding: 10px 20px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.layer-picker button { min-height: 34px; padding: 0 14px; border-radius: 999px; font-size: 13.5px; font-weight: 700; color: var(--ink-2); }
 .layer-picker button:hover { color: var(--ink); background: var(--surface-3); }
 .layer-picker button[aria-selected="true"] { background: var(--accent-fill); color: var(--on-fill); }
 .atlas-chart .ref { stroke: var(--cursor); stroke-width: 1.25; opacity: .8; }
@@ -262,7 +264,7 @@ main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 v
 .atlas-chart .hit:hover + .bar, .atlas-chart .row:hover .bar { filter: brightness(1.15); }
 .atlas-chart .cursor { stroke: var(--cursor); stroke-width: 1.5; }
 .atlas-chart .cursor-label { font-family: var(--f-ui); font-size: 12.5px; font-weight: 700; fill: var(--cursor); }
-.atlas-chart .cap { font-family: var(--f-ui); font-size: 12.5px; font-weight: 700; fill: var(--ink-2); }
+.atlas-chart .cap { font-family: var(--f-ui); font-size: 14px; font-weight: 800; fill: var(--ink); }
 .atlas-tip { position: absolute; z-index: 5; pointer-events: none; min-width: 200px; max-width: 280px; padding: 10px 12px; border-radius: var(--r-md); background: var(--surface-3); color: var(--ink); border: 1px solid var(--line-strong); box-shadow: var(--shadow-float); font-size: 12.5px; line-height: 1.45; }
 .atlas-tip strong { display: block; font-size: 15px; font-weight: 800; }
 .atlas-tip em { font-style: normal; color: var(--ink-2); display: block; }
@@ -511,6 +513,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
 @media (max-width: 900px) {
   :root { --gutter: 20px; }
   .atlas-head { grid-template-columns: 1fr; }
+  .atlas-toolbar .legend { flex-wrap: wrap; justify-content: flex-start; }
   .hero-figure { align-items: flex-start; text-align: left; }
   .client-bar { grid-template-columns: 1fr 1fr; }
   .client-bar .search { grid-column: 1 / -1; }
