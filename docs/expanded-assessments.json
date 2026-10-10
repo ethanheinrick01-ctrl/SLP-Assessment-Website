@@ -26,8 +26,8 @@
       "retest": "Not reported in checked public sources",
       "rater": "90.65%–93.84% item agreement · 2022 research cohort",
       "overall": "No single total reliability coefficient verified",
-      "accuracy": "Numerical sensitivity/specificity pair not verified",
-      "accuracyContext": "Publisher describes a diagnostic study; cutoff, sample, and paired figures require the manual.",
+      "accuracy": "92% sensitivity / 87% specificity at cutoff SS 85 · prior edition TNL (2004)",
+      "accuracyContext": "Prior-edition figures: the 2004 TNL reported sensitivity .92 and specificity .87 at SS < 85 (Spaulding, Plante & Farinella 2006; Redmond et al. 2011; norms n1,059). PRO-ED describes a TNL-2 diagnostic accuracy study for language impairment and language-based learning disabilities without publishing its figures.",
       "norms": "SALT n778 reference narratives from standardization · full norm N not stated",
       "author": "Ronald B. Gillam and Nils A. Pearson",
       "publisher": "PRO-ED",
@@ -76,6 +76,33 @@
           "published_on": "2024-07",
           "access": "public",
           "locator": "TNL2 Database Overview and Acknowledgements"
+        },
+        {
+          "id": "TNL-2-R2",
+          "label": "Spaulding, Plante & Farinella (2006) · Eligibility criteria for language impairment · LSHSS 37(1), 61–72",
+          "type": "research",
+          "url": "https://doi.org/10.1044/0161-1461(2006/007)",
+          "published_on": "2006-01",
+          "access": "abstract public (PMID 16615750) · full text subscription",
+          "locator": "Review of 43 test manuals; TNL listed among five tests with acceptable sensitivity/specificity"
+        },
+        {
+          "id": "TNL-2-R3",
+          "label": "Redmond, Thompson & Goldstein (2011) · Psycholinguistic profiling differentiates SLI · JSLHR 54(1), 99–117",
+          "type": "research",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4493886/",
+          "published_on": "2011-02",
+          "access": "public (PMC4493886)",
+          "locator": "Introduction: “Reported sensitivity and specificity values were 0.92 and 0.87.”"
+        },
+        {
+          "id": "TNL-2-P4",
+          "label": "Mind Resources catalog listing · Test of Narrative Language (first edition, discontinued)",
+          "type": "publisher",
+          "url": "https://www.mindresources.com/special-education/031331",
+          "published_on": "2004",
+          "access": "public",
+          "locator": "Product description: sensitivity .92, specificity .87; normed on 1,059 children; ages 5-0 through 11-11; 2004"
         }
       ],
       "records": [
@@ -186,19 +213,22 @@
         {
           "key": "accuracy",
           "label": "Diagnostic accuracy",
-          "value": "Not reported in the checked public sources",
+          "value": "92% sensitivity / 87% specificity at cutoff SS 85 · prior edition TNL (2004) · TNL-2 study not public",
           "source_ids": [
+            "TNL-2-R2",
+            "TNL-2-R3",
+            "TNL-2-P4",
             "TNL-2-P1"
           ],
-          "method": null,
-          "subtest": null,
-          "population": null,
+          "method": "Diagnostic accuracy of the first-edition TNL at the conventional SS < 85 cutoff, as reported in the 2004 manual and reproduced in two peer-reviewed papers",
+          "subtest": "Narrative Language Ability Index (TNL, 2004)",
+          "population": "Children with and without language impairment · first-edition validation groups · norms n1,059, ages 5:0–11:11",
           "sample_size": null,
-          "cutoff": null,
-          "locator": "Improvements · diagnostic accuracy study",
-          "checked_on": "2026-10-03",
-          "status": "not-reported",
-          "note": "No matched sensitivity/specificity, cutoff, or validation sample available in the checked public product text."
+          "cutoff": "SS < 85 (−1 SD)",
+          "locator": "Spaulding et al. 2006 (test table); Redmond et al. 2011 (Introduction); Gillam & Pearson 2004 manual",
+          "checked_on": "2026-10-10",
+          "status": "inherited",
+          "note": "Carried forward from the first edition. PRO-ED states the TNL-2 manual contains its own sensitivity/specificity study but publishes no values; the TNL-2 norms, age range (4:0–15:11) and scoring differ from 2004, so these figures are labelled prior-edition rather than transferred."
         },
         {
           "key": "norms",
@@ -373,7 +403,8 @@
           "status": "source-checked",
           "note": "Understanding and telling script, personal, and fictional stories."
         }
-      ]
+      ],
+      "accuracyFlag": "prior edition TNL · 2004"
     },
     {
       "id": "OASES",
@@ -399,7 +430,7 @@
       "retest": "Adult r .90–.97 · n14 · 10–14 days · 2006 version",
       "rater": "No interrater coefficient verified; respondent self-report",
       "overall": "Current total-score reliability not verified for every form",
-      "accuracy": "No stuttering-presence diagnostic accuracy pair verified",
+      "accuracy": "Not applicable · impact scale, not a diagnostic classifier",
       "accuracyContext": "Impact ratings describe reported adverse impact; they do not substitute for assessment of observable stuttering.",
       "norms": "Adult development n173; separate S/T/A evidence required",
       "author": "J. Scott Yaruss and Robert W. Quesal",
@@ -550,7 +581,7 @@
         {
           "key": "accuracy",
           "label": "Diagnostic accuracy",
-          "value": "Not reported in the checked public sources",
+          "value": "Not applicable · impact scale, not a diagnostic classifier",
           "source_ids": [
             "OASES-P1"
           ],
@@ -560,9 +591,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "FAQ · purpose and interpretation",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "No paired sensitivity/specificity for classifying whether stuttering is present was checked."
+          "note": "The OASES measures the adverse impact of stuttering on the speaker's life; it is not used to classify whether stuttering is present, so sensitivity and specificity do not apply. No such pair was checked or found."
         },
         {
           "key": "norms",
@@ -751,7 +782,7 @@
       "overall": "AQ mode concordance .942 · 19 people/23 pairs · PPA",
       "accuracy": "77% sensitivity / 64% specificity · AQ 93.7 · 2026 stroke study",
       "accuracyContext": "n171 English-speaking adults within 2 weeks of acute ischemic stroke; discourse-based reference classification.",
-      "norms": "Original WAB: 150 aphasia/59 controls; later 215/63; WAB-R adapted tasks n20",
+      "norms": "150 aphasia / 59 controls · original WAB standardization; later 215/63; WAB-R new tasks n20",
       "author": "Andrew Kertesz",
       "publisher": "Pearson",
       "edition": "Revised · publisher release 2006",
@@ -1127,12 +1158,12 @@
       "focus": "Attention, memory, executive function, language, and visuospatial skills.",
       "reliability": "Publisher describes development studies; exact coefficients not verified here",
       "internal": "Not reported in checked public publisher sources",
-      "retest": "Not reported in checked public publisher sources",
+      "retest": ".61–.90 · CLQT 2001 pilot · retest and interrater pooled",
       "rater": "Not reported in checked public publisher sources",
       "overall": "No single coefficient verified",
       "accuracy": "Matched sensitivity/specificity pair not verified",
       "accuracyContext": "Criterion cut scores and descriptive severity ratings; public sample descriptions are not diagnostic accuracy figures.",
-      "norms": "Criterion-based · original studies n13/92/154/119; aphasia path n76",
+      "norms": "Criterion-referenced · no normative sample · original studies n13/92/154/119 · aphasia path n76",
       "author": "Nancy Helm-Estabrooks",
       "publisher": "Pearson",
       "edition": "CLQT 2001 · CLQT+ 2017",
@@ -1171,6 +1202,33 @@
           "published_on": null,
           "access": "public",
           "locator": "Personal Facts; task-level interpretation"
+        },
+        {
+          "id": "CLQT+-R1",
+          "label": "University of Utah occupational-therapy program · student-compiled CLQT assessment review (2011)",
+          "type": "review",
+          "url": "https://health.utah.edu/sites/g/files/zrelqx131/files/files/migration/image/clqt.pdf",
+          "published_on": "2011-11",
+          "access": "public",
+          "locator": "IV. Technical Considerations: Reliability"
+        },
+        {
+          "id": "CLQT+-R2",
+          "label": "Parashos, Johnson, Erickson-Davis & Wielinski (2009) · CLQT in Parkinson disease · J Geriatr Psychiatry Neurol 22(4), 228–234",
+          "type": "research",
+          "url": "https://doi.org/10.1177/0891988709342721",
+          "published_on": "2009-12",
+          "access": "abstract public (PMID 19666882) · full text subscription",
+          "locator": "Abstract: Results"
+        },
+        {
+          "id": "CLQT+-R3",
+          "label": "Mupawose & Broom (2010) · CLQT in South African adults living with HIV · African Journal of AIDS Research 9(2), 147–152",
+          "type": "research",
+          "url": "https://doi.org/10.2989/16085906.2010.517481",
+          "published_on": "2010",
+          "access": "abstract public (PMID 25860523) · full text subscription",
+          "locator": "Abstract: Results"
         }
       ],
       "records": [
@@ -1229,20 +1287,20 @@
         {
           "key": "retest",
           "label": "Test–retest",
-          "value": "Not reported in the checked public sources",
+          "value": ".61–.90 · original CLQT (2001) pilot study · test–retest and interrater reported together",
           "source_ids": [
-            "CLQT+-P1",
-            "CLQT+-P2"
+            "CLQT+-R1",
+            "CLQT+-P1"
           ],
-          "method": null,
-          "subtest": null,
-          "population": null,
+          "method": "Pilot-study test–retest and interrater reliability of the 2001 CLQT, pooled in a secondary summary",
+          "subtest": "Five cognitive-domain scores",
+          "population": "Pilot sample · size not stated",
           "sample_size": null,
           "cutoff": null,
-          "locator": "Features; brochure Psychometric Information",
-          "checked_on": "2026-10-03",
-          "status": "not-reported",
-          "note": "Original CLQT estimates found in secondary summaries were not presented as verified CLQT+ coefficients."
+          "locator": "Utah review, IV. Technical Considerations: Reliability",
+          "checked_on": "2026-10-10",
+          "status": "inherited",
+          "note": "A student-compiled university handout summarising the 2001 manual; it does not separate test–retest from interrater values or give n or interval. CLQT+ (2017) added an aphasia path to the same tasks without re-norming, so the range is carried forward, not verified for CLQT+."
         },
         {
           "key": "rater",
@@ -1286,7 +1344,8 @@
           "value": "Not reported in the checked public sources",
           "source_ids": [
             "CLQT+-P1",
-            "CLQT+-P2"
+            "CLQT+-P2",
+            "CLQT+-R2"
           ],
           "method": null,
           "subtest": null,
@@ -1294,9 +1353,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "Overview · criterion scores; Psychometric Information",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "Cut scores and descriptive ratings cannot be relabeled as sensitivity or specificity."
+          "note": "Cut scores and descriptive ratings cannot be relabeled as sensitivity or specificity. Parashos et al. (2009) report “similar diagnostic value for dementia” to the MMSE in 93 people with Parkinson's disease without publishing the pair."
         },
         {
           "key": "norms",
@@ -1469,6 +1528,24 @@
           "checked_on": "2026-10-02",
           "status": "source-checked",
           "note": "Attention, memory, executive function, language, and visuospatial skills."
+        },
+        {
+          "key": "clinical-study",
+          "label": "Clinical validation studies",
+          "value": "Parkinson's disease n93: CLQT correlated with the MMSE and showed similar diagnostic value for dementia while adding domain profiles (2009) · HIV n16 descriptive (2010)",
+          "source_ids": [
+            "CLQT+-R2",
+            "CLQT+-R3"
+          ],
+          "method": "Cross-sectional comparison with the MMSE; descriptive case series",
+          "subtest": null,
+          "population": "Adults with Parkinson's disease; South African adults living with HIV",
+          "sample_size": "93; 16",
+          "cutoff": null,
+          "locator": "Abstracts",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Original CLQT, not CLQT+. “Similar diagnostic value” is reported without published sensitivity or specificity."
         }
       ]
     },
@@ -1527,6 +1604,24 @@
           "published_on": "2025–2026",
           "access": "public",
           "locator": "Printed p. 64 · CADL-3"
+        },
+        {
+          "id": "CADL-3-R1",
+          "label": "Roca, Ivern, Bruna & Velasco (2018) · CADL-3 versión española: adaptación y fiabilidad · Revista de Logopedia, Foniatría y Audiología 38(1), 6–13",
+          "type": "research",
+          "url": "https://doi.org/10.1016/j.rlfa.2017.12.002",
+          "published_on": "2018-01",
+          "access": "abstract public · full text subscription",
+          "locator": "Abstract: Results"
+        },
+        {
+          "id": "CADL-3-R2",
+          "label": "Roca, Ivern, Cifre & Bruna (2024) · CADL-3 in Spanish and Catalan for people with aphasia · IJLCD 59(6), 2844–2857",
+          "type": "research",
+          "url": "https://doi.org/10.1111/1460-6984.13124",
+          "published_on": "2024-11",
+          "access": "abstract public (PMID 39352066) · full text subscription",
+          "locator": "Abstract: Outcomes & results"
         }
       ],
       "records": [
@@ -1645,9 +1740,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "Technical and Statistical Characteristics",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "Clinical differentiation is reported without numerical sensitivity/specificity or cutoff."
+          "note": "Clinical differentiation is reported without numerical sensitivity/specificity or cutoff. The 2024 Spanish/Catalan adaptation likewise reports significant aphasia-versus-control differences but no classification cutoff."
         },
         {
           "key": "norms",
@@ -1818,6 +1913,24 @@
           "checked_on": "2026-10-02",
           "status": "source-checked",
           "note": "Functional communication across everyday verbal, nonverbal, written, number, and technology activities."
+        },
+        {
+          "key": "translation-study",
+          "label": "Spanish and Catalan adaptations",
+          "value": "European Spanish CADL-3: α .949 · test–retest .903 · n107 with aphasia (2018) · Spanish/Catalan n152: aphasia vs control differences and a very strong external-criterion correlation (2024)",
+          "source_ids": [
+            "CADL-3-R1",
+            "CADL-3-R2"
+          ],
+          "method": "Cultural adaptation with reliability analysis and external validation",
+          "subtest": null,
+          "population": "Adults with aphasia in Catalonia; 2024 study adds a control group",
+          "sample_size": "107; 152",
+          "cutoff": null,
+          "locator": "Abstracts",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Adapted editions; the English norms (n115) are unaffected. The values corroborate the publisher's α .94 / retest .94 without replacing them."
         }
       ]
     },
@@ -1843,7 +1956,7 @@
       "time": "5–10 min/test · GLAI 30–45 (3–6y), 45–60 (7–21y)",
       "focus": "Fourteen spoken-language tests covering lexical/semantic, syntactic, supralinguistic, and pragmatic abilities.",
       "reliability": ".85–.99 internal consistency · tests",
-      "internal": ".85–.99 tests · .95–.99 indexes · manual summary",
+      "internal": ".85–.99 across tests · .95–.99 indexes · manual summary",
       "retest": "Two-week retest: tests .73–.94 · indexes .88–.96",
       "rater": "ICC .86–.97 · manual summary; remote study separate",
       "overall": "Indexes .95–.99 internal consistency · GLAI-only coefficient not isolated",
@@ -2304,7 +2417,7 @@
       ],
       "ageMin": 36,
       "ageMax": 263,
-      "age": "Oral Form A 3:0–21:11 · written and Form B 5:0–21:11",
+      "age": "3:0–21:11 · written scales and Form B from 5:0 · oral Form A from 3:0",
       "timeMin": 10,
       "timeMax": 30,
       "time": "10–30 min per scale · not the full battery",
@@ -2417,9 +2530,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "Quick Reference p. 1 scale chart; Overview · Completion time",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "source-checked",
-          "note": "Numeric time fields describe individual scales. A verified full-battery duration is not supplied; select the scales before planning total time."
+          "note": "Pearson lists Listening Comprehension 10–20, Oral Expression 10–30, Reading Comprehension 10–30 and Written Expression 15–30 minutes per scale. No full-battery time is published; select the scales before planning total time."
         },
         {
           "key": "internal",
@@ -2451,9 +2564,9 @@
           "sample_size": 117,
           "cutoff": null,
           "locator": "Properties: Reliability",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "conflicting",
-          "note": "The numeric range is available, but its placement makes the reliability method ambiguous. It is shown transparently instead of discarded or misclassified; manual reconciliation is required."
+          "note": "The UNSW summary lists .73–.94 (median .85, n117) under reliability without naming the method. n117 is a retest-sized subsample of the 2,123 standardization cases, so test–retest is the probable reading, but the interval is not stated and the manual table was not read; shown transparently rather than discarded."
         },
         {
           "key": "rater",
@@ -2502,9 +2615,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "PDF p. 12 / slide 47 · Standardization",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "The handout lists validation samples n241 with speech/language disorders and n114 with psychological/behavioral intervention needs. These counts do not establish a matched accuracy pair or cutoff."
+          "note": "Validation samples: n241 students in speech/language intervention and n114 in psychological/behavioural intervention. The published analysis is group differentiation; no sensitivity/specificity study appears in any public summary checked, and independent reviewers state the manual reports none."
         },
         {
           "key": "norms",
@@ -2715,6 +2828,24 @@
           "checked_on": "2026-10-03",
           "status": "source-checked",
           "note": "Alternate-form equivalence is separate from repeating the same form. Age-specific rows are not reproduced."
+        },
+        {
+          "key": "validity-groups",
+          "label": "Clinical group differentiation",
+          "value": "Differentiates typical from clinical groups · n241 speech/language intervention · n114 psychological/behavioural (manual summary)",
+          "source_ids": [
+            "OWLS-II-R1",
+            "OWLS-II-P3"
+          ],
+          "method": "Known-groups comparison of standardization and clinical samples",
+          "subtest": null,
+          "population": "Students receiving speech/language or psychological/behavioural intervention",
+          "sample_size": "241 + 114",
+          "cutoff": null,
+          "locator": "UNSW PDF p. 1, Validity; WPS handout",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Group differences support construct validity; they do not yield a cutoff, sensitivity or specificity."
         }
       ]
     },
@@ -2842,9 +2973,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "Description · reliability paragraph",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "Retest coefficient, interval and study n require the technical manual."
+          "note": "PRO-ED: “Test–retest studies show the REEL-4 is stable over time.” Coefficient, interval and study n require the examiner's manual (checked again 2026-10-10)."
         },
         {
           "key": "rater",
@@ -2893,9 +3024,9 @@
           "sample_size": null,
           "cutoff": null,
           "locator": "Description · diagnostic accuracy paragraph",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "Sensitivity, specificity and ROC/AUC studies are described, but paired figures, cutoff, severity distribution and sample sizes are not provided."
+          "note": "PRO-ED describes sensitivity, specificity and ROC/AUC studies for language impairment, low-functioning autism and developmental delay versus children without exceptionalities, but publishes no paired figures, cutoff, severity distribution or sample sizes (re-checked 2026-10-10)."
         },
         {
           "key": "norms",
@@ -3104,7 +3235,8 @@
           "note": "The publisher reports average reliability above .90 without specifying a method, score, age-group coefficients, or reliability-sample size. This is not a verified Cronbach alpha or specific composite coefficient."
         }
       ],
-      "reliabilityRecordKey": "reliability-summary"
+      "reliabilityRecordKey": "reliability-summary",
+      "reliability-summary": "Above .90 · across scores · method not named"
     },
     {
       "id": "Bayley-III",
@@ -3130,8 +3262,8 @@
       "retest": "Review pooled .67–.94 across Cognitive/Language/Motor · n197",
       "rater": "Language-scale interrater coefficient not verified",
       "overall": "Language Composite .93 · no battery-wide overall composite",
-      "accuracy": "Language-specific matched sensitivity/specificity pair not verified",
-      "accuracyContext": "Publisher reports clinical discrimination without public paired language-specific figures or cutoff. Convergent correlations and developmental-group differences are distinct from diagnostic accuracy.",
+      "accuracy": "40–47% sensitivity / 81–86% specificity at SS 85 (−1 SD) · Language delay at 24 months predicting 4-year DAS-II impairment · very preterm n105",
+      "accuracyContext": "Spencer-Smith et al. (2015): in 105 children born before 30 weeks, Bayley-III Language delay (< −1 SD) at 24 months predicted DAS-II impairment at 4 years with sensitivity 40–46.7% and specificity 81.1–85.7% across indices. This is predictive accuracy in a very preterm cohort, not a concurrent language-disorder classification study; the publisher reports no language-specific pair.",
       "norms": "Review n1,700 · 2000 U.S. Census target · collection dates conflict",
       "author": "Nancy Bayley",
       "publisher": "Pearson (original Harcourt Assessment edition)",
@@ -3207,6 +3339,24 @@
           "published_on": "2013",
           "access": "public",
           "locator": "Linked PDF pp. 3, 8–9; current page links the dated review"
+        },
+        {
+          "id": "Bayley-III-R3",
+          "label": "Spencer-Smith, Spittle, Lee, Doyle & Anderson (2015) · Bayley-III Cognitive and Language Scales in preterm children · Pediatrics 135(5), e1258–e1265",
+          "type": "research",
+          "url": "https://doi.org/10.1542/peds.2014-3039",
+          "published_on": "2015-05",
+          "access": "abstract public (PMID 25896835) · full text subscription",
+          "locator": "Abstract: Results"
+        },
+        {
+          "id": "Bayley-III-R4",
+          "label": "Doh et al. (2020) · Predictive value of K-BSID-III language scales against SELSI · Annals of Rehabilitation Medicine 44(5), 378–385",
+          "type": "research",
+          "url": "https://doi.org/10.5535/arm.19198",
+          "published_on": "2020-10",
+          "access": "public (PMID 32986945)",
+          "locator": "Abstract: Results"
         }
       ],
       "records": [
@@ -3318,19 +3468,20 @@
         {
           "key": "accuracy",
           "label": "Diagnostic accuracy",
-          "value": "Language-specific matched sensitivity/specificity pair not verified",
+          "value": "40–47% sensitivity / 81–86% specificity at SS 85 (−1 SD) · Language delay at 24 months predicting 4-year DAS-II impairment · very preterm n105",
           "source_ids": [
+            "Bayley-III-R3",
             "Bayley-III-P3"
           ],
-          "method": null,
-          "subtest": "Language Scale",
-          "population": null,
-          "sample_size": null,
-          "cutoff": null,
-          "locator": "Technical Report 2 p. 2 · Clinical Samples",
-          "checked_on": "2026-10-03",
-          "status": "not-reported",
-          "note": "A general qualitative claim about sensitivity and specificity supplies neither paired language figures nor cutoff and sample. The report’s r=.83 Language/WPPSI-III VIQ correlation is convergent validity, not accuracy."
+          "method": "Predictive accuracy: Bayley-III Language delay (< −1 SD on test norms) at 24 months' corrected age against DAS-II Verbal, Nonverbal Reasoning and General Conceptual Ability impairment (< −1 SD) at 4 years",
+          "subtest": "Language composite · mild/moderate delay",
+          "population": "Children born before 30 weeks' gestation · Victoria, Australia · very preterm cohort",
+          "sample_size": 105,
+          "cutoff": "< −1 SD (composite SS < 85); ROC-optimal cut-points were closer to local reference data",
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Predictive, not concurrent, accuracy; ranges span three DAS-II indices. Using local term-born reference data raised sensitivity and lowered specificity. The publisher reports no language-specific sensitivity/specificity pair; its r = .83 Language/WPPSI-III correlation is convergent validity."
         },
         {
           "key": "norms",
@@ -3546,8 +3697,26 @@
           "checked_on": "2026-10-03",
           "status": "source-checked",
           "note": "The requested Third Edition remains a separate historical assessment record; Fourth Edition scores, time, norms and coefficients were not substituted."
+        },
+        {
+          "key": "accuracy-translation",
+          "label": "Korean edition accuracy (K-BSID-III)",
+          "value": "Receptive 85% sensitivity / 81% specificity · expressive 96% / 82% against SELSI categories · n104 suspected delay (2020)",
+          "source_ids": [
+            "Bayley-III-R4"
+          ],
+          "method": "ROC analysis of K-BSID-III receptive and expressive language subscales against Sequenced Language Scale for Infants categories; AUC .877 receptive, .935 expressive",
+          "subtest": "Receptive and Expressive Communication subscales",
+          "population": "Korean infants and toddlers with suspected language delay · retrospective",
+          "sample_size": 104,
+          "cutoff": "SELSI category cut 1.50 (between average and low average)",
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Translated edition scored against a Korean criterion measure; the authors warn of under-estimation in the low-average group. Not transferable to U.S. norms."
         }
-      ]
+      ],
+      "accuracyFlag": "predictive · very preterm cohort"
     },
     {
       "id": "Arizona-4",
@@ -3690,9 +3859,9 @@
           "sample_size": 50,
           "cutoff": null,
           "locator": "Technical Information · clinical validation study",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "n50 is the reported clinical group, not a complete diagnostic-study denominator. Do not infer sensitivity, specificity, or predictive values from qualitative praise."
+          "note": "n50 is the reported clinical group, not a complete diagnostic-study denominator. WPS and PRO-ED describe “excellent sensitivity and specificity, as well as positive and negative predictive value” without publishing the values; do not infer figures from qualitative praise."
         },
         {
           "key": "edition",
@@ -3946,7 +4115,7 @@
       "overall": "No single total reliability coefficient verified",
       "accuracy": "CAS sensitivity/specificity not verified",
       "accuracyContext": "The public product page provides no matched cutoff, sensitivity, specificity or diagnostic validation denominator. It describes an aid to assessment and treatment planning.",
-      "norms": "Original norms: 447 typical speech / 263 disordered speech · 2008 review",
+      "norms": "447 typical / 263 disordered speech · original norms (2008 review)",
       "author": "Nancy R. Kaufman",
       "publisher": "Wayne State University Press · Northern Speech Services distribution",
       "edition": "Original test ©1995 · combined Manual & Testing Guide ©2026; re-norming not verified",
@@ -3994,6 +4163,33 @@
           "published_on": "2008",
           "access": "public",
           "locator": "Printed pp. 86–87; DOI 10.1044/1058-0360(2008/007), author-posted full text"
+        },
+        {
+          "id": "KSPT-R2",
+          "label": "Gubiani, Pagliarin & Keske-Soares (2015) · Tools for the assessment of childhood apraxia of speech · CoDAS 27(6), 610–615",
+          "type": "research",
+          "url": "https://doi.org/10.1590/2317-1782/20152014152",
+          "published_on": "2015-12",
+          "access": "public (PMID 26691627)",
+          "locator": "Results"
+        },
+        {
+          "id": "KSPT-A2",
+          "label": "ASHA Evidence Maps · article summary of Gubiani et al. (2015)",
+          "type": "asha",
+          "url": "https://apps.asha.org/EvidenceMaps/Articles/ArticleSummary/475b7cc2-4610-4868-b7a6-964dc13bf2be",
+          "published_on": null,
+          "access": "public",
+          "locator": "Article summary"
+        },
+        {
+          "id": "KSPT-R3",
+          "label": "Critical Path Institute · Rare Disease Clinical Outcome Assessment resource: Kaufman Speech Praxis Test",
+          "type": "review",
+          "url": "https://rdcoas.c-path.org/?p=1899",
+          "published_on": null,
+          "access": "public",
+          "locator": "Validity section"
         }
       ],
       "records": [
@@ -4292,6 +4488,25 @@
           "checked_on": "2026-10-03",
           "status": "not-reported",
           "note": "Public product text says the manual contains validity and reliability information but does not supply a numerical coefficient, sample, or study design. Full manual was not accessed."
+        },
+        {
+          "key": "validity-review",
+          "label": "Validity evidence (reviews)",
+          "value": "Systematic review lists the KSPT among five published CAS assessment tools · C-Path summary lists concurrent and known-groups validity · no accuracy figures",
+          "source_ids": [
+            "KSPT-R2",
+            "KSPT-A2",
+            "KSPT-R3"
+          ],
+          "method": "Systematic review of 12 empirical studies; clinical-outcome-assessment summary",
+          "subtest": null,
+          "population": "Children with suspected childhood apraxia of speech",
+          "sample_size": null,
+          "cutoff": null,
+          "locator": "Gubiani 2015, Results; C-Path validity section",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Neither source reports sensitivity, specificity or a cutoff for CAS."
         }
       ],
       "reliabilityRecordKey": "retest"
@@ -4744,9 +4959,9 @@
       "ageMin": 60,
       "ageMax": 263,
       "age": "5:0–21:11",
-      "timeMin": null,
-      "timeMax": null,
-      "time": "Not reported in checked current publisher sources",
+      "timeMin": 40,
+      "timeMax": 80,
+      "time": "40–80 min · depends on subtests given · 30–40 min core per manual excerpt",
       "focus": "Spanish language structure/content, directions, sentence memory/formulation, and pragmatic ratings.",
       "reliability": "Normative subtest α .65–.97 · Spanish review",
       "internal": "α .65–.97 · split-half .62–.98 · norm age/subtest ranges (review)",
@@ -4812,6 +5027,15 @@
           "published_on": "2014",
           "access": "public",
           "locator": "PDF pp. 10–11"
+        },
+        {
+          "id": "CELF-4-Spanish-R3",
+          "label": "Bilinguistics (2019) · Developmental Speech and Language Norms for Spanish and English · assessment table",
+          "type": "review",
+          "url": "https://bilinguistics.com/wp-content/ebooks/devnormsdigitalversion/files/basic-html/page43.html",
+          "published_on": "2019",
+          "access": "public",
+          "locator": "Page 43: CELF-4 Spanish row"
         }
       ],
       "records": [
@@ -4835,19 +5059,20 @@
         {
           "key": "time",
           "label": "Administration time",
-          "value": "Not reported in checked current publisher sources",
+          "value": "40–80 min depending on subtests given (Bilinguistics 2019) · manual excerpt: 30–40 min for the four Core Language subtests",
           "source_ids": [
+            "CELF-4-Spanish-R3",
             "CELF-4-Spanish-P1"
           ],
-          "method": null,
+          "method": "Secondary summaries; the publisher's current page lists no completion time",
           "subtest": null,
           "population": null,
           "sample_size": null,
           "cutoff": null,
-          "locator": "Current U.S. product Overview",
-          "checked_on": "2026-10-03",
-          "status": "not-reported",
-          "note": "English CELF-4 times and reseller estimates were not substituted."
+          "locator": "Bilinguistics p. 43; examiner's manual administration chapter (indexed excerpt only)",
+          "checked_on": "2026-10-10",
+          "status": "conflicting",
+          "note": "Two secondary figures with different scopes: 40–80 minutes for a variable number of subtests versus 30–40 minutes for the Core Language subtests quoted from an indexed copy of the examiner's manual that could not be opened. English CELF-4 times were not substituted. Confirm against the manual."
         },
         {
           "key": "internal",
@@ -5168,7 +5393,7 @@
       "reliability": "Judge reliability only · no internal consistency or retest coefficient in checked public sources",
       "internal": "Not reported in checked public sources",
       "retest": "Not reported in checked public sources",
-      "rater": "Manual-method intra/interjudge reliability replicated in 12 trained judges; alternative agreement calculations differ · no public coefficient",
+      "rater": "Manual-method reliability replicated in 12 trained judges (2017) · interjudge agreement below 80% in 24 student raters (2020) · no public coefficient",
       "overall": "Publisher states \"reliable and valid\" without public figures",
       "accuracy": "Not applicable · severity scale, not a diagnostic classifier",
       "accuracyContext": "The SSI-4 grades severity in people already identified as stuttering. No sensitivity/specificity pair or cutoff applies in the checked sources; the total score converts to a percentile and a severity band.",
@@ -5247,6 +5472,33 @@
           "published_on": "2025",
           "access": "abstract public · full text subscription",
           "locator": "Abstract (PMID 40609520): participants, method, results"
+        },
+        {
+          "id": "SSI-4-S3",
+          "label": "Davidow (2020) · Reliability and similarity of the SSI-4 and a global severity rating scale · Speech, Language and Hearing 24(1), 20–27",
+          "type": "research",
+          "url": "https://doi.org/10.1080/2050571X.2020.1730545",
+          "published_on": "2020-02",
+          "access": "abstract public · full text subscription",
+          "locator": "Abstract: Method, Results"
+        },
+        {
+          "id": "SSI-4-S4",
+          "label": "Todd et al. (2014) · SSI-3/SSI-4 scores for samples of different length · Clinical Linguistics & Phonetics 28(12), 912–926",
+          "type": "research",
+          "url": "https://doi.org/10.3109/02699206.2014.926991",
+          "published_on": "2014-12",
+          "access": "abstract public (PMID 24938354) · full text subscription",
+          "locator": "Abstract"
+        },
+        {
+          "id": "SSI-4-S5",
+          "label": "Tahmasebi, Shafie, Karimi & Mazaheri (2018) · A Persian version of the SSI-4 · Journal of Communication Disorders 74, 1–9",
+          "type": "research",
+          "url": "https://doi.org/10.1016/j.jcomdis.2018.04.005",
+          "published_on": "2018-07",
+          "access": "abstract public (PMID 29723653) · full text subscription",
+          "locator": "Abstract: Results"
         }
       ],
       "records": [
@@ -5341,19 +5593,20 @@
         {
           "key": "rater",
           "label": "Intrajudge / interjudge reliability",
-          "value": "Manual-method intra/interjudge reliability replicated; alternative agreement calculations differ",
+          "value": "12 trained judges matched manual-method reliability (2017) · 24 student raters fell below 80% interjudge agreement on the Final Severity Rating (2020)",
           "source_ids": [
-            "SSI-4-S1"
+            "SSI-4-S1",
+            "SSI-4-S3"
           ],
-          "method": "12 trained judges scored 4 videos of adults who stutter at Time 1 and 4 weeks later; reliability computed by the manual's methods and by new agreement calculations",
+          "method": "2017: 12 trained judges scored 4 videos at Time 1 and 4 weeks later, by the manual's methods and by new agreement calculations. 2020: 24 graduate students rated 4 videos with SSI-4 procedures or a 5-point global rating; intra- and inter-rater agreement compared",
           "subtest": "Frequency, Duration, Physical Concomitants subscores; total score; severity rating",
           "population": "Adults who stutter (video samples)",
-          "sample_size": "12 judges · 4 speakers",
+          "sample_size": "12 judges · 4 speakers (2017); 24 raters · 4 speakers (2020)",
           "cutoff": null,
           "locator": "Abstract: Method, Results",
           "checked_on": "2026-10-10",
           "status": "source-checked",
-          "note": "The abstract reports agreement with the manual's figures under the manual's methods and lower values under alternative agreement calculations, without publishing coefficients. The authors advise clinicians to consider the instrument's limitations."
+          "note": "Neither abstract publishes coefficients. The 2017 study found agreement with the manual's figures under the manual's methods and lower values under alternative calculations; the 2020 study found the SSI-4 more reliable than a global rating but below the 80% inter-rater criterion, and recommends rater training with exemplars."
         },
         {
           "key": "reliability-summary",
@@ -5494,6 +5747,40 @@
           "checked_on": "2026-10-10",
           "status": "source-checked",
           "note": null
+        },
+        {
+          "key": "procedure-study",
+          "label": "Speech-sample length",
+          "value": "200-syllable samples are the minimum for stable severity scores · 54 children (2014)",
+          "source_ids": [
+            "SSI-4-S4"
+          ],
+          "method": "Severity scores computed on extracts of different lengths; reader and non-reader procedures compared",
+          "subtest": null,
+          "population": "23 children aged 2:8–6:3 and 31 children aged 10:0–14:7",
+          "sample_size": 54,
+          "cutoff": null,
+          "locator": "Abstract",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Supports Riley's 200-syllable minimum; reader and non-reader procedures gave similar SSI-3 scores in the older children."
+        },
+        {
+          "key": "translation-study",
+          "label": "Persian adaptation",
+          "value": "Very high relative but poor absolute interjudge reliability · 35 adults who stutter · 10 SLPs (2018)",
+          "source_ids": [
+            "SSI-4-S5"
+          ],
+          "method": "Cross-cultural translation; relative and absolute inter-judge reliability, intra-judge reliability, criterion validity",
+          "subtest": null,
+          "population": "Persian-speaking adults who stutter, aged 17–42",
+          "sample_size": "35 speakers · 10 raters",
+          "cutoff": null,
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Translated edition. The authors conclude trained SLPs can use it reliably but not to document small changes in severity, echoing the English rater-agreement findings."
         }
       ]
     }

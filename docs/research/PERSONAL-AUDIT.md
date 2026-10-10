@@ -91,3 +91,7 @@ The primary agent personally rechecked Petersen et al. (2020), including Table 3
 Publisher pages were checked for the latest available information about the specified editions; a recently updated sales page does not imply recently collected norms. Technical reviews identify which manual statistics they reproduce. Numerical gaps say what the inspected source does not supply, rather than asserting that the number cannot exist anywhere. The CASL indexed excerpt's unavailable direct URL is explicitly marked; the checked GFTA/KLPA comparison PDFs and UNSW OWLS review returned PDF content successfully.
 
 No test items, answer keys, norm conversion tables, examiner manuals, patient data, or private course files are redistributed. Cached research downloads remain outside the preview's served routes. Faculty validation remains pending. This is a local, source-linked planning prototype; no public publication occurred.
+
+### Addendum · 10 October 2026 (hole audit)
+
+A second pass on every figure still showing "—": 13 new sources and 12 new records across TNL-2, Bayley-III, CLQT+, REEL-4, PPVT-5, OWLS-II, KSPT, CADL-3, SSI-4, OASES, GFTA-3 and CELF-4 Spanish. Carried-forward figures (first-edition TNL accuracy; original-CLQT pilot reliability) are stored with status *inherited* and wear a visible flag on the spec sheet; the Bayley-III pair is a predictive study in a very preterm cohort and is flagged as such. Details, sources and the list of holes that remain genuinely unreported are in `HOLE-AUDIT-2026-10-10.md`. All values await LSU faculty validation.

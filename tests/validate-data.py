@@ -18,7 +18,7 @@ for test in all_tests:
     sources={s['id']:s for s in test['sources']}
     for record in test['records']:
         assert record['checked_on'] in {'2026-10-02','2026-10-03','2026-10-10'}
-        if test['id'] in new_ids: assert record['checked_on']=='2026-10-03'
+        if test['id'] in new_ids: assert record['checked_on'] in {'2026-10-03','2026-10-10'}
         if test['id']=='SSI-4': assert record['checked_on']=='2026-10-10'
         assert record['status'] in {'source-checked','conflicting','not-reported','inherited'}
         assert all(s in sources for s in record['source_ids']),(test['id'],record['key'])
@@ -49,8 +49,8 @@ for id in {'PLS-5-Spanish','CELF-4-Spanish'}:
     assert all(s.startswith(id+'-') for r in by_id[id]['records'] for s in r['source_ids'])
 assert get_record('CELF-4-Spanish','accuracy')['status']=='conflicting'
 assert get_record('CELF-4-Spanish','accuracy')['sample_size']==293
-assert by_id['CELF-4-Spanish']['timeMax'] is None
-assert 'Form A' in by_id['OWLS-II']['age'] and 'Form B' in by_id['OWLS-II']['age']
+assert by_id['CELF-4-Spanish']['timeMin']==40 and by_id['CELF-4-Spanish']['timeMax']==80 and get_record('CELF-4-Spanish','time')['status']=='conflicting'
+assert 'Form A' in by_id['OWLS-II']['age'] and 'Form B' in by_id['OWLS-II']['age'] and get_record('OWLS-II','age')['value'].startswith('Oral Form A 3:0')
 assert 'battery' in by_id['Bayley-III']['time'] and get_record('Bayley-III','norms')['sample_size']==1700
 assert 'remote' in get_record('CASL-2','mode-agreement')['method']
 assert 'same-mode' in get_record('CASL-2','mode-agreement')['note']
@@ -61,6 +61,16 @@ assert '447' in get_record('KSPT','norms')['value'] and '2026' in by_id['KSPT'][
 # SSI-4 is a severity instrument: no accuracy pair, and its lower age bound is a disclosed publisher conflict.
 assert get_record('SSI-4','accuracy')['status']=='not-reported' and get_record('SSI-4','age')['status']=='conflicting'
 assert get_record('SSI-4','norms')['sample_size']==271
+# 2026-10-10 hole audit: carried-forward and study-specific figures stay labelled as such.
+assert get_record('TNL-2','accuracy')['status']=='inherited' and 'prior edition' in by_id['TNL-2']['accuracyFlag']
+assert get_record('Bayley-III','accuracy')['status']=='source-checked' and 'preterm' in get_record('Bayley-III','accuracy')['population'] and get_record('Bayley-III','accuracy')['sample_size']==105
+assert get_record('CLQT+','retest')['status']=='inherited' and '.61' in by_id['CLQT+']['retest']
+assert by_id['CLQT+']['norms'].startswith('Criterion-referenced')
+assert get_record('OASES','accuracy')['value'].startswith('Not applicable') and get_record('SSI-4','accuracy')['value'].startswith('Not applicable')
+assert by_id['REEL-4']['reliability-summary'].startswith('Above .90')
+assert get_record('PPVT-5','accuracy')['status']=='not-reported' and get_record('PPVT-5','accuracy-manual')['sample_size']=='120; 100; 162'
+assert get_record('GFTA-3','mode-agreement')['sample_size']==39
+assert get_record('SSI-4','rater')['source_ids']==['SSI-4-S1','SSI-4-S3']
 print(f'PASS: 20 assessments, {count} records, valid source references, 7 ASHA groups, and clinical context checks.')
 
 # Personal audit protects known method and denominator distinctions.

@@ -1,5 +1,5 @@
 {
-  "checked_on": "2026-10-03",
+  "checked_on": "2026-10-10",
   "verification_meaning": "Values were checked against named public sources or explicitly retained as inherited. Source-checked does not mean independent clinical validation or full manual review. Source publication dates are separate from test edition years.",
   "assessments": [
     {
@@ -178,9 +178,9 @@
           "sample_size": null,
           "cutoff": "Infographic: −1 SD and 10% base rate",
           "locator": "Infographic p. 2, bottom validity table; review p. 526",
-          "checked_on": "2026-10-03",
+          "checked_on": "2026-10-10",
           "status": "not-reported",
-          "note": "Infographic .98/.98/.95 are negative predictive power, despite its clinical-specificity wording. They are not specificity. Review discusses multiple cutoffs without reproducing a complete matched accuracy table."
+          "note": "The manual reports classification tables for language delay (n120), SLI (n100) and SLD reading/writing (n162) at cut scores 85, 77 and 70 across five base rates, emphasising predictive values (Canivez review); the sensitivity/specificity values themselves are not reproduced in any public source checked. The infographic's .98/.98/.95 are negative predictive values, not specificity."
         },
         {
           "key": "norms",
@@ -267,12 +267,47 @@
           "checked_on": "2026-10-02",
           "status": "source-checked",
           "note": null
+        },
+        {
+          "key": "accuracy-manual",
+          "label": "Manual accuracy tables (review)",
+          "value": "Classification tables at SS 85 / 77 / 70 · language delay n120 · SLI n100 · SLD reading/writing n162 · PPV/NPV emphasised; sensitivity/specificity not public",
+          "source_ids": [
+            "PPVT-5-S1"
+          ],
+          "method": "Manual clinical-group classification across five base rates, as described in the Buros review",
+          "subtest": null,
+          "population": "Clinical validity groups and matched controls",
+          "sample_size": "120; 100; 162",
+          "cutoff": "SS 85, 77, 70 (1, 1.5 and 2 SD below the mean)",
+          "locator": "Canivez 2021, Validity (PDF pp. 3–4)",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "The review states the PPVT-5 “is not meant to be a diagnostic tool”. The figures themselves require the manual."
+        },
+        {
+          "key": "validity-groups",
+          "label": "Special-group effect sizes",
+          "value": "Cohen's d: language delay 1.93 · SLI 1.68 · SLD .90 · hearing impairment .89 (n70) · ASD .81 (n118)",
+          "source_ids": [
+            "PPVT-5-S1"
+          ],
+          "method": "Standardized mean differences between clinical groups and matched controls, from the manual as summarised in the review",
+          "subtest": null,
+          "population": "Clinical validity groups",
+          "sample_size": "120; 100; 162; 70; 118",
+          "cutoff": null,
+          "locator": "Canivez 2021, Validity (PDF pp. 3–4)",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Large group differences do not establish classification accuracy."
         }
       ],
       "corrections": {
         "internal": ".94–.98 · Spearman–Brown split-half; review mean .97",
         "reliability": ".97 publisher summary · split-half review .94–.98",
-        "retest": ".88 publisher / .84 review mean · different summaries"
+        "retest": ".88 publisher / .84 review mean · different summaries",
+        "accuracyContext": "The manual reports classification accuracy at cut scores 85, 77 and 70 for language delay, SLI and SLD samples, emphasising predictive values; no public source reproduces the sensitivity/specificity pair. The UK infographic's .98/.98/.95 are negative predictive values."
       }
     },
     {
@@ -855,6 +890,15 @@
           "published_on": null,
           "access": "public",
           "locator": "Comparison table: Test Format"
+        },
+        {
+          "id": "GFTA-3-S4",
+          "label": "Campbell & Goldstein (2022) · Reliability of scoring telehealth speech sound assessments · AJSLP 31(3), 1338–1353",
+          "type": "research",
+          "url": "https://doi.org/10.1044/2022_AJSLP-21-00219",
+          "published_on": "2022-05",
+          "access": "abstract public (PMID 35442714) · full text subscription",
+          "locator": "Abstract: Results"
         }
       ],
       "records": [
@@ -1081,6 +1125,23 @@
           "checked_on": "2026-10-02",
           "status": "source-checked",
           "note": null
+        },
+        {
+          "key": "mode-agreement",
+          "label": "In-person vs telehealth scoring",
+          "value": "Scoring conditions highly correlated · 85–87% response agreement · 39 children aged 3–8 (2022)",
+          "source_ids": [
+            "GFTA-3-S4"
+          ],
+          "method": "Licensed SLPs scored the same administrations concurrently in person and in typical and enhanced telehealth conditions",
+          "subtest": null,
+          "population": "Children aged 3–8 years",
+          "sample_size": 39,
+          "cutoff": null,
+          "locator": "Abstract: Results",
+          "checked_on": "2026-10-10",
+          "status": "source-checked",
+          "note": "Final sounds in words and hard-to-observe sounds attenuated agreement; no systematic over- or under-estimation between conditions."
         }
       ],
       "corrections": {

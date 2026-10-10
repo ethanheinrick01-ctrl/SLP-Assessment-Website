@@ -11,11 +11,16 @@ function coefficientRange(text) { const v = coefficients(text); return v.length 
 function fmtCoef(v) { return v >= 1 ? "1.00" : v.toFixed(2).replace(/^0/, ""); }
 function accuracyPair(text) {
   const s = String(text ?? "");
-  const pct = [...s.matchAll(/(\d{2,3})\s?%/g)].map(m => +m[1] / 100);
-  const dec = coefficients(s);
+  const pct = [...s.matchAll(/(\d{2,3})(?:\s?[–-]\s?(\d{2,3}))?\s?%/g)].map(m => ({lo: +m[1] / 100, hi: +(m[2] ?? m[1]) / 100}));
+  const dec = coefficients(s).map(v => ({lo: v, hi: v}));
   const v = pct.length >= 2 ? pct : dec.length >= 2 ? dec : null;
-  return v && /sensitiv|specific|accuracy/i.test(s) ? {sens: v[0], spec: v[1]} : null;
+  if (!v || !/sensitiv|specific|accuracy/i.test(s)) return null;
+  const mid = r => (r.lo + r.hi) / 2;
+  return {sens: mid(v[0]), spec: mid(v[1]), sensLo: v[0].lo, sensHi: v[0].hi, specLo: v[1].lo, specHi: v[1].hi};
 }
+function pctText(lo, hi) { const f = v => Math.round(v * 100); return lo === hi ? `${f(hi)}%` : `${f(lo)}–${f(hi)}%`; }
+function pctMeter(lo, hi) { return `<div class="meter pct" aria-hidden="true"><i style="left:0;right:${100 - lo * 100}%"></i>${hi > lo ? `<i class="range" style="left:${lo * 100}%;right:${100 - hi * 100}%"></i>` : ""}</div>`; }
+function accHTML(p) { return `<div class="acc" aria-label="Sensitivity ${pctText(p.sensLo, p.sensHi)}, specificity ${pctText(p.specLo, p.specHi)}"><span>Sens.</span><i style="--w:${p.sens*100}%"></i><b>${pctText(p.sensLo, p.sensHi)}</b><span>Spec.</span><i style="--w:${p.spec*100}%"></i><b>${pctText(p.specLo, p.specHi)}</b></div>`; }
 function sampleSize(text) { const m = String(text ?? "").match(/\b[Nn]\s*=?\s*([\d][\d,]{2,})/); return m ? parseInt(m[1].replace(/,/g, ""), 10) : null; }
 function fmtInt(n) { return n.toLocaleString("en-US"); }
 function splitFigure(text) {
@@ -29,30 +34,62 @@ function splitFigure(text) {
 function qualifier(raw, big) {
   // Strip the figure itself and any repeated numbers; keep the first short clause so the cell reads clean.
   let s = String(raw ?? "").trim();
-  if (big) s = s.replace(big.replace(/\u00a0/g, " "), "");
+  if (big) s = s.replace(new RegExp(big.replace(/\u00a0/g, " ").replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![\\d])"), "");
   s = s.replace(/^[\s·;,:–-]+/, "").replace(/\(review\)/i, "review");
   const first = s.split(/\s·\s|;\s/)[0].trim();
-  return first.length <= 44 ? first : "";
+  return first.length <= 60 ? first : "";
 }
 function cutoffNote(raw) { const m = String(raw ?? "").match(/cutoff\s*(?:SS\s*)?[\d.]+[^·;]*/i) || String(raw ?? "").match(/at\s+(?:Core\s+)?SS\s?\d+[^·;]*/i) || String(raw ?? "").match(/AQ\s?[\d.]+[^·;]*/i); return m ? m[0].trim() : ""; }
+function ageFigure(test, s) {
+  // Every age range renders as years:months so the column reads the same in every row.
+  const cap = test.ageMax == null ? (s.match(/\b(\d{2,3})\+/) || [])[1] : null;
+  const big = `${test.ageMin === 0 ? "Birth" : fmtAge(test.ageMin)}–${test.ageMax != null ? fmtAge(test.ageMax) : cap && +cap >= 60 ? `${cap}+` : "adult"}`;
+  const clauses = s.split(/\s·\s|;\s/).map(c => c.trim()).filter(Boolean);
+  const note = clauses.find(c => c !== big && !/^[\d:–+\s]+(?:years)?$/.test(c) && !/^Birth[\s–-]+[\d:+]+$/.test(c) && c.length <= 44) || "";
+  return {big, note};
+}
+function timeFigure(s) {
+  const m = s.match(/(\d+)(?:\s*[–-]\s*(\d+))?\s*min/i);
+  if (!m) return {big: null, note: qualifier(s, null)};
+  const big = `${/^about/i.test(s) ? "~" : ""}${m[1]}${m[2] ? `–${m[2]}` : ""}`;
+  return {big, note: qualifier(s.slice(m.index + m[0].length).replace(/^[\s·;,]+/, ""), null)};
+}
 function figureHTML(test, key, label, opts = {}) {
   const raw = test[key];
-  const status = recordStatus(test, opts.recordKey || key);
-  let big, note;
-  if (opts.kind === "coef") { const r = coefficientRange(raw); big = r ? (r.min === r.max ? fmtCoef(r.max) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`) : null; note = big ? qualifier(raw, big).replace(/^(across|for|per)\b/i, m => m.toLowerCase()) : qualifier(raw, null); }
-  else if (opts.kind === "n") { const n = sampleSize(raw); big = n != null ? fmtInt(n) : null; note = big ? qualifier(raw.replace(/^N\s*=\s*[\d,]+\s*/, ""), null) : qualifier(raw, null); }
-  else if (opts.kind === "sens" || opts.kind === "spec") { const p = accuracyPair(raw); const v = p ? (opts.kind === "sens" ? p.sens : p.spec) : null; big = v != null ? `${Math.round(v*100)}%` : null; note = big ? cutoffNote(raw) : qualifier(raw, null); }
-  else if (opts.kind === "acc") { const p = accuracyPair(raw); big = p ? `${Math.round(p.sens*100)}%\u00a0/\u00a0${Math.round(p.spec*100)}%` : null; note = big ? cutoffNote(raw) : qualifier(raw, null); }
-  else if (opts.kind === "cutoff") { const c = cutoffScore(test); big = c != null ? `SS ${c}` : null; note = c != null ? `standard score · M = 100, SD = 15` : qualifier(test.accuracyContext, null); }
-  else { ({big, note} = splitFigure(raw)); if (big) note = qualifier(note, null); }
-  const rkey = opts.recordKey || key;
-  const value = big != null ? `<button type="button" class="fig-value" data-test="${test.id}" data-receipt="${rkey}" title="Open the evidence record">${escapeHTML(big)}</button>` : `<button type="button" class="fig-value none" data-test="${test.id}" data-receipt="${rkey}" title="Open the evidence record">—</button>`;
-  let extra = "";
-  if (opts.kind === "coef") { const r = coefficientRange(raw); if (r) { const lo = Math.max(0, (r.min - .7) / .3 * 100), hi = Math.min(100, (r.max - .7) / .3 * 100); extra = `<div class="meter" aria-hidden="true"><i style="left:${lo}%;right:${100 - hi}%"></i></div>${opts.scale ? '<div class="meter-scale"><span>.70</span><span>.85</span><span>1.00</span></div>' : ""}`; } }
-  if (opts.kind === "acc") { const p = accuracyPair(raw); if (p) extra = `<div class="acc" aria-label="Sensitivity ${Math.round(p.sens*100)} percent, specificity ${Math.round(p.spec*100)} percent"><span>Sens.</span><i style="--w:${p.sens*100}%"></i><b>${Math.round(p.sens*100)}%</b><span>Spec.</span><i style="--w:${p.spec*100}%"></i><b>${Math.round(p.spec*100)}%</b></div>`; }
-  if (opts.kind === "sens" || opts.kind === "spec") { const p = accuracyPair(raw); if (p) { const v = opts.kind === "sens" ? p.sens : p.spec; extra = `<div class="meter pct" aria-hidden="true"><i style="left:0;right:${100 - v*100}%"></i></div>`; } }
+  const s = String(raw ?? "").trim();
+  let big = null, note = "", meter = "", na = false, range = false;
+  if (opts.kind === "coef") {
+    const r = coefficientRange(raw), above = /^(above|over|exceed|>)/i.test(s);
+    if (r) {
+      big = r.min === r.max ? (above ? `>\u2009${fmtCoef(r.max)}` : fmtCoef(r.max)) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`;
+      note = qualifier(above ? s.replace(/^(above|over|exceeds?)\s*\.?\d+\s*/i, "") : raw, above ? null : big).replace(/^(across|for|per)\b/i, m => m.toLowerCase());
+      const lo = Math.max(0, (r.min - .7) / .3 * 100), hi = Math.min(100, (r.max - .7) / .3 * 100);
+      meter = `<div class="meter" aria-hidden="true"><i style="left:${lo}%;right:${100 - hi}%"></i></div>${opts.scale ? '<div class="meter-scale"><span>.70</span><span>.85</span><span>1.00</span></div>' : ""}`;
+    } else note = qualifier(raw, null);
+  } else if (opts.kind === "n") {
+    const n = sampleSize(raw);
+    const pair = n == null ? s.match(/^(\d[\d,]*)\s+([a-z][a-z /-]*?)\s*\/\s*(\d[\d,]*)\s+([a-z][a-z /-]*?)(?=\s*(?:·|;|$))/i) : null;
+    if (n != null) { big = fmtInt(n); note = qualifier(s.replace(/^N\s*=\s*[\d,]+\s*/, ""), null); }
+    else if (pair) { big = `${pair[1]}/${pair[3]}`; const rest = qualifier(s.slice(pair[0].length).replace(/^[\s·;]+/, ""), null); note = `${pair[2].trim()} / ${pair[4].trim()}${rest ? ` · ${rest}` : ""}`; }
+    else if (/^criterion/i.test(s)) { big = "n/a"; na = true; note = "criterion-referenced · no normative sample"; }
+    else note = qualifier(raw, null);
+  } else if (opts.kind === "sens" || opts.kind === "spec" || opts.kind === "acc") {
+    const p = accuracyPair(raw);
+    if (p) {
+      if (opts.kind === "acc") { big = `${pctText(p.sensLo, p.sensHi)}\u00a0/\u00a0${pctText(p.specLo, p.specHi)}`; meter = accHTML(p); }
+      else { const lo = opts.kind === "sens" ? p.sensLo : p.specLo, hi = opts.kind === "sens" ? p.sensHi : p.specHi; big = pctText(lo, hi); meter = pctMeter(lo, hi); if (hi > lo) range = true; }
+      note = [cutoffNote(raw), test.accuracyFlag].filter(Boolean).join(" · ");
+    } else if (/^not applicable/i.test(s)) { big = "n/a"; na = true; note = qualifier(s.replace(/^not applicable\s*[·:—–-]*\s*/i, ""), null); }
+    else note = qualifier(raw, null);
+  } else if (opts.kind === "cutoff") { const c = cutoffScore(test); big = c != null ? `SS ${c}` : null; note = c != null ? `standard score · M = 100, SD = 15` : qualifier(test.accuracyContext, null); }
+  else if (key === "age" && test.ageMin != null) ({big, note} = ageFigure(test, s));
+  else if (key === "time") ({big, note} = timeFigure(s));
+  else { ({big, note} = splitFigure(raw)); note = big ? qualifier(note, null) : qualifier(raw, null); }
+  if (opts.tag) note = note ? `${opts.tag} · ${note}` : opts.tag;
   if (note && big && note.replace(/\s+/g, " ").trim() === big.replace(/\u00a0/g, " ")) note = "";
-  return `<div class="fig ${opts.cls || ""}"><span class="label">${label}</span>${value}${extra}${note ? `<span class="fig-note">${escapeHTML(note)}</span>` : ""}</div>`;
+  const rkey = opts.recordKey || key;
+  const value = `<button type="button" class="fig-value${big == null ? " none" : na ? " na" : ""}${range ? " range" : ""}" data-test="${test.id}" data-receipt="${rkey}" title="Open the evidence record">${big == null ? "—" : escapeHTML(big)}</button>`;
+  return `<div class="fig ${opts.cls || ""}"><span class="label">${label}</span>${value}${meter || '<div class="meter-slot" aria-hidden="true"></div>'}<span class="fig-note">${escapeHTML(note)}</span></div>`;
 }
 function glyph(status, extraTitle = "") { return `<span class="glyph ${status.cls}" role="img" aria-label="${status.label}" title="${escapeHTML(STATUS_TEXT[status.cls] || status.label)}${extraTitle ? " · " + escapeHTML(extraTitle) : ""}">${GLYPH[status.cls] || "·"}</span>`; }
 function statusLine(test) { const s = testStatus(test); const n = test.records.filter(r => r.status === "conflicting").length; return `<span class="status-line">${glyph(s)}${s.label}${n ? ` · ${n} record${n === 1 ? "" : "s"}` : ""}</span>`; }
@@ -63,11 +100,11 @@ function uiIcon(name) {
 }
 function atlasOrder() { return [...state.catalog].sort((a, b) => FAMILY_ORDER.indexOf(testFamily(a)) - FAMILY_ORDER.indexOf(testFamily(b)) || a.ageMin - b.ageMin || a.id.localeCompare(b.id)); }
 function shadeStyle() { return ""; } // Color follows the clinical family (data-family sets --test-color).
-function fmtAge(months) { return `${Math.floor(months / 12)}:${String(months % 12).padStart(2, "0")}`; }
+function fmtAge(months) { return `${Math.floor(months / 12)}:${months % 12}`; }
 
 /* ---------- Filtering (atlas and sheet share one predicate) ---------- */
 function visibleTests() {
-  return state.catalog.filter(test => {
+  return atlasOrder().filter(test => {
     if (state.category !== "all" && testFamily(test) !== state.category) return false;
     if (!matches(test)) return false;
     if (!state.query) return true;
@@ -153,8 +190,11 @@ function renderAtlas() {
 }
 
 /* ---------- Spec sheet ---------- */
+const REL_TAG = {internal: "internal consistency", overall: "overall", rater: "scorer agreement", "reliability-summary": "average"};
+function reliabilityField(test) { const k = reliabilityKeyFor(test); return k === "retest" ? "internal" : k; }
+const SHEET_COLS = `<div class="sheet-cols" aria-hidden="true"><span>Assessment</span><span>Sensitivity</span><span>Specificity</span><span>Reliability</span><span>Test–retest</span><span>Age range</span><span>Time · min</span><span>Norm sample · N</span><span></span></div>`;
 function specRow(test, context = "atlas") {
-  const selected = state.selected.includes(test.id), comparing = state.compareIds.includes(test.id);
+  const selected = state.selected.includes(test.id), comparing = state.compareIds.includes(test.id), relField = reliabilityField(test);
   const {family, label} = familyOf(test);
   const matched = context === "atlas" && filtersActive() ? `<span class="matched"><b>Matched:</b> ${escapeHTML(reasonFor(test))}</span>` : "";
   const check = context === "shortlist" ? `<label class="compare-check"><input type="checkbox" data-compare="${test.id}" ${comparing ? "checked" : ""}>Compare</label>` : "";
@@ -162,11 +202,11 @@ function specRow(test, context = "atlas") {
     <div class="spec-id"><h3><button type="button" data-evidence="${test.id}" title="Open the full profile">${escapeHTML(test.id)}</button></h3><p class="scope">${escapeHTML(test.scope)}</p><p class="focus">${escapeHTML(test.focus)}</p><span class="fam"><i class="fam-dot"></i>${escapeHTML(label)}</span>${matched}${check}</div>
     ${figureHTML(test, "accuracy", "Sensitivity", {kind: "sens", cls: "fig-sens"})}
     ${figureHTML(test, "accuracy", "Specificity", {kind: "spec", cls: "fig-spec"})}
-    ${figureHTML(test, reliabilityKeyFor(test), reliabilityKeyFor(test) === "rater" ? "Scorer agreement" : reliabilityKeyFor(test) === "overall" ? "Reliability · overall" : "Internal consistency", {kind: "coef", cls: "fig-rel"})}
+    ${figureHTML(test, relField, "Reliability", {kind: "coef", cls: "fig-rel", tag: REL_TAG[relField] || "internal consistency"})}
     ${figureHTML(test, "retest", "Test–retest", {kind: "coef", cls: "fig-retest"})}
     ${figureHTML(test, "age", "Age range", {cls: "fig-age"})}
-    ${figureHTML(test, "time", "Time", {cls: "fig-time"})}
-    ${figureHTML(test, "norms", "Norm sample (N)", {kind: "n", cls: "fig-norms"})}
+    ${figureHTML(test, "time", "Time · min", {cls: "fig-time"})}
+    ${figureHTML(test, "norms", "Norm sample · N", {kind: "n", cls: "fig-norms"})}
     <div class="spec-side">${statusLine(test)}<div class="actions"><button type="button" class="btn-ghost" data-evidence="${test.id}">Profile ${uiIcon("arrow")}</button><button type="button" class="btn-icon" data-pick-compare="${test.id}" aria-pressed="${comparing}" title="${comparing ? "Remove from comparison" : "Add to comparison"}" aria-label="${comparing ? "Remove" : "Add"} ${test.id} ${comparing ? "from" : "to"} comparison">${uiIcon(comparing ? "check" : "compare")}</button><button type="button" class="btn-icon" data-select="${test.id}" aria-pressed="${selected}" title="${selected ? "Remove from shortlist" : "Save to shortlist"}" aria-label="${selected ? "Remove" : "Save"} ${test.id} ${selected ? "from" : "to"} shortlist">${uiIcon(selected ? "check" : "bookmark")}</button></div></div>
   </article>`;
 }
@@ -182,7 +222,7 @@ function renderSheet() {
   document.querySelector("#fit-caption").textContent = state.ageMonths !== null ? `assessments cover a client aged ${fmtAge(state.ageMonths)}${filtersActive() && (state.domains.size || state.maxTime !== null || state.purposes.size || state.query || state.category !== "all") ? " and match your filters" : ""}` : filtersActive() ? "assessments match your filters" : "assessments in the atlas";
   document.querySelector("#sheet-count").textContent = `· ${visible.length} of ${state.catalog.length}`;
   const root = document.querySelector("#atlas-rows");
-  root.innerHTML = visible.map(t => specRow(t, "atlas")).join("");
+  root.innerHTML = SHEET_COLS + visible.map(t => specRow(t, "atlas")).join("");
   document.querySelector("#atlas-empty").hidden = visible.length !== 0;
   wireActions(root);
   renderFinderGuidance();
@@ -285,14 +325,19 @@ function renderShortlist() {
 function meterHTML(test, key) { const r = coefficientRange(test[key]); if (!r) return ""; const lo = Math.max(0, (r.min - .7) / .3 * 100), hi = Math.min(100, (r.max - .7) / .3 * 100); return `<div class="meter" aria-hidden="true"><i style="left:${lo}%;right:${100 - hi}%"></i></div>`; }
 function cmpCell(test, key) {
   const coef = ["internal", "retest", "rater", "overall"].includes(key), acc = key === "accuracy";
-  let head;
-  if (key === "sensitivity" || key === "specificity") { const p = accuracyPair(test.accuracy); const v = p ? (key === "sensitivity" ? p.sens : p.spec) : null; head = v != null ? `<span class="fig-value">${Math.round(v*100)}%</span><div class="meter pct" aria-hidden="true"><i style="left:0;right:${100 - v*100}%"></i></div>` : `<span class="fig-value none">—</span>`; return `<div data-family="${testFamily(test)}">${head}<p class="fig-note full">${escapeHTML(cutoffNote(test.accuracy) || qualifier(test.accuracy, null))}</p><div class="source-row">${metricProof(test, "accuracy")}</div></div>`; }
+  let head, dup = false;
+  if (key === "sensitivity" || key === "specificity") {
+    const p = accuracyPair(test.accuracy), s = String(test.accuracy ?? "").trim();
+    if (p) { const lo = key === "sensitivity" ? p.sensLo : p.specLo, hi = key === "sensitivity" ? p.sensHi : p.specHi; head = `<span class="fig-value">${pctText(lo, hi)}</span>${pctMeter(lo, hi)}`; }
+    else head = `<span class="fig-value ${/^not applicable/i.test(s) ? "na" : "none"}">${/^not applicable/i.test(s) ? "n/a" : "—"}</span>`;
+    return `<div data-family="${testFamily(test)}">${head}<p class="fig-note full">${escapeHTML([p ? cutoffNote(test.accuracy) : "", p ? test.accuracyFlag : "", p ? "" : qualifier(s.replace(/^not applicable\s*[·:—–-]*\s*/i, ""), null)].filter(Boolean).join(" · "))}</p><div class="source-row">${metricProof(test, "accuracy")}</div></div>`;
+  }
   if (coef) { const r = coefficientRange(test[key]); head = r ? `<span class="fig-value">${r.min === r.max ? fmtCoef(r.max) : `${fmtCoef(r.min)}–${fmtCoef(r.max)}`}</span>${meterHTML(test, key)}` : `<span class="fig-value none">—</span>`; }
-  else if (acc) { const p = accuracyPair(test[key]); head = p ? `<div class="acc"><span>Sens.</span><i style="--w:${p.sens*100}%"></i><b>${Math.round(p.sens*100)}%</b><span>Spec.</span><i style="--w:${p.spec*100}%"></i><b>${Math.round(p.spec*100)}%</b></div>` : `<span class="fig-value none">—</span>`; }
+  else if (acc) { const p = accuracyPair(test[key]); head = p ? accHTML(p) : `<span class="fig-value none">—</span>`; }
   else if (key === "norms") { const n = sampleSize(test[key]); head = n != null ? `<span class="fig-value">N = ${fmtInt(n)}</span>` : `<span class="fig-value none">—</span>`; }
-  else if (["age", "time"].includes(key)) { const f = splitFigure(test[key]); head = f.big ? `<span class="fig-value">${escapeHTML(f.big)}</span>` : ""; }
+  else if (key === "age") { const f = ageFigure(test, String(test[key] ?? "").trim()); head = `<span class="fig-value">${escapeHTML(f.big)}</span>`; dup = String(test[key]).trim() === f.big; }
+  else if (key === "time") { const f = timeFigure(String(test[key] ?? "").trim()); head = f.big ? `<span class="fig-value">${escapeHTML(f.big)} min</span>` : ""; dup = /^\d+(?:–\d+)?\s*min$/.test(String(test[key]).trim()); }
   else head = "";
-  const dup = ["age", "time"].includes(key) && splitFigure(test[key]).big === String(test[key]).trim();
   return `<div data-family="${testFamily(test)}" style="${shadeStyle(test)}">${head}${dup ? "" : `<p class="fig-note full">${escapeHTML(test[key])}</p>`}${acc ? `<p class="accuracy-context">${escapeHTML(test.accuracyContext)}</p>` : ""}<div class="source-row">${metricProof(test, key)}</div></div>`;
 }
 function renderComparison() {
@@ -331,16 +376,16 @@ function dossierHTML(test) {
     administration = [["Time", test.time], ["Administration", test.administration], ["Materials", test.materials], ["Qualifications", test.qualification]].map(([l, v]) => fieldHTML(l, v, proof)).join("");
     if (test.id === "CAAP-2") administration += fieldHTML("Response demands", "Picture naming and, for school-age children, sentence repetition.", sourceLink(test.retestSource, "Publisher training"));
   }
-  const additional = test.records.filter(r => ["mode-agreement", "alternate-form", "reliability-summary", "accuracy-selected", "accuracy-adjusted", "accuracy-manual"].includes(r.key));
+  const additional = test.records.filter(r => ["mode-agreement", "alternate-form", "reliability-summary", "accuracy-selected", "accuracy-adjusted", "accuracy-manual", "accuracy-translation", "validity-groups", "validity-review", "translation-study", "clinical-study", "procedure-study"].includes(r.key));
   if (additional.length) clinical += `<details class="more"><summary>Additional reported evidence</summary>${additional.map(r => fieldHTML(r.label, r.value, metricProof(test, r.key), r.note)).join("")}</details>`;
   const guides = relevantGuidance(test.domains, [test]);
   const asha = guides.length ? `<details class="more"><summary>ASHA evaluation context</summary><div class="guidance-grid">${guides.map(g => guidanceHTML(g, true)).join("")}</div></details>` : "";
   const {family, label} = familyOf(test);
   const checked = [...new Set(test.records.map(r => r.checked_on).filter(Boolean))].sort().at(-1);
   const tile = (lbl, key, opts = {}) => { const s = recordStatus(test, key); return `<div class="tile" data-family="${family}" style="${shadeStyle(test)}">${glyph(s)}${figureHTML(test, key, lbl, {...opts, full: true})}</div>`; };
-  const relKey = reliabilityKeyFor(test);
+  const relKey = reliabilityField(test);
   return `<header class="dossier-head" data-family="${family}" style="${shadeStyle(test)}"><div><span class="fam"><i class="fam-dot"></i>${escapeHTML(label)}</span><h3>${escapeHTML(test.id)}</h3><p class="fullname">${escapeHTML(test.name)}</p><p class="meta">${[test.publisher, test.edition].filter(Boolean).map(escapeHTML).join(" · ")}</p></div><div class="stamp">${statusLine(test)}<time datetime="${escapeHTML(checked || "")}">${test.records.length} evidence records · checked ${escapeHTML(checked || "see records")}</time></div></header>
-  <div class="wall">${tile("Sensitivity", "accuracy", {kind: "sens"})}${tile("Specificity", "accuracy", {kind: "spec"})}${tile(relKey === "rater" ? "Scorer agreement" : relKey === "overall" ? "Reliability · overall" : "Internal consistency", relKey, {kind: "coef", scale: true})}${tile("Test–retest", "retest", {kind: "coef", scale: true})}${tile("Diagnostic cutoff", "accuracy", {kind: "cutoff"})}${tile("Age range", "age")}${tile("Administration time", "time")}${tile("Normative sample (N)", "norms", {kind: "n"})}</div>
+  <div class="wall">${tile("Sensitivity", "accuracy", {kind: "sens"})}${tile("Specificity", "accuracy", {kind: "spec"})}${tile(relKey === "rater" ? "Scorer agreement" : relKey === "overall" ? "Reliability · overall" : "Internal consistency", relKey, {kind: "coef", scale: true})}${tile("Test–retest", "retest", {kind: "coef", scale: true})}${tile("Diagnostic cutoff", "accuracy", {kind: "cutoff"})}${tile("Age range", "age")}${tile("Administration time · min", "time")}${tile("Normative sample (N)", "norms", {kind: "n"})}</div>
   <nav class="dossier-nav" aria-label="Profile sections"><a href="#d-clinical">Clinical evidence</a><a href="#d-background">Background</a><a href="#d-administration">Administration</a></nav>
   <section id="d-clinical"><h4>Clinical evidence</h4>${clinical}${asha}</section>
   <section id="d-background"><h4>Background</h4>${background}</section>
@@ -376,8 +421,8 @@ function renderResearch() {
   const differs = state.catalog.reduce((n, t) => n + t.records.filter(r => r.status === "conflicting").length, 0);
   const checked = [...new Set(state.catalog.flatMap(t => t.records.map(r => r.checked_on)).filter(Boolean))].sort().at(-1);
   document.querySelector("#research-content").innerHTML = `<div class="ledger-stats"><div><strong>${state.catalog.length}</strong><span>assessments</span></div><div><strong>${records}</strong><span>evidence records</span></div><div><strong>${sourceCount}</strong><span>linked sources</span></div><div><strong>${differs}</strong><span>records where sources differ</span></div><div><strong>${state.guidance.length}</strong><span>ASHA guidance areas</span></div></div>
-    <p class="audit-note">All ${state.catalog.length} assessments rechecked on ${escapeHTML(longDate(checked))}. Figures identify publisher reports, manual excerpts, research studies, and technical reviews. Open a record for its method, sample, and remaining limits. <a href="research/PERSONAL-AUDIT.md" target="_blank" rel="noopener">Read the assessment-by-assessment audit</a>.</p>
-    <div class="ledger">${state.catalog.map(t => `<details data-family="${testFamily(t)}" style="${shadeStyle(t)}"><summary><span class="sr-only">Toggle</span><strong>${escapeHTML(t.id)}</strong><em>${escapeHTML(t.scope)}</em><span>${t.records.length} records · ${t.sources.length} sources · ${t.records.filter(r => r.status === "conflicting").length} differ</span></summary><div class="records">${t.records.map(r => { const s = recordStatusOf(r); return `<button class="record" data-test="${t.id}" data-receipt="${r.key}"><span class="label">${escapeHTML(r.label)}${glyph(s)}</span><strong>${escapeHTML(r.value)}</strong><small>${s.label} · ${escapeHTML(r.checked_on)}</small></button>`; }).join("")}</div><div class="source-directory">${t.sources.map(s => `<p><span class="source-type">${sourceRole(s.type)}</span>${sourceLink(s, s.label)}</p>`).join("")}</div></details>`).join("")}</div>
+    <p class="audit-note">All ${state.catalog.length} assessments rechecked on ${escapeHTML(longDate(checked))}. Figures identify publisher reports, manual excerpts, research studies, and technical reviews. Open a record for its method, sample, and remaining limits. <a href="../research/PERSONAL-AUDIT.md" target="_blank" rel="noopener">Read the assessment-by-assessment audit</a>.</p>
+    <div class="ledger">${atlasOrder().map(t => `<details data-family="${testFamily(t)}" style="${shadeStyle(t)}"><summary><span class="sr-only">Toggle</span><strong>${escapeHTML(t.id)}</strong><em>${escapeHTML(t.scope)}</em><span>${t.records.length} records · ${t.sources.length} sources · ${t.records.filter(r => r.status === "conflicting").length} differ</span></summary><div class="records">${t.records.map(r => { const s = recordStatusOf(r); return `<button class="record" data-test="${t.id}" data-receipt="${r.key}"><span class="label">${escapeHTML(r.label)}${glyph(s)}</span><strong>${escapeHTML(r.value)}</strong><small>${s.label} · ${escapeHTML(r.checked_on)}</small></button>`; }).join("")}</div><div class="source-directory">${t.sources.map(s => `<p><span class="source-type">${sourceRole(s.type)}</span>${sourceLink(s, s.label)}</p>`).join("")}</div></details>`).join("")}</div>
     <h2 class="research-subheading">ASHA guidance and research</h2><div class="guidance-grid">${state.guidance.map(g => guidanceHTML(g)).join("")}</div>
     <div class="study-grid">${state.guidance.flatMap(g => g.studies || []).map(study => `<article class="study-card"><h3>${escapeHTML(study.title)}</h3><span class="source-type">Research study · ${escapeHTML(study.year)}</span><p>${escapeHTML(study.findings)}</p><dl><dt>Method</dt><dd>${escapeHTML(study.method)}</dd><dt>Population / sample</dt><dd>${escapeHTML(study.population)} · N = ${escapeHTML(study.sample_size)}</dd><dt>Cutoff</dt><dd>${escapeHTML(study.cutoff || "See the study’s classification model")}</dd></dl><p class="receipt-note">${escapeHTML(study.limitation)}</p>${sourceLink(study, "Read the study")}</article>`).join("")}</div>`;
 }
