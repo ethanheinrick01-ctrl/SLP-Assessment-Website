@@ -579,6 +579,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   .atlas-head { padding-top: 24px; }
   .hero-figure strong { font-size: 36px; }
   .client-bar { grid-template-columns: 1fr; gap: 20px; padding: 18px 16px; }
+  .client-bar > div > .label { text-align: center; }
   .client-bar .age-inputs { gap: 16px; }
   .client-bar .age-inputs label { flex: 1; min-width: 0; }
   .client-bar .age-inputs input { width: 100%; min-width: 0; }
