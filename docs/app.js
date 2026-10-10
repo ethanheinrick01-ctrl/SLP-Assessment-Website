@@ -141,19 +141,32 @@ function renderAtlas() {
   const host = document.querySelector("#atlas-chart");
   const layer = LAYERS[state.layer] || LAYERS.age;
   const width = Math.max(320, host.clientWidth - 40);
-  const narrow = width < 640, labelW = narrow ? 80 : 262, plotW = width - labelW - 8, rowH = narrow ? 26 : 38, top = 32, bottom = 44;
+  const narrow = width < 640;
   const ordered = atlasOrder();
   const visible = new Set(visibleTests().map(t => t.id));
+  // Narrow screens: the name column is sized to the longest ID and the plot keeps a readable minimum width, scrolling sideways instead of squeezing.
+  const longest = Math.max(...ordered.map(t => t.id.length), 4);
+  const labelW = narrow ? Math.min(176, Math.max(84, longest * 9 + 26)) : 262;
+  const MIN_PLOT = 600;
+  const plotW = narrow ? Math.max(width - labelW - 8, MIN_PLOT) : width - labelW - 8;
+  const scrolls = plotW > width - labelW - 8;
+  const rowH = narrow ? 28 : 38, hasRefs = !!(layer.refs && layer.refs.length), top = hasRefs ? 50 : 32, bottom = 44;
   const height = top + ordered.length * rowH + bottom;
   const clamp = v => layer.domain ? Math.min(layer.domain[1], Math.max(layer.domain[0], v)) : v;
-  const X = v => labelW + (layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW);
+  const X = v => layer.scale ? layer.scale(v, plotW) : ((clamp(v) - layer.domain[0]) / (layer.domain[1] - layer.domain[0])) * plotW;
   document.querySelector("#atlas-title").textContent = layer.label;
-  let svg = `<svg viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="${labelW}" y="${top - 6}" width="${width - labelW}" height="${height - top - bottom + 10}" rx="6"/>`;
-  layer.ticks.forEach(([v, t]) => { svg += `<line class="ax" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="tick" x="${X(v)}" y="${height - bottom + 20}" text-anchor="middle">${t}</text>`; });
-  svg += `<line class="ax-strong" x1="${labelW}" x2="${width}" y1="${top - 6}" y2="${top - 6}"/><line class="ax-strong" x1="${labelW}" x2="${width}" y1="${height - bottom + 4}" y2="${height - bottom + 4}"/><text class="axis-title" x="${labelW + plotW / 2}" y="${height - 6}" text-anchor="middle">${escapeHTML(layer.axis)}</text>`;
-  if (state.layer === "age") { const bx = labelW + BREAK_FRAC * plotW; svg += `<text class="cap" x="${labelW}" y="${top - 14}">${narrow ? "Child · 0–22" : "Child scale · 0–22 years"}</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 8}" y="${top - 14}">${narrow ? "Adult →" : "Adult scale · 22–90+ →"}</text>`; }
-  else svg += `<text class="cap" x="${labelW}" y="${top - 14}">${escapeHTML(layer.unit.charAt(0).toUpperCase() + layer.unit.slice(1))}</text>`;
-  (layer.refs || []).forEach(([v, t]) => { svg += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${X(v) + 5}" y="${top - 12}">${t}</text>`; });
+  // Thin the tick labels so neighbours never touch: keep a tick only when it sits at least 46px from the last kept one; the final tick always survives.
+  const minGap = 46, kept = [];
+  layer.ticks.forEach(([v, t], i) => { const x = X(v); if (!kept.length || x - kept[kept.length - 1].x >= minGap) kept.push({v, t, x}); else if (i === layer.ticks.length - 1) kept[kept.length - 1] = {v, t, x}; });
+  const wide = plotW >= 600;
+  let labels = `<svg class="atlas-labels" viewBox="0 0 ${labelW} ${height}" width="${labelW}" height="${height}" aria-hidden="true">`;
+  let plot = `<svg class="atlas-plot" viewBox="0 0 ${plotW} ${height}" width="${plotW}" height="${height}" role="img" aria-label="${escapeHTML(layer.label)} chart"><rect class="plot-bg" x="0" y="${top - 6}" width="${plotW}" height="${height - top - bottom + 10}" rx="6"/>`;
+  kept.forEach(({v, t, x}) => { plot += `<line class="ax" x1="${x}" x2="${x}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="tick" x="${x}" y="${height - bottom + 20}" text-anchor="${x < 14 ? "start" : x > plotW - 14 ? "end" : "middle"}">${t}</text>`; });
+  plot += `<line class="ax-strong" x1="0" x2="${plotW}" y1="${top - 6}" y2="${top - 6}"/><line class="ax-strong" x1="0" x2="${plotW}" y1="${height - bottom + 4}" y2="${height - bottom + 4}"/><text class="axis-title" x="${plotW / 2}" y="${height - 6}" text-anchor="middle">${escapeHTML(layer.axis)}</text>`;
+  const capY = hasRefs ? top - 30 : top - 14;
+  if (state.layer === "age") { const bx = BREAK_FRAC * plotW; plot += `<text class="cap" x="0" y="${capY}">${wide ? "Child scale · 0–22 years" : "Child · 0–22"}</text><line class="ax-strong" x1="${bx}" x2="${bx}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${bx + 8}" y="${capY}">${wide ? "Adult scale · 22–90+ →" : "Adult →"}</text>`; }
+  else plot += `<text class="cap" x="0" y="${capY}">${escapeHTML(layer.unit.charAt(0).toUpperCase() + layer.unit.slice(1))}</text>`;
+  (layer.refs || []).forEach(([v, t]) => { plot += `<line class="ref" x1="${X(v)}" x2="${X(v)}" y1="${top - 6}" y2="${height - bottom + 4}"/><text class="cap" x="${X(v) + 5}" y="${top - 12}">${t}</text>`; });
   ordered.forEach((t, i) => {
     const y = top + i * rowH, cy = y + rowH / 2, dim = !visible.has(t.id);
     const on = state.layer === "age" && state.ageMonths !== null && !dim && state.ageMonths >= t.ageMin && (t.ageMax == null || state.ageMonths <= t.ageMax);
@@ -165,28 +178,31 @@ function renderAtlas() {
       if (k.type === "pair") { const x1 = X(k.a), x2 = X(k.b); m += `<line class="bar ${dim ? "dim" : ""}" x1="${Math.min(x1, x2)}" x2="${Math.max(x1, x2)}" y1="${cy}" y2="${cy}" stroke="var(--test-color)" stroke-width="2"/><circle class="bar ${dim ? "dim" : ""}" cx="${x1}" cy="${cy}" r="5" fill="var(--test-color)" stroke="var(--surface)" stroke-width="2"/><circle class="bar ${dim ? "dim" : ""}" cx="${x2}" cy="${cy}" r="5" fill="var(--surface)" stroke="var(--test-color)" stroke-width="2"/>`; }
       if (k.type === "dot") { m += `<circle class="bar ${dim ? "dim" : ""}" cx="${X(k.a)}" cy="${cy}" r="6" fill="var(--test-color)" stroke="var(--surface)" stroke-width="2"/>`; }
     });
-    if (!marks.length) m = `<text class="cap none" x="${labelW + 8}" y="${cy + 4}">not reported in checked sources</text>`;
+    if (!marks.length) m = `<text class="cap none" x="8" y="${cy + 4}">not reported in checked sources</text>`;
     const scope = t.scope.split(" · ")[0];
     const scopeShort = scope.length > 36 ? scope.slice(0, 35).trimEnd() + "…" : scope;
-    const label = narrow ? `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 8}" y="${cy + 5}" text-anchor="end">${escapeHTML(t.id)}</text>` : `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy - 3}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy + 12}" text-anchor="end">${escapeHTML(scopeShort)}</text>`;
-    svg += `<g class="row" data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"><rect class="hit" x="0" y="${y}" width="${width}" height="${rowH}"/><circle class="swatch" cx="${labelW - 3}" cy="${cy}" r="4" fill="var(--test-color)"/>${label}${m}</g>`;
+    const label = narrow ? `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 12}" y="${cy + 5}" text-anchor="end">${escapeHTML(t.id)}</text>` : `<text class="rowlabel ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy - 3}" text-anchor="end">${escapeHTML(t.id)}</text><text class="rowscope ${dim ? "dim" : ""}" x="${labelW - 14}" y="${cy + 12}" text-anchor="end">${escapeHTML(scopeShort)}</text>`;
+    const attrs = `data-id="${t.id}" data-family="${testFamily(t)}" style="${shadeStyle(t)}"`;
+    labels += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${labelW}" height="${rowH}"/><circle class="swatch" cx="${labelW - 3}" cy="${cy}" r="4" fill="var(--test-color)"/>${label}</g>`;
+    plot += `<g class="row" ${attrs}><rect class="hit" x="0" y="${y}" width="${plotW}" height="${rowH}"/>${m}</g>`;
   });
-  if (state.layer === "age" && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); svg += `<line class="cursor" x1="${cx}" x2="${cx}" y1="${top - 14}" y2="${height - bottom + 4}"/><text class="cursor-label" x="${cx + 6}" y="${top - 18}">client ${fmtAge(state.ageMonths)}</text>`; }
-  svg += `</svg><div id="atlas-tip" class="atlas-tip" hidden></div>`;
-  host.innerHTML = svg;
-  const tip = host.querySelector("#atlas-tip");
+  if (state.layer === "age" && state.ageMonths !== null) { const cx = X(Math.min(state.ageMonths, AGE_MAX)); plot += `<line class="cursor" x1="${cx}" x2="${cx}" y1="${top - 14}" y2="${height - bottom + 4}"/><text class="cursor-label" x="${cx + 6}" y="${top - 18}">client ${fmtAge(state.ageMonths)}</text>`; }
+  labels += `</svg>`; plot += `</svg>`;
+  host.innerHTML = `<div class="atlas-split ${scrolls ? "can-scroll" : ""}">${labels}<div class="atlas-scroll">${plot}</div></div><div id="atlas-tip" class="atlas-tip" hidden></div>`;
+  const tip = host.querySelector("#atlas-tip"), scroller = host.querySelector(".atlas-scroll"), split = host.querySelector(".atlas-split");
+  if (scrolls) { const sync = () => split.classList.toggle("at-end", scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2); scroller.addEventListener("scroll", sync, {passive: true}); sync(); }
   host.querySelectorAll(".row").forEach(row => {
     const t = state.catalog.find(x => x.id === row.dataset.id);
     row.addEventListener("mousemove", e => {
       tip.innerHTML = `<strong>${escapeHTML(t.id)}</strong><em>${escapeHTML(t.scope)}</em><dl><dt>${escapeHTML(layer.label)}</dt><dd>${escapeHTML(layer.value(t))}</dd>${state.layer !== "age" ? `<dt>Ages</dt><dd>${escapeHTML(t.age)}</dd>` : `<dt>Time</dt><dd>${escapeHTML(t.time)}</dd>`}</dl><em>Click for the profile</em>`;
       tip.hidden = false;
       const r = host.getBoundingClientRect(); let x = e.clientX - r.left + 14, y = e.clientY - r.top + 14;
-      if (x + 290 > r.width) x = e.clientX - r.left - 300; tip.style.left = `${x}px`; tip.style.top = `${y}px`;
+      if (x + 290 > r.width) x = e.clientX - r.left - 300; tip.style.left = `${Math.max(0, x)}px`; tip.style.top = `${y}px`;
     });
     row.addEventListener("mouseleave", () => tip.hidden = true);
     row.addEventListener("click", () => openEvidence(t.id));
   });
-  document.querySelector("#atlas-foot-left").textContent = `${layer.note} Tests outside the current filters are dimmed, not removed.`;
+  document.querySelector("#atlas-foot-left").textContent = `${layer.note} Tests outside the current filters are dimmed, not removed.${scrolls ? " Swipe the chart sideways for the full scale." : ""}`;
   document.querySelector("#atlas-foot-right").textContent = state.ageMonths !== null ? `${[...visible].length} of ${state.catalog.length} cover a client aged ${fmtAge(state.ageMonths)}` : `${[...visible].length} of ${state.catalog.length} shown`;
 }
 
