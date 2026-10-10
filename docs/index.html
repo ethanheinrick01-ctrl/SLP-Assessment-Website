@@ -9,7 +9,7 @@
   <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261010-readability">
+  <link rel="stylesheet" href="styles.css?v=20261010-mobile-filters">
 </head>
 <body>
   <a class="skip-link" href="#atlas-rows">Skip to the spec sheet</a>
@@ -48,15 +48,14 @@
             <label class="label" for="time-filter">Max administration time</label>
             <select id="time-filter"><option value="">Any length</option><option value="15">Up to 15 min</option><option value="30">Up to 30 min</option><option value="45">Up to 45 min</option><option value="60">Up to 60 min</option></select>
           </div>
-          <div>
+          <div class="purpose-group">
             <span class="label">Purpose</span>
             <div id="purpose-filters" class="legend" role="group" aria-label="Purpose"></div>
           </div>
-          <div class="search">
-            <label class="label" for="assessment-search">Search</label>
+          <div class="search-group">
+            <div class="search-heading"><label class="label" for="assessment-search">Search</label><button id="clear-filters" class="btn-ghost clear" type="button">Reset</button></div>
             <div class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg><input id="assessment-search" type="search" placeholder="Test, skill, or clinical area" autocomplete="off"></div>
           </div>
-          <button id="clear-filters" class="btn-ghost clear" type="button">Reset</button>
           <div id="domain-filters" class="area-row" role="group" aria-label="Clinical area" style="grid-column: 1 / -1;"></div>
         </div>
 

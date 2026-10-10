@@ -214,7 +214,7 @@ main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 v
 .hero-figure strong small { font-size: 18px; font-weight: 600; color: var(--ink-3); letter-spacing: -.01em; margin-left: 3px; }
 .hero-figure > span { margin-top: 8px; font-size: 13px; color: var(--ink-2); max-width: 26ch; }
 
-.client-bar { margin: 0 0 18px; display: grid; grid-template-columns: auto auto minmax(0, 1fr) minmax(220px, 1fr) auto; gap: 14px 22px; align-items: end; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow); }
+.client-bar { margin: 0 0 18px; display: grid; grid-template-columns: auto auto minmax(0, 1fr) minmax(220px, 1fr); gap: 14px 22px; align-items: end; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow); }
 .client-bar > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .client-bar .legend { flex-wrap: wrap; justify-content: flex-start; }
 .client-bar .age-inputs { display: flex; gap: 8px; }
@@ -225,7 +225,8 @@ main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 v
 .client-bar .search { position: relative; }
 .client-bar .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 15px; height: 15px; fill: none; stroke: var(--ink-3); stroke-width: 1.8; stroke-linecap: round; pointer-events: none; }
 .client-bar .search input { width: 100%; padding-left: 36px; }
-.client-bar .clear { align-self: end; }
+.client-bar .search-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.client-bar .search-heading .clear { min-height: 32px; padding: 0 10px; font-size: 13px; }
 .client-bar > .area-row { flex-direction: row; flex-wrap: wrap; gap: 6px; padding: 14px 0 0; border-top: 1px solid var(--line); margin-top: 4px; }
 .area-row .label { width: 100%; margin-bottom: 2px; }
 .chip { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 11px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-2); font-size: 14px; font-weight: 600; }
@@ -550,7 +551,6 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
 /* ---------- Responsive ---------- */
 @media (max-width: 1180px) {
   .client-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .client-bar .clear { justify-self: start; }
   .spec { grid-template-columns: 220px repeat(4, minmax(0,1fr)); gap: 18px 16px; }
   .spec-id { grid-row: 1 / span 2; }
   .spec .fig-age { grid-column: 2; }
@@ -562,7 +562,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   .atlas-toolbar .legend { flex-wrap: wrap; justify-content: flex-start; }
   .hero-figure { align-items: flex-start; text-align: left; }
   .client-bar { grid-template-columns: 1fr 1fr; }
-  .client-bar .search { grid-column: 1 / -1; }
+  .client-bar .purpose-group, .client-bar .search-group { grid-column: 1 / -1; }
   .records { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .wall { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .spec { grid-template-columns: 1fr 1fr; }
@@ -578,8 +578,15 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   .view-tabs button { flex: 0 0 auto; }
   .atlas-head { padding-top: 24px; }
   .hero-figure strong { font-size: 36px; }
-  .client-bar { grid-template-columns: 1fr; padding: 14px 16px; }
-  .client-bar .clear { align-self: start; }
+  .client-bar { grid-template-columns: 1fr; gap: 20px; padding: 18px 16px; }
+  .client-bar .age-inputs { gap: 16px; }
+  .client-bar .age-inputs label { flex: 1; min-width: 0; }
+  .client-bar .age-inputs input { width: 100%; min-width: 0; }
+  .client-bar .legend { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .client-bar > .area-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding-top: 20px; margin-top: 0; }
+  .area-row .label { grid-column: 1 / -1; margin-bottom: 4px; }
+  .client-bar .legend .chip, .client-bar .area-row .chip { justify-content: center; min-height: 44px; padding: 8px 10px; border-radius: 14px; white-space: normal; text-align: center; line-height: 1.35; }
+  .client-bar .area-row .chip:last-child:nth-child(even) { grid-column: 1 / -1; }
   .atlas-chart { padding: 8px 10px 14px; }
   .atlas-toolbar { flex-direction: column; align-items: flex-start; }
   .spec { grid-template-columns: 1fr 1fr; padding: 18px 16px 18px 20px; gap: 14px 16px; }
