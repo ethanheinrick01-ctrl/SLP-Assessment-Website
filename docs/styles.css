@@ -205,14 +205,23 @@ button.fig-value:hover { color: var(--accent); border-bottom-color: var(--accent
 main { flex: 1; width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
 /* ---------- Atlas ---------- */
-.atlas-head { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 48px; align-items: end; padding: 26px 0 16px; }
+.atlas-head { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 16px 32px; align-items: center; padding: 26px 0 16px; }
 .atlas-head h1 { font-family: var(--f-display); font-weight: 450; font-size: clamp(26px, 3vw, 36px); line-height: 1.08; letter-spacing: -.015em; max-width: 24ch; }
 .atlas-head h1 em { font-style: italic; color: var(--accent); }
 .atlas-head .lede { margin-top: 8px; max-width: 70ch; color: var(--ink-2); font-size: 14px; }
-.hero-figure { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.hero-figure { display: flex; flex-direction: column; align-items: flex-start; margin-top: 22px; text-align: left; }
 .hero-figure strong { font-size: 44px; font-weight: 800; letter-spacing: -.03em; line-height: .95; color: var(--ink); }
 .hero-figure strong small { font-size: 18px; font-weight: 600; color: var(--ink-3); letter-spacing: -.01em; margin-left: 3px; }
 .hero-figure > span { margin-top: 8px; font-size: 13px; color: var(--ink-2); max-width: 26ch; }
+
+/* The transparent canvas shares the page background in either theme. */
+.slp-motion { position: relative; width: 100%; min-width: 0; height: clamp(280px, 28vw, 350px); background: transparent; cursor: pointer; touch-action: pan-y; }
+.slp-motion canvas { display: block; width: 100%; height: 100%; }
+.slp-motion[aria-disabled="true"] { cursor: default; }
+.slp-motion-fallback { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--ink-2); text-align: center; padding: 20px; }
+.slp-motion-fallback[hidden] { display: none; }
+.slp-motion .fallback-letters { color: var(--accent); font-size: clamp(72px, 10vw, 120px); font-weight: 800; letter-spacing: -.06em; line-height: 1; }
+.slp-motion .fallback-message { font-size: 13px; max-width: 34ch; }
 
 .client-bar { margin: 0 0 18px; display: grid; grid-template-columns: auto auto minmax(0, 1fr) minmax(220px, 1fr); gap: 14px 22px; align-items: end; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow); }
 .client-bar > div { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
@@ -558,7 +567,8 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
 }
 @media (max-width: 900px) {
   :root { --gutter: 20px; }
-  .atlas-head { grid-template-columns: 1fr; }
+  .atlas-head { grid-template-columns: 1fr; gap: 8px; }
+  .slp-motion { max-width: 620px; height: 300px; justify-self: center; }
   .atlas-toolbar .legend { flex-wrap: wrap; justify-content: flex-start; }
   .hero-figure { align-items: flex-start; text-align: left; }
   .client-bar { grid-template-columns: 1fr 1fr; }
@@ -577,6 +587,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   .view-tabs { width: 100%; margin-left: 0; overflow-x: auto; }
   .view-tabs button { flex: 0 0 auto; }
   .atlas-head { padding-top: 24px; }
+  .slp-motion { height: 240px; }
   .hero-figure strong { font-size: 36px; }
   .client-bar { grid-template-columns: 1fr; gap: 20px; padding: 18px 16px; }
   .client-bar > div > .label { text-align: center; }

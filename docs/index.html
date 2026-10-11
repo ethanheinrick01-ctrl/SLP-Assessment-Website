@@ -9,7 +9,7 @@
   <link rel="preload" href="assets/fonts/public-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/newsreader-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20261010-centered-headings">
+  <link rel="stylesheet" href="styles.css?v=20261010-slp-motion">
 </head>
 <body>
   <a class="skip-link" href="#atlas-rows">Skip to the spec sheet</a>
@@ -29,11 +29,17 @@
     <main>
       <section id="atlas-view" class="atlas-view">
         <div class="atlas-head">
-          <div>
+          <div class="atlas-intro">
             <h1>Find the test that fits your client.</h1>
             <p class="lede">Twenty-five assessments on one chart. Set the client filters, then switch layers to compare age coverage, time, reliability, accuracy, norm samples, or cutoffs.</p>
+            <div class="hero-figure" aria-live="polite"><strong><span id="fit-count">25</span><small>/ <span id="fit-total">25</span></small></strong><span id="fit-caption">assessments in the atlas</span></div>
           </div>
-          <div class="hero-figure" aria-live="polite"><strong><span id="fit-count">25</span><small>/ <span id="fit-total">25</span></small></strong><span id="fit-caption">assessments in the atlas</span></div>
+          <div id="slp-motion" class="slp-motion" role="button" tabindex="0" aria-label="Purple-and-gold glass sheets form a tiger from above, then lift into SLP. Hover, tap, or press Enter to replay.">
+            <div id="slp-motion-fallback" class="slp-motion-fallback" role="status">
+              <span class="fallback-letters" aria-hidden="true">SLP</span>
+              <span class="fallback-message">Preparing the sculpture…</span>
+            </div>
+          </div>
         </div>
 
         <div class="client-bar" role="group" aria-label="Client profile">
@@ -119,5 +125,6 @@
   <div id="toast" class="toast" role="status" hidden></div>
   <script src="data.js" defer></script>
   <script src="app.js" defer></script>
+  <script type="module" src="assets/slp-motion/scene.js?v=20261010"></script>
 </body>
 </html>
