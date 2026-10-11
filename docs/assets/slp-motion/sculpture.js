@@ -37,6 +37,11 @@ export async function buildSculpture(font) {
   const left = Math.min(...xs), right = Math.max(...xs), center = (left+right)/2;
   const width = right-left, depth = width * ih/iw;
   const polygons = outlines.map(outline => [outline.shape,...outline.holes].map(ring => ring.map(point => [point.x-center,point.y])));
+  // Color belongs to the letter, including its first and last clipped pane.
+  const letters = polygons.map((polygon,index) => {
+    const xs = polygon[0].map(point => point[0]);
+    return { polygon, palette: index === 1 ? 1 : 0, left: Math.min(...xs), right: Math.max(...xs) };
+  });
   const group = new THREE.Group();
   const panes = 36, pitch = width/panes, paneHeight = 5.1, thickness = 0.045;
   const sheets = [];
@@ -57,7 +62,8 @@ export async function buildSculpture(font) {
   for (let i=0;i<panes;i++) {
     const x = -width/2+(i+0.5)*pitch;
     const x0=x-pitch*0.46,x1=x+pitch*0.46;
-    const palette = i<panes*0.37 || i>panes*0.66 ? 0 : 1;
+    const distance = letter => Math.max(letter.left-x,0,x-letter.right);
+    const palette = letters.reduce((nearest,letter) => distance(letter)<distance(nearest) ? letter : nearest).palette;
     const sheet = new THREE.Group();
     const carrierGeometry = new THREE.BoxGeometry(pitch*0.97,paneHeight,thickness);
     const carrier = new THREE.Mesh(carrierGeometry,glassMaterials[palette]);
@@ -70,16 +76,19 @@ export async function buildSculpture(font) {
     artwork.position.z=thickness/2+0.002;
     artwork.renderOrder=3;
     sheet.add(artwork);
-    const clips = globalThis.polygonClipping.intersection(polygons,[[[x0,-0.1],[x1,-0.1],[x1,5.4],[x0,5.4],[x0,-0.1]]]);
     const glyphs=[];
-    for(const polygon of clips) {
-      const shape = new THREE.Shape(polygon[0].map(([px,py])=>new THREE.Vector2(px-x,py-2.55)));
-      for(const ring of polygon.slice(1)) shape.holes.push(new THREE.Path(ring.map(([px,py])=>new THREE.Vector2(px-x,py-2.55))));
-      const geometry = new THREE.ExtrudeGeometry(shape,{depth:0.075,bevelEnabled:true,bevelSize:0.009,bevelThickness:0.012,bevelSegments:2,steps:1,curveSegments:12});
-      const glyph = new THREE.Mesh(geometry,inkMaterials[palette]);
-      glyph.position.z=thickness/2+0.006;
-      glyph.castShadow=true;
-      sheet.add(glyph);glyphs.push(glyph);pieceCount++;
+    for(const letter of letters) {
+      if (x1 < letter.left || x0 > letter.right) continue;
+      const clips = globalThis.polygonClipping.intersection([letter.polygon],[[[x0,-0.1],[x1,-0.1],[x1,5.4],[x0,5.4],[x0,-0.1]]]);
+      for(const polygon of clips) {
+        const shape = new THREE.Shape(polygon[0].map(([px,py])=>new THREE.Vector2(px-x,py-2.55)));
+        for(const ring of polygon.slice(1)) shape.holes.push(new THREE.Path(ring.map(([px,py])=>new THREE.Vector2(px-x,py-2.55))));
+        const geometry = new THREE.ExtrudeGeometry(shape,{depth:0.075,bevelEnabled:true,bevelSize:0.009,bevelThickness:0.012,bevelSegments:2,steps:1,curveSegments:12});
+        const glyph = new THREE.Mesh(geometry,inkMaterials[letter.palette]);
+        glyph.position.z=thickness/2+0.006;
+        glyph.castShadow=true;
+        sheet.add(glyph);glyphs.push(glyph);pieceCount++;
+      }
     }
     group.add(sheet);
     sheets.push({sheet,artwork,glyphs,x,z:Math.sin(i/(panes-1)*Math.PI*3.25-0.45)*3.2+Math.cos(i*0.63)*0.38});

@@ -665,7 +665,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   --well: #160e23;
   --light-purple: rgba(90, 36, 156, .26);
   --light-gold: rgba(253, 208, 35, .045);
-  --stripe-ink: #b393d4; --stripe-opacity: .075;
+  --stripe-ink: #b393d4; --stripe-opacity: .09;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
@@ -673,7 +673,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
     --pane-highlight: rgba(255, 255, 255, .90); --chrome: rgba(248, 244, 253, .93);
     --plot: #ffffff; --well: #ffffff;
     --light-purple: rgba(70, 29, 124, .10); --light-gold: rgba(253, 208, 35, .09);
-    --stripe-ink: #461D7C; --stripe-opacity: .045;
+    --stripe-ink: #461D7C; --stripe-opacity: .06;
   }
 }
 :root[data-theme="light"] {
@@ -681,7 +681,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   --pane-highlight: rgba(255, 255, 255, .90); --chrome: rgba(248, 244, 253, .93);
   --plot: #ffffff; --well: #ffffff;
   --light-purple: rgba(70, 29, 124, .10); --light-gold: rgba(253, 208, 35, .09);
-  --stripe-ink: #461D7C; --stripe-opacity: .045;
+  --stripe-ink: #461D7C; --stripe-opacity: .06;
 }
 html { scrollbar-color: var(--line-strong) var(--bg); }
 body { position: relative; isolation: isolate; }

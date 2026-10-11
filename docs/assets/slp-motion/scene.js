@@ -1,7 +1,7 @@
 import * as THREE from './vendor/three.module.js';
 import { FontLoader } from './vendor/FontLoader.js';
 import { RoomEnvironment } from './vendor/RoomEnvironment.js';
-import { buildSculpture } from './sculpture.js';
+import { buildSculpture } from './sculpture.js?v=20261011-letter-colors';
 import { sampleCamera, DURATION, JOIN_PHASE } from './camera-path.mjs';
 
 const stage = document.querySelector('#slp-motion');
