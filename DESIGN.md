@@ -18,6 +18,7 @@ The approved tiger-to-SLP animation supplies the visual identity: thin purple an
 - Main controls are at least 44px high. Mobile filter chips retain the aligned grid and centered headings. The chart retains fixed assessment names and a separately scrolling plot.
 - Active controls use gold with dark-purple text. Saved-card borders remain visible on hover. Focus, selection, caret, and scrollbar colors follow the palette.
 - The transparent motion component, its 5.2-second autoplay, hover/tap/keyboard replay, and reduced-motion behavior are unchanged. It is the page's only authored animated visual feature.
+- Phone layouts use a 180–210px motion stage with closer framing and a 4px gap before the filters. The overhead tiger still fits at the start; desktop framing retains its original dimensions.
 
 ## Product constraints
 

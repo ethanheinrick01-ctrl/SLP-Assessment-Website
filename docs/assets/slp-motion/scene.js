@@ -60,6 +60,7 @@ try {
   const orientation = new THREE.Matrix4();
   const basisRight = new THREE.Vector3(), basisUp = new THREE.Vector3(), basisBack = new THREE.Vector3();
   let topZoom = 0.7;
+  let compactFraming = false;
 
   let phase = reduce.matches ? 1 : 0;
   let playing = !reduce.matches;
@@ -74,7 +75,10 @@ try {
     basisRight.fromArray(pose.right); basisUp.fromArray(pose.up); basisBack.fromArray(pose.back);
     orientation.makeBasis(basisRight, basisUp, basisBack);
     camera.quaternion.setFromRotationMatrix(orientation);
-    camera.zoom = topZoom + (1 - topZoom) * pose.zoomMix - 0.09 * Math.sin(Math.PI * pose.zoomMix) ** 2;
+    // The shorter phone stage needs clearance later in the turn, then closes in on SLP.
+    const clearancePhase = compactFraming ? phase : pose.zoomMix;
+    const clearance = compactFraming ? 0.23 : 0.09;
+    camera.zoom = topZoom + (1 - topZoom) * pose.zoomMix - clearance * Math.sin(Math.PI * clearancePhase) ** 2;
     sculpture.update(phase);
     shadowFloor.material.opacity = 0.1 * pose.zoomMix;
     camera.updateProjectionMatrix();
@@ -84,7 +88,11 @@ try {
     // Atlas is hidden while the evidence ledger or shortlist is open.
     if (!w || !h) return;
     const aspect = w / h;
-    const viewW = Math.max(width * 1.26, 9.2 * aspect);
+    const style = getComputedStyle(stage);
+    const widthPadding = parseFloat(style.getPropertyValue('--motion-width-padding')) || 1.26;
+    const minViewHeight = parseFloat(style.getPropertyValue('--motion-min-view-height')) || 9.2;
+    compactFraming = widthPadding < 1.26;
+    const viewW = Math.max(width * widthPadding, minViewHeight * aspect);
     camera.left = -viewW / 2;
     camera.right = viewW / 2;
     camera.top = viewW / aspect / 2;
