@@ -665,6 +665,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   --well: #160e23;
   --light-purple: rgba(90, 36, 156, .26);
   --light-gold: rgba(253, 208, 35, .045);
+  --stripe-ink: #b393d4; --stripe-opacity: .075;
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
@@ -672,6 +673,7 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
     --pane-highlight: rgba(255, 255, 255, .90); --chrome: rgba(248, 244, 253, .93);
     --plot: #ffffff; --well: #ffffff;
     --light-purple: rgba(70, 29, 124, .10); --light-gold: rgba(253, 208, 35, .09);
+    --stripe-ink: #461D7C; --stripe-opacity: .045;
   }
 }
 :root[data-theme="light"] {
@@ -679,12 +681,20 @@ dialog::backdrop { background: rgba(8, 5, 14, .6); backdrop-filter: blur(4px); }
   --pane-highlight: rgba(255, 255, 255, .90); --chrome: rgba(248, 244, 253, .93);
   --plot: #ffffff; --well: #ffffff;
   --light-purple: rgba(70, 29, 124, .10); --light-gold: rgba(253, 208, 35, .09);
+  --stripe-ink: #461D7C; --stripe-opacity: .045;
 }
 html { scrollbar-color: var(--line-strong) var(--bg); }
 body { position: relative; isolation: isolate; }
 body::before {
   content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
   background: radial-gradient(ellipse at 80% 0, var(--light-purple), transparent 65%), radial-gradient(ellipse at 6% 80%, var(--light-gold), transparent 58%);
+}
+/* A transparent tiger-stripe mask lives behind the entire app, never over data. */
+body::after {
+  content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--stripe-ink); opacity: var(--stripe-opacity);
+  -webkit-mask: url('assets/textures/tiger-stripes.webp') center / cover no-repeat;
+  mask: url('assets/textures/tiger-stripes.webp') center / cover no-repeat;
 }
 ::selection { background: var(--lsu-gold); color: var(--lsu-purple); }
 .site-header {
@@ -792,5 +802,9 @@ dialog::backdrop { background: rgba(12, 5, 24, .65); backdrop-filter: blur(8px);
 
 @media print {
   :root { --ink: #241337; --ink-2: #4e3d62; --ink-3: #675876; --accent: #461D7C; --warn: #805300; --surface: #fff; --surface-2: #f4effa; --line: #d6c9e4; }
-  body::before { display: none; }
+  body::before, body::after { display: none; }
+}
+
+@media (forced-colors: active) {
+  body::after { display: none; }
 }

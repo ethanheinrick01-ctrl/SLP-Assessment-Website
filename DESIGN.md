@@ -7,6 +7,7 @@ The approved tiger-to-SLP animation supplies the visual identity: thin purple an
 - Brand purple: `#461D7C`. Brand gold: `#FDD023`.
 - Dark surfaces use deep plum, pale purple-white text, and gold selected controls with dark-purple labels.
 - Light surfaces use cool pale purple, dark-purple text, and the same gold selected controls. Gold is not used for body text on light backgrounds.
+- A generated tiger-stripe alpha mask supplies a static background texture at 7.5% opacity in dark mode and 4.5% in light mode. It is decorative, ignores pointer events, and disappears in print. The texture never overlays the content.
 - Translucency is reserved for the header, filter shell, and floating chrome. Plotting areas, form fields, spec rows, and evidence bodies use steady reading surfaces. Major panes have thin edges and restrained highlights, with 12–14px corner radii.
 - The six clinical families retain distinct hues. Their light-mode mark colors are adjusted for at least 3:1 contrast on the plotted field; text uses separate darker tokens. Evidence states retain color plus glyph and label.
 
